@@ -2,11 +2,14 @@
 
 ## Project Overview
 
-`bodyloop-sdk` is a Python SDK for the BodyLoop API. It follows
-**Spec-Driven Development (SDD)**: write a clear docstring/spec first, then
-implement, then test.
+`bodyloop-sdk-*` is the pattern for the repositories of the SDKs 
+for the BodyLoop API for certain languages.
+
+This repository, `bodyloop-sdk-python` implements the one for Python.
 
 ## Spec-Driven Development Workflow
+
+REVIEW: Defect, major: Does not apply SDD in a correct way. Does not describe the workflow we intend. 
 
 1. **Spec** – Write a detailed docstring describing the function/class contract
    (inputs, outputs, raised exceptions, edge cases) before any implementation.
