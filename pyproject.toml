@@ -1,6 +1,6 @@
 [project]
 name = "bodyloop-sdk"
-version = "0.1.0"
+version = "2026.03.05.1"
 description = "Python SDK for the BodyLoop API for seamless ecosystem integration"
 readme = "README.md"
 license = { file = "LICENSE" }
