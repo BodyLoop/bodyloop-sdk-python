@@ -12,5 +12,5 @@ def test_version_exists():
 def test_version_format():
     """__version__ follows semver major.minor.patch format."""
     parts = bodyloop_sdk.__version__.split(".")
-    assert len(parts) == 3
+    assert len(parts) == 4
     assert all(part.isdigit() for part in parts)

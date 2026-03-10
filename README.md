@@ -29,3 +29,16 @@ import bodyloop
 from bodyloop import Viatar, Proband
 from bodyloop import System as BodyLoopSystem
 ```
+
+## Contribute
+
+Local workflow
+
+```bash
+git clone git@github.com:BodyLoop/bodyloop-sdk-python.git
+cd bodyloop-sdk-python
+
+uv sync
+uv run pytest
+uv build
+```
