@@ -27,7 +27,7 @@ Usage:
 ```python
 import bodyloop
 from bodyloop import Viatar, Proband
-from bodyloop import System as BodyLoopSystem
+from bodyloop import ScanUnit
 ```
 
 ## Contribute
@@ -42,3 +42,14 @@ uv sync
 uv run pytest
 uv build
 ```
+
+The release / publish workflow is defined as:
+
+- Push to the `main` branch
+- Create a new tag `vYYYY.MM.DD.r` where `YYYY.MM.DD` is the current date and `r` is the sequential release number we increment over all releases, independent of the date and push the tag as well.
+- Create a new GitHub release based on that tag, baptize the release identical to the tag and add release notes.
+- Triggered by the release creation the GitHub Action `publish.yml` will build the package and publish it to PyPi.
+
+## License
+
+See [LICENSE](LICENSE)

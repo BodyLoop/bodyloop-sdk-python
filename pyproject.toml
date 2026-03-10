@@ -1,6 +1,6 @@
 [project]
 name = "bodyloop-sdk"
-version = "2026.03.05.1"
+dynamic = ["version"]
 description = "Python SDK for the BodyLoop API for seamless ecosystem integration"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -13,8 +13,16 @@ Repository = "https://github.com/BodyLoop/bodyloop-pypi"
 Issues = "https://github.com/BodyLoop/bodyloop-pypi/issues"
 
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.version.raw-options]
+version_scheme = "no-guess-dev"
+local_scheme = "no-local-version"
+tag_regex = "^(?:v)?(?P<version>.*)$"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/bodyloop_sdk"]

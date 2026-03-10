@@ -1,5 +1,7 @@
 """Tests for the bodyloop_sdk package."""
 
+import re
+
 import bodyloop_sdk
 
 
@@ -10,7 +12,8 @@ def test_version_exists():
 
 
 def test_version_format():
-    """__version__ follows semver major.minor.patch format."""
-    parts = bodyloop_sdk.__version__.split(".")
-    assert len(parts) == 4
-    assert all(part.isdigit() for part in parts)
+    """__version__ matches a tag-derived PEP 440 version."""
+    assert re.match(
+        r"^\d+\.\d+\.\d+\.\d+(?:\.post\d+\.dev\d+)?$",
+        bodyloop_sdk.__version__,
+    )
