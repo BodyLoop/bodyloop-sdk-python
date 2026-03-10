@@ -1,0 +1,9 @@
+project_name_override: client
+package_name_override: client
+class_overrides:
+  _PrivateInternalLongName:
+    class_name: ShortName
+    module_name: short_name
+docstrings_on_attributes: true
+literal_enums: true
+generate_all_tags: true

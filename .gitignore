@@ -39,3 +39,8 @@ htmlcov/
 # OS
 .DS_Store
 Thumbs.db
+
+## API generator
+.ruff_cache/
+openapi.json
+openapi.codegen.json

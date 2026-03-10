@@ -50,6 +50,14 @@ The release / publish workflow is defined as:
 - Create a new GitHub release based on that tag, baptize the release identical to the tag and add release notes.
 - Triggered by the release creation the GitHub Action `publish.yml` will build the package and publish it to PyPi.
 
+Update the API client
+
+The API generator <https://pypi.org/project/openapi-python-client/> is used.
+
+```bash
+./generate_api_client.sh <ip_or_hostname_of_my_bodyloop_instance>
+```
+
 ## License
 
 See [LICENSE](LICENSE)
