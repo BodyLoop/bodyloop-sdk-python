@@ -86,10 +86,16 @@ uv run experiments/b_load_probands.py
 git checkout main
 git pull origin main
 
-git tag | tail 1
+git tag | tail -1
 
 git tag v2026.04.13.2
 git push --tags
+```
+
+- Create a new GitHub release based on that tag, baptize the release identical to the tag and add release notes. You can use the web frontend or the GitHub CLI:
+
+```bash
+gh release create v2026.04.13.2 --title "v2026.04.13.2" --notes "Release notes here"
 ```
 
 ## License
