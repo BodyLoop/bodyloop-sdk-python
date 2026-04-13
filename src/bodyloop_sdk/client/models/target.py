@@ -9,18 +9,18 @@ from attrs import field as _attrs_field
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.biomech_system_manager_models_viatar_target_state import BiomechSystemManagerModelsViatarTargetState
     from ..models.meta import Meta
+    from ..models.target_state import TargetState
 
 
-T = TypeVar("T", bound="BiomechSystemManagerModelsViatarTarget")
+T = TypeVar("T", bound="Target")
 
 
 @_attrs_define
-class BiomechSystemManagerModelsViatarTarget:
+class Target:
     """Represents a target"""
 
-    state: BiomechSystemManagerModelsViatarTargetState | Unset = UNSET
+    state: TargetState | Unset = UNSET
     """ Represents the state of a Target """
     meta: Meta | None | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -52,18 +52,16 @@ class BiomechSystemManagerModelsViatarTarget:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.biomech_system_manager_models_viatar_target_state import (
-            BiomechSystemManagerModelsViatarTargetState,
-        )
         from ..models.meta import Meta
+        from ..models.target_state import TargetState
 
         d = dict(src_dict)
         _state = d.pop("state", UNSET)
-        state: BiomechSystemManagerModelsViatarTargetState | Unset
+        state: TargetState | Unset
         if isinstance(_state, Unset):
             state = UNSET
         else:
-            state = BiomechSystemManagerModelsViatarTargetState.from_dict(_state)
+            state = TargetState.from_dict(_state)
 
         def _parse_meta(data: object) -> Meta | None | Unset:
             if data is None:
@@ -82,13 +80,13 @@ class BiomechSystemManagerModelsViatarTarget:
 
         meta = _parse_meta(d.pop("meta", UNSET))
 
-        biomech_system_manager_models_viatar_target = cls(
+        target = cls(
             state=state,
             meta=meta,
         )
 
-        biomech_system_manager_models_viatar_target.additional_properties = d
-        return biomech_system_manager_models_viatar_target
+        target.additional_properties = d
+        return target
 
     @property
     def additional_keys(self) -> list[str]:

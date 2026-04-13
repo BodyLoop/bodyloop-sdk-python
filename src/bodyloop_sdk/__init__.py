@@ -4,10 +4,13 @@ from __future__ import annotations
 
 try:
     # Python 3.8+
-    from importlib.metadata import PackageNotFoundError, version as _pkg_version
+    from importlib.metadata import PackageNotFoundError
+    from importlib.metadata import version as _pkg_version
 except ImportError:  # pragma: no cover (for very old Pythons)
     from importlib_metadata import (  # type: ignore
         PackageNotFoundError,
+    )
+    from importlib_metadata import (
         version as _pkg_version,
     )
 

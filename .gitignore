@@ -42,7 +42,6 @@ Thumbs.db
 
 ## API generator
 .ruff_cache/
-openapi.json
-openapi.codegen.json
+openapi*.json
 
 .env

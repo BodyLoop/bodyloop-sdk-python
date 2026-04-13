@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     from ..models.images import Images
     from ..models.meta import Meta
     from ..models.models import Models
-    from ..models.parameters_data_output import ParametersDataOutput
+    from ..models.parameters_data import ParametersData
     from ..models.viatar_angles_type_0 import ViatarAnglesType0
     from ..models.viatar_axes_type_0 import ViatarAxesType0
     from ..models.viatar_crosssections_type_0 import ViatarCrosssectionsType0
@@ -36,8 +36,8 @@ class Viatar:
         {'note': 'A default viatar.', 'observations': {}, 'parameters': {'analyzed_avatar_3d':
             {'orphaned_palpation_marker': True, 'palp_snap_distance': 0.05, 'preset_id': -1}, 'avatar_3d': {'clothing':
             'Tight', 'model': 'No Model', 'reverse': False}, 'imageset_2d': {'exposure_time': 30000, 'keep_images': False,
-            'mass_from_phd': False, 'projector_brightness': 83, 'ring_brightness': 40}, 'mesh_3d': {'detail': 'High',
-            'texture': True}, 'report': {'preset': 'Default'}, 'title': ''}}
+            'projector_brightness': 83, 'ring_brightness': 40}, 'mesh_3d': {'detail': 'High', 'texture': True},
+            'observations': {'weight': {}}, 'report': {'preset': 'Default'}, 'title': ''}}
 
     """
 
@@ -45,12 +45,15 @@ class Viatar:
     proband_id: int | None | Unset = UNSET
     note: None | str | Unset = UNSET
     key_external: None | str | Unset = UNSET
-    parameters: None | ParametersDataOutput | Unset = UNSET
+    parameters: ParametersData | Unset = UNSET
+    """ Parameters influencing the target creation """
     targets: None | Unset | ViatarTargetsType0 = UNSET
     observations: None | Unset | ViatarObservationsType0 = UNSET
     scan_folder: None | str | Unset = UNSET
-    images: Images | None | Unset = UNSET
-    models: Models | None | Unset = UNSET
+    images: Images | Unset = UNSET
+    """ Represents images of various categorys """
+    models: Models | Unset = UNSET
+    """ Represents models of various categorys """
     applied_presets: list[int] | None | Unset = UNSET
     properties: None | Unset | ViatarPropertiesType0 = UNSET
     markers: None | Unset | ViatarMarkersType0 = UNSET
@@ -59,19 +62,16 @@ class Viatar:
     crosssections: None | Unset | ViatarCrosssectionsType0 = UNSET
     angles: None | Unset | ViatarAnglesType0 = UNSET
     axes: None | Unset | ViatarAxesType0 = UNSET
-    series: None | Unset | ViatarDataSeries = UNSET
+    series: ViatarDataSeries | Unset = UNSET
+    """ Represents measurments of type DataSeries """
     meta: Meta | None | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.images import Images
         from ..models.meta import Meta
-        from ..models.models import Models
-        from ..models.parameters_data_output import ParametersDataOutput
         from ..models.viatar_angles_type_0 import ViatarAnglesType0
         from ..models.viatar_axes_type_0 import ViatarAxesType0
         from ..models.viatar_crosssections_type_0 import ViatarCrosssectionsType0
-        from ..models.viatar_data_series import ViatarDataSeries
         from ..models.viatar_distances_type_0 import ViatarDistancesType0
         from ..models.viatar_heights_type_0 import ViatarHeightsType0
         from ..models.viatar_markers_type_0 import ViatarMarkersType0
@@ -99,13 +99,9 @@ class Viatar:
         else:
             key_external = self.key_external
 
-        parameters: dict[str, Any] | None | Unset
-        if isinstance(self.parameters, Unset):
-            parameters = UNSET
-        elif isinstance(self.parameters, ParametersDataOutput):
+        parameters: dict[str, Any] | Unset = UNSET
+        if not isinstance(self.parameters, Unset):
             parameters = self.parameters.to_dict()
-        else:
-            parameters = self.parameters
 
         targets: dict[str, Any] | None | Unset
         if isinstance(self.targets, Unset):
@@ -129,21 +125,13 @@ class Viatar:
         else:
             scan_folder = self.scan_folder
 
-        images: dict[str, Any] | None | Unset
-        if isinstance(self.images, Unset):
-            images = UNSET
-        elif isinstance(self.images, Images):
+        images: dict[str, Any] | Unset = UNSET
+        if not isinstance(self.images, Unset):
             images = self.images.to_dict()
-        else:
-            images = self.images
 
-        models: dict[str, Any] | None | Unset
-        if isinstance(self.models, Unset):
-            models = UNSET
-        elif isinstance(self.models, Models):
+        models: dict[str, Any] | Unset = UNSET
+        if not isinstance(self.models, Unset):
             models = self.models.to_dict()
-        else:
-            models = self.models
 
         applied_presets: list[int] | None | Unset
         if isinstance(self.applied_presets, Unset):
@@ -210,13 +198,9 @@ class Viatar:
         else:
             axes = self.axes
 
-        series: dict[str, Any] | None | Unset
-        if isinstance(self.series, Unset):
-            series = UNSET
-        elif isinstance(self.series, ViatarDataSeries):
+        series: dict[str, Any] | Unset = UNSET
+        if not isinstance(self.series, Unset):
             series = self.series.to_dict()
-        else:
-            series = self.series
 
         meta: dict[str, Any] | None | Unset
         if isinstance(self.meta, Unset):
@@ -279,7 +263,7 @@ class Viatar:
         from ..models.images import Images
         from ..models.meta import Meta
         from ..models.models import Models
-        from ..models.parameters_data_output import ParametersDataOutput
+        from ..models.parameters_data import ParametersData
         from ..models.viatar_angles_type_0 import ViatarAnglesType0
         from ..models.viatar_axes_type_0 import ViatarAxesType0
         from ..models.viatar_crosssections_type_0 import ViatarCrosssectionsType0
@@ -321,22 +305,12 @@ class Viatar:
 
         key_external = _parse_key_external(d.pop("key_external", UNSET))
 
-        def _parse_parameters(data: object) -> None | ParametersDataOutput | Unset:
-            if data is None:
-                return data
-            if isinstance(data, Unset):
-                return data
-            try:
-                if not isinstance(data, dict):
-                    raise TypeError()
-                parameters_type_0 = ParametersDataOutput.from_dict(data)
-
-                return parameters_type_0
-            except (TypeError, ValueError, AttributeError, KeyError):
-                pass
-            return cast(None | ParametersDataOutput | Unset, data)
-
-        parameters = _parse_parameters(d.pop("parameters", UNSET))
+        _parameters = d.pop("parameters", UNSET)
+        parameters: ParametersData | Unset
+        if isinstance(_parameters, Unset):
+            parameters = UNSET
+        else:
+            parameters = ParametersData.from_dict(_parameters)
 
         def _parse_targets(data: object) -> None | Unset | ViatarTargetsType0:
             if data is None:
@@ -381,39 +355,19 @@ class Viatar:
 
         scan_folder = _parse_scan_folder(d.pop("scan_folder", UNSET))
 
-        def _parse_images(data: object) -> Images | None | Unset:
-            if data is None:
-                return data
-            if isinstance(data, Unset):
-                return data
-            try:
-                if not isinstance(data, dict):
-                    raise TypeError()
-                images_type_0 = Images.from_dict(data)
+        _images = d.pop("images", UNSET)
+        images: Images | Unset
+        if isinstance(_images, Unset):
+            images = UNSET
+        else:
+            images = Images.from_dict(_images)
 
-                return images_type_0
-            except (TypeError, ValueError, AttributeError, KeyError):
-                pass
-            return cast(Images | None | Unset, data)
-
-        images = _parse_images(d.pop("images", UNSET))
-
-        def _parse_models(data: object) -> Models | None | Unset:
-            if data is None:
-                return data
-            if isinstance(data, Unset):
-                return data
-            try:
-                if not isinstance(data, dict):
-                    raise TypeError()
-                models_type_0 = Models.from_dict(data)
-
-                return models_type_0
-            except (TypeError, ValueError, AttributeError, KeyError):
-                pass
-            return cast(Models | None | Unset, data)
-
-        models = _parse_models(d.pop("models", UNSET))
+        _models = d.pop("models", UNSET)
+        models: Models | Unset
+        if isinstance(_models, Unset):
+            models = UNSET
+        else:
+            models = Models.from_dict(_models)
 
         def _parse_applied_presets(data: object) -> list[int] | None | Unset:
             if data is None:
@@ -551,22 +505,12 @@ class Viatar:
 
         axes = _parse_axes(d.pop("axes", UNSET))
 
-        def _parse_series(data: object) -> None | Unset | ViatarDataSeries:
-            if data is None:
-                return data
-            if isinstance(data, Unset):
-                return data
-            try:
-                if not isinstance(data, dict):
-                    raise TypeError()
-                series_type_0 = ViatarDataSeries.from_dict(data)
-
-                return series_type_0
-            except (TypeError, ValueError, AttributeError, KeyError):
-                pass
-            return cast(None | Unset | ViatarDataSeries, data)
-
-        series = _parse_series(d.pop("series", UNSET))
+        _series = d.pop("series", UNSET)
+        series: ViatarDataSeries | Unset
+        if isinstance(_series, Unset):
+            series = UNSET
+        else:
+            series = ViatarDataSeries.from_dict(_series)
 
         def _parse_meta(data: object) -> Meta | None | Unset:
             if data is None:

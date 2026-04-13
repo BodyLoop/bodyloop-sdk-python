@@ -80,9 +80,9 @@ def sync_detailed(
             'observations': {}, 'parameters': {'analyzed_avatar_3d': {'orphaned_palpation_marker':
             True, 'palp_snap_distance': 0.05, 'preset_id': -1}, 'avatar_3d': {'clothing': 'Tight',
             'model': 'No Model', 'reverse': False}, 'imageset_2d': {'exposure_time': 30000,
-            'keep_images': False, 'mass_from_phd': False, 'projector_brightness': 83,
-            'ring_brightness': 40}, 'mesh_3d': {'detail': 'High', 'texture': True}, 'report':
-            {'preset': 'Default'}, 'title': ''}}.
+            'keep_images': False, 'projector_brightness': 83, 'ring_brightness': 40}, 'mesh_3d':
+            {'detail': 'High', 'texture': True}, 'observations': {'weight': {}}, 'report': {'preset':
+            'Default'}, 'title': ''}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -120,9 +120,9 @@ def sync(
             'observations': {}, 'parameters': {'analyzed_avatar_3d': {'orphaned_palpation_marker':
             True, 'palp_snap_distance': 0.05, 'preset_id': -1}, 'avatar_3d': {'clothing': 'Tight',
             'model': 'No Model', 'reverse': False}, 'imageset_2d': {'exposure_time': 30000,
-            'keep_images': False, 'mass_from_phd': False, 'projector_brightness': 83,
-            'ring_brightness': 40}, 'mesh_3d': {'detail': 'High', 'texture': True}, 'report':
-            {'preset': 'Default'}, 'title': ''}}.
+            'keep_images': False, 'projector_brightness': 83, 'ring_brightness': 40}, 'mesh_3d':
+            {'detail': 'High', 'texture': True}, 'observations': {'weight': {}}, 'report': {'preset':
+            'Default'}, 'title': ''}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -155,9 +155,9 @@ async def asyncio_detailed(
             'observations': {}, 'parameters': {'analyzed_avatar_3d': {'orphaned_palpation_marker':
             True, 'palp_snap_distance': 0.05, 'preset_id': -1}, 'avatar_3d': {'clothing': 'Tight',
             'model': 'No Model', 'reverse': False}, 'imageset_2d': {'exposure_time': 30000,
-            'keep_images': False, 'mass_from_phd': False, 'projector_brightness': 83,
-            'ring_brightness': 40}, 'mesh_3d': {'detail': 'High', 'texture': True}, 'report':
-            {'preset': 'Default'}, 'title': ''}}.
+            'keep_images': False, 'projector_brightness': 83, 'ring_brightness': 40}, 'mesh_3d':
+            {'detail': 'High', 'texture': True}, 'observations': {'weight': {}}, 'report': {'preset':
+            'Default'}, 'title': ''}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -193,9 +193,9 @@ async def asyncio(
             'observations': {}, 'parameters': {'analyzed_avatar_3d': {'orphaned_palpation_marker':
             True, 'palp_snap_distance': 0.05, 'preset_id': -1}, 'avatar_3d': {'clothing': 'Tight',
             'model': 'No Model', 'reverse': False}, 'imageset_2d': {'exposure_time': 30000,
-            'keep_images': False, 'mass_from_phd': False, 'projector_brightness': 83,
-            'ring_brightness': 40}, 'mesh_3d': {'detail': 'High', 'texture': True}, 'report':
-            {'preset': 'Default'}, 'title': ''}}.
+            'keep_images': False, 'projector_brightness': 83, 'ring_brightness': 40}, 'mesh_3d':
+            {'detail': 'High', 'texture': True}, 'observations': {'weight': {}}, 'report': {'preset':
+            'Default'}, 'title': ''}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

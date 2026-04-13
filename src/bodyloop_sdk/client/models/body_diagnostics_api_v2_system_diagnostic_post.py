@@ -14,7 +14,8 @@ T = TypeVar("T", bound="BodyDiagnosticsApiV2SystemDiagnosticPost")
 @_attrs_define
 class BodyDiagnosticsApiV2SystemDiagnosticPost:
     viatar_log_start_id: int | None | Unset = UNSET
-    viatar_log_limit: int | None | Unset = UNSET
+    viatar_log_limit: int | None | Unset = 20
+    viatar_data: list[int] | None | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -30,6 +31,15 @@ class BodyDiagnosticsApiV2SystemDiagnosticPost:
         else:
             viatar_log_limit = self.viatar_log_limit
 
+        viatar_data: list[int] | None | Unset
+        if isinstance(self.viatar_data, Unset):
+            viatar_data = UNSET
+        elif isinstance(self.viatar_data, list):
+            viatar_data = self.viatar_data
+
+        else:
+            viatar_data = self.viatar_data
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
@@ -37,6 +47,8 @@ class BodyDiagnosticsApiV2SystemDiagnosticPost:
             field_dict["viatar_log_start_id"] = viatar_log_start_id
         if viatar_log_limit is not UNSET:
             field_dict["viatar_log_limit"] = viatar_log_limit
+        if viatar_data is not UNSET:
+            field_dict["viatar_data"] = viatar_data
 
         return field_dict
 
@@ -62,9 +74,27 @@ class BodyDiagnosticsApiV2SystemDiagnosticPost:
 
         viatar_log_limit = _parse_viatar_log_limit(d.pop("viatar_log_limit", UNSET))
 
+        def _parse_viatar_data(data: object) -> list[int] | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                viatar_data_type_0 = cast(list[int], data)
+
+                return viatar_data_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(list[int] | None | Unset, data)
+
+        viatar_data = _parse_viatar_data(d.pop("viatar_data", UNSET))
+
         body_diagnostics_api_v2_system_diagnostic_post = cls(
             viatar_log_start_id=viatar_log_start_id,
             viatar_log_limit=viatar_log_limit,
+            viatar_data=viatar_data,
         )
 
         body_diagnostics_api_v2_system_diagnostic_post.additional_properties = d

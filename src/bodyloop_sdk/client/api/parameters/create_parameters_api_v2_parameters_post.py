@@ -7,13 +7,13 @@ from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.http_validation_error import HTTPValidationError
 from ...models.parameters import Parameters
-from ...models.parameters_data_input import ParametersDataInput
+from ...models.parameters_data import ParametersData
 from ...types import Response
 
 
 def _get_kwargs(
     *,
-    body: ParametersDataInput,
+    body: ParametersData,
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
@@ -63,14 +63,14 @@ def _build_response(
 def sync_detailed(
     *,
     client: AuthenticatedClient,
-    body: ParametersDataInput,
+    body: ParametersData,
 ) -> Response[HTTPValidationError | Parameters]:
     """Create Parameters
 
      Create a parameters (**C**RUD)
 
     Args:
-        body (ParametersDataInput): Parameters influencing the target creation
+        body (ParametersData): Parameters influencing the target creation
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -94,14 +94,14 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
-    body: ParametersDataInput,
+    body: ParametersData,
 ) -> HTTPValidationError | Parameters | None:
     """Create Parameters
 
      Create a parameters (**C**RUD)
 
     Args:
-        body (ParametersDataInput): Parameters influencing the target creation
+        body (ParametersData): Parameters influencing the target creation
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -120,14 +120,14 @@ def sync(
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
-    body: ParametersDataInput,
+    body: ParametersData,
 ) -> Response[HTTPValidationError | Parameters]:
     """Create Parameters
 
      Create a parameters (**C**RUD)
 
     Args:
-        body (ParametersDataInput): Parameters influencing the target creation
+        body (ParametersData): Parameters influencing the target creation
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -149,14 +149,14 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
-    body: ParametersDataInput,
+    body: ParametersData,
 ) -> HTTPValidationError | Parameters | None:
     """Create Parameters
 
      Create a parameters (**C**RUD)
 
     Args:
-        body (ParametersDataInput): Parameters influencing the target creation
+        body (ParametersData): Parameters influencing the target creation
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

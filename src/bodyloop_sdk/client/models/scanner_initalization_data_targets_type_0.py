@@ -7,7 +7,7 @@ from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 if TYPE_CHECKING:
-    from ..models.biomech_system_manager_models_scanner_init_target import BiomechSystemManagerModelsScannerInitTarget
+    from ..models.target import Target
 
 
 T = TypeVar("T", bound="ScannerInitalizationDataTargetsType0")
@@ -15,9 +15,7 @@ T = TypeVar("T", bound="ScannerInitalizationDataTargetsType0")
 
 @_attrs_define
 class ScannerInitalizationDataTargetsType0:
-    additional_properties: dict[str, BiomechSystemManagerModelsScannerInitTarget] = _attrs_field(
-        init=False, factory=dict
-    )
+    additional_properties: dict[str, Target] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
 
@@ -29,16 +27,14 @@ class ScannerInitalizationDataTargetsType0:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.biomech_system_manager_models_scanner_init_target import (
-            BiomechSystemManagerModelsScannerInitTarget,
-        )
+        from ..models.target import Target
 
         d = dict(src_dict)
         scanner_initalization_data_targets_type_0 = cls()
 
         additional_properties = {}
         for prop_name, prop_dict in d.items():
-            additional_property = BiomechSystemManagerModelsScannerInitTarget.from_dict(prop_dict)
+            additional_property = Target.from_dict(prop_dict)
 
             additional_properties[prop_name] = additional_property
 
@@ -49,10 +45,10 @@ class ScannerInitalizationDataTargetsType0:
     def additional_keys(self) -> list[str]:
         return list(self.additional_properties.keys())
 
-    def __getitem__(self, key: str) -> BiomechSystemManagerModelsScannerInitTarget:
+    def __getitem__(self, key: str) -> Target:
         return self.additional_properties[key]
 
-    def __setitem__(self, key: str, value: BiomechSystemManagerModelsScannerInitTarget) -> None:
+    def __setitem__(self, key: str, value: Target) -> None:
         self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:

@@ -90,10 +90,18 @@ def sync_detailed(
 
      Triggers the initialisation process for scanner_init_id
 
-    Supported target_kind is 'init'
+     The targets have a hierarchical dependency to each other. It is not neccessary, but possible to
+    trigger each target seperat.
+        To create the target 'discover' it is only neccessary to trigger the target creation of this
+    target_kind. All dependant targets will be triggered automaticaly, if not 'Ready'.
 
-       After starting the initialization. The progress of the initialization (targets) should be
-    requested and instructions be followed.
+     A (re-)creation of a target (and all dependant targets) can be set with 'recreate_target_kind'.
+
+    **init**          -> The initalization process of the ScanUnit.
+    *(Precondition to use the Bodyloop ScanUnit for scanning.)*
+
+    **discover**      -> Discover supported nearby 'Personal Health Devices'
+    *(Precondition to use addon functionality for 'Personal Health Devices')*
 
     Args:
         scanner_init_id (int):
@@ -133,10 +141,18 @@ def sync(
 
      Triggers the initialisation process for scanner_init_id
 
-    Supported target_kind is 'init'
+     The targets have a hierarchical dependency to each other. It is not neccessary, but possible to
+    trigger each target seperat.
+        To create the target 'discover' it is only neccessary to trigger the target creation of this
+    target_kind. All dependant targets will be triggered automaticaly, if not 'Ready'.
 
-       After starting the initialization. The progress of the initialization (targets) should be
-    requested and instructions be followed.
+     A (re-)creation of a target (and all dependant targets) can be set with 'recreate_target_kind'.
+
+    **init**          -> The initalization process of the ScanUnit.
+    *(Precondition to use the Bodyloop ScanUnit for scanning.)*
+
+    **discover**      -> Discover supported nearby 'Personal Health Devices'
+    *(Precondition to use addon functionality for 'Personal Health Devices')*
 
     Args:
         scanner_init_id (int):
@@ -170,10 +186,18 @@ async def asyncio_detailed(
 
      Triggers the initialisation process for scanner_init_id
 
-    Supported target_kind is 'init'
+     The targets have a hierarchical dependency to each other. It is not neccessary, but possible to
+    trigger each target seperat.
+        To create the target 'discover' it is only neccessary to trigger the target creation of this
+    target_kind. All dependant targets will be triggered automaticaly, if not 'Ready'.
 
-       After starting the initialization. The progress of the initialization (targets) should be
-    requested and instructions be followed.
+     A (re-)creation of a target (and all dependant targets) can be set with 'recreate_target_kind'.
+
+    **init**          -> The initalization process of the ScanUnit.
+    *(Precondition to use the Bodyloop ScanUnit for scanning.)*
+
+    **discover**      -> Discover supported nearby 'Personal Health Devices'
+    *(Precondition to use addon functionality for 'Personal Health Devices')*
 
     Args:
         scanner_init_id (int):
@@ -211,10 +235,18 @@ async def asyncio(
 
      Triggers the initialisation process for scanner_init_id
 
-    Supported target_kind is 'init'
+     The targets have a hierarchical dependency to each other. It is not neccessary, but possible to
+    trigger each target seperat.
+        To create the target 'discover' it is only neccessary to trigger the target creation of this
+    target_kind. All dependant targets will be triggered automaticaly, if not 'Ready'.
 
-       After starting the initialization. The progress of the initialization (targets) should be
-    requested and instructions be followed.
+     A (re-)creation of a target (and all dependant targets) can be set with 'recreate_target_kind'.
+
+    **init**          -> The initalization process of the ScanUnit.
+    *(Precondition to use the Bodyloop ScanUnit for scanning.)*
+
+    **discover**      -> Discover supported nearby 'Personal Health Devices'
+    *(Precondition to use addon functionality for 'Personal Health Devices')*
 
     Args:
         scanner_init_id (int):

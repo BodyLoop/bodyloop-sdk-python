@@ -10,10 +10,11 @@ from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.analyzed_avatar_3d_parameters import AnalyzedAvatar3DParameters
-    from ..models.avatar_3d_parameters_output import Avatar3DParametersOutput
+    from ..models.avatar_3d_parameters import Avatar3DParameters
     from ..models.image_set_2d_parameters import ImageSet2DParameters
     from ..models.mesh_3d_parameters import Mesh3DParameters
     from ..models.meta import Meta
+    from ..models.observations_parameters import ObservationsParameters
     from ..models.report_parameters import ReportParameters
 
 
@@ -27,8 +28,9 @@ class Parameters:
     parameters_id: int
     title: str | Unset = ""
     imageset_2d: ImageSet2DParameters | None | Unset = UNSET
+    observations: None | ObservationsParameters | Unset = UNSET
     mesh_3d: Mesh3DParameters | None | Unset = UNSET
-    avatar_3d: Avatar3DParametersOutput | None | Unset = UNSET
+    avatar_3d: Avatar3DParameters | None | Unset = UNSET
     analyzed_avatar_3d: AnalyzedAvatar3DParameters | None | Unset = UNSET
     report: None | ReportParameters | Unset = UNSET
     meta: Meta | None | Unset = UNSET
@@ -36,10 +38,11 @@ class Parameters:
 
     def to_dict(self) -> dict[str, Any]:
         from ..models.analyzed_avatar_3d_parameters import AnalyzedAvatar3DParameters
-        from ..models.avatar_3d_parameters_output import Avatar3DParametersOutput
+        from ..models.avatar_3d_parameters import Avatar3DParameters
         from ..models.image_set_2d_parameters import ImageSet2DParameters
         from ..models.mesh_3d_parameters import Mesh3DParameters
         from ..models.meta import Meta
+        from ..models.observations_parameters import ObservationsParameters
         from ..models.report_parameters import ReportParameters
 
         parameters_id = self.parameters_id
@@ -54,6 +57,14 @@ class Parameters:
         else:
             imageset_2d = self.imageset_2d
 
+        observations: dict[str, Any] | None | Unset
+        if isinstance(self.observations, Unset):
+            observations = UNSET
+        elif isinstance(self.observations, ObservationsParameters):
+            observations = self.observations.to_dict()
+        else:
+            observations = self.observations
+
         mesh_3d: dict[str, Any] | None | Unset
         if isinstance(self.mesh_3d, Unset):
             mesh_3d = UNSET
@@ -65,7 +76,7 @@ class Parameters:
         avatar_3d: dict[str, Any] | None | Unset
         if isinstance(self.avatar_3d, Unset):
             avatar_3d = UNSET
-        elif isinstance(self.avatar_3d, Avatar3DParametersOutput):
+        elif isinstance(self.avatar_3d, Avatar3DParameters):
             avatar_3d = self.avatar_3d.to_dict()
         else:
             avatar_3d = self.avatar_3d
@@ -105,6 +116,8 @@ class Parameters:
             field_dict["title"] = title
         if imageset_2d is not UNSET:
             field_dict["imageset_2d"] = imageset_2d
+        if observations is not UNSET:
+            field_dict["observations"] = observations
         if mesh_3d is not UNSET:
             field_dict["mesh_3d"] = mesh_3d
         if avatar_3d is not UNSET:
@@ -121,10 +134,11 @@ class Parameters:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.analyzed_avatar_3d_parameters import AnalyzedAvatar3DParameters
-        from ..models.avatar_3d_parameters_output import Avatar3DParametersOutput
+        from ..models.avatar_3d_parameters import Avatar3DParameters
         from ..models.image_set_2d_parameters import ImageSet2DParameters
         from ..models.mesh_3d_parameters import Mesh3DParameters
         from ..models.meta import Meta
+        from ..models.observations_parameters import ObservationsParameters
         from ..models.report_parameters import ReportParameters
 
         d = dict(src_dict)
@@ -149,6 +163,23 @@ class Parameters:
 
         imageset_2d = _parse_imageset_2d(d.pop("imageset_2d", UNSET))
 
+        def _parse_observations(data: object) -> None | ObservationsParameters | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                observations_type_0 = ObservationsParameters.from_dict(data)
+
+                return observations_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(None | ObservationsParameters | Unset, data)
+
+        observations = _parse_observations(d.pop("observations", UNSET))
+
         def _parse_mesh_3d(data: object) -> Mesh3DParameters | None | Unset:
             if data is None:
                 return data
@@ -166,7 +197,7 @@ class Parameters:
 
         mesh_3d = _parse_mesh_3d(d.pop("mesh_3d", UNSET))
 
-        def _parse_avatar_3d(data: object) -> Avatar3DParametersOutput | None | Unset:
+        def _parse_avatar_3d(data: object) -> Avatar3DParameters | None | Unset:
             if data is None:
                 return data
             if isinstance(data, Unset):
@@ -174,12 +205,12 @@ class Parameters:
             try:
                 if not isinstance(data, dict):
                     raise TypeError()
-                avatar_3d_type_0 = Avatar3DParametersOutput.from_dict(data)
+                avatar_3d_type_0 = Avatar3DParameters.from_dict(data)
 
                 return avatar_3d_type_0
             except (TypeError, ValueError, AttributeError, KeyError):
                 pass
-            return cast(Avatar3DParametersOutput | None | Unset, data)
+            return cast(Avatar3DParameters | None | Unset, data)
 
         avatar_3d = _parse_avatar_3d(d.pop("avatar_3d", UNSET))
 
@@ -238,6 +269,7 @@ class Parameters:
             parameters_id=parameters_id,
             title=title,
             imageset_2d=imageset_2d,
+            observations=observations,
             mesh_3d=mesh_3d,
             avatar_3d=avatar_3d,
             analyzed_avatar_3d=analyzed_avatar_3d,

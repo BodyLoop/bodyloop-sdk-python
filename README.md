@@ -30,6 +30,14 @@ from bodyloop import Viatar, Proband
 from bodyloop import ScanUnit
 ```
 
+## Posture Analysis
+
+Run a dashboard via:
+
+```bash
+uv run python docs/notebooks/05-posture-analysis/01-three-views.py
+```
+
 ## Contribute
 
 Local workflow
@@ -67,6 +75,21 @@ echo "BODYLOOP_API_TOKEN='your_api_token_here'" >> .env
 
 uv run experiments/a_create_client.py
 uv run experiments/b_load_probands.py
+```
+
+## Release Procedure
+
+- Make sure that you are on the `main` branch and that all changes are committed and pushed.
+- Create a new tag `vYYYY.MM.DD.r` where `YYYY.MM.DD` is the current date and `r` is the sequential release number we increment over all releases, independent of the date and push the tag as well.
+
+```bash
+git checkout main
+git pull origin main
+
+git tag | tail 1
+
+git tag v2026.04.13.2
+git push --tags
 ```
 
 ## License

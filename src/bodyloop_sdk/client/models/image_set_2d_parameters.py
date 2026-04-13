@@ -19,7 +19,6 @@ class ImageSet2DParameters:
     projector_brightness: int | None | Unset = UNSET
     ring_brightness: int | None | Unset = UNSET
     keep_images: bool | None | Unset = UNSET
-    mass_from_phd: bool | None | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -47,12 +46,6 @@ class ImageSet2DParameters:
         else:
             keep_images = self.keep_images
 
-        mass_from_phd: bool | None | Unset
-        if isinstance(self.mass_from_phd, Unset):
-            mass_from_phd = UNSET
-        else:
-            mass_from_phd = self.mass_from_phd
-
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
@@ -64,8 +57,6 @@ class ImageSet2DParameters:
             field_dict["ring_brightness"] = ring_brightness
         if keep_images is not UNSET:
             field_dict["keep_images"] = keep_images
-        if mass_from_phd is not UNSET:
-            field_dict["mass_from_phd"] = mass_from_phd
 
         return field_dict
 
@@ -109,21 +100,11 @@ class ImageSet2DParameters:
 
         keep_images = _parse_keep_images(d.pop("keep_images", UNSET))
 
-        def _parse_mass_from_phd(data: object) -> bool | None | Unset:
-            if data is None:
-                return data
-            if isinstance(data, Unset):
-                return data
-            return cast(bool | None | Unset, data)
-
-        mass_from_phd = _parse_mass_from_phd(d.pop("mass_from_phd", UNSET))
-
         image_set_2d_parameters = cls(
             exposure_time=exposure_time,
             projector_brightness=projector_brightness,
             ring_brightness=ring_brightness,
             keep_images=keep_images,
-            mass_from_phd=mass_from_phd,
         )
 
         image_set_2d_parameters.additional_properties = d

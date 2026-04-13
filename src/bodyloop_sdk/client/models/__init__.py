@@ -4,25 +4,12 @@ from .address import Address
 from .analyzed_avatar_3d_parameters import AnalyzedAvatar3DParameters
 from .angle import Angle
 from .angle_angles_type_0 import AngleAnglesType0
-from .avatar_3d_parameters_input import Avatar3DParametersInput
-from .avatar_3d_parameters_input_clothing_type_0 import Avatar3DParametersInputClothingType0
-from .avatar_3d_parameters_input_model_type_0 import Avatar3DParametersInputModelType0
-from .avatar_3d_parameters_input_pose_type_0 import Avatar3DParametersInputPoseType0
-from .avatar_3d_parameters_output import Avatar3DParametersOutput
-from .avatar_3d_parameters_output_clothing_type_0 import Avatar3DParametersOutputClothingType0
-from .avatar_3d_parameters_output_model_type_0 import Avatar3DParametersOutputModelType0
+from .avatar_3d_parameters import Avatar3DParameters
+from .avatar_3d_parameters_clothing_type_0 import Avatar3DParametersClothingType0
+from .avatar_3d_parameters_model_type_0 import Avatar3DParametersModelType0
+from .avatar_3d_parameters_pose_type_0 import Avatar3DParametersPoseType0
 from .axis import Axis
 from .axis_rotation_type_0 import AxisRotationType0
-from .biomech_system_manager_models_scanner_init_target import BiomechSystemManagerModelsScannerInitTarget
-from .biomech_system_manager_models_scanner_init_target_state import BiomechSystemManagerModelsScannerInitTargetState
-from .biomech_system_manager_models_scanner_init_target_state_status_type_0 import (
-    BiomechSystemManagerModelsScannerInitTargetStateStatusType0,
-)
-from .biomech_system_manager_models_viatar_target import BiomechSystemManagerModelsViatarTarget
-from .biomech_system_manager_models_viatar_target_state import BiomechSystemManagerModelsViatarTargetState
-from .biomech_system_manager_models_viatar_target_state_status_type_0 import (
-    BiomechSystemManagerModelsViatarTargetStateStatusType0,
-)
 from .body_apitoken_api_v2_authentification_users_username_api_token_post import (
     BodyApitokenApiV2AuthentificationUsersUsernameApiTokenPost,
 )
@@ -46,6 +33,12 @@ from .body_patch_update_stream_api_v2_system_update_update_stream_patch_update_s
 )
 from .body_start_target_creation_api_v2_system_initializations_scanner_init_id_targets_post import (
     BodyStartTargetCreationApiV2SystemInitializationsScannerInitIdTargetsPost,
+)
+from .body_start_target_creation_api_v2_system_initializations_scanner_init_id_targets_post_recreate_target_kind_type_0 import (
+    BodyStartTargetCreationApiV2SystemInitializationsScannerInitIdTargetsPostRecreateTargetKindType0,
+)
+from .body_start_target_creation_api_v2_system_initializations_scanner_init_id_targets_post_target_kind import (
+    BodyStartTargetCreationApiV2SystemInitializationsScannerInitIdTargetsPostTargetKind,
 )
 from .body_start_target_creation_api_v2_viatars_viatar_id_targets_post import (
     BodyStartTargetCreationApiV2ViatarsViatarIdTargetsPost,
@@ -126,9 +119,10 @@ from .meta import Meta
 from .models import Models
 from .models_dataprocessor_type_0 import ModelsDataprocessorType0
 from .models_photogrammetry_type_0 import ModelsPhotogrammetryType0
+from .observation_model import ObservationModel
+from .observations_parameters import ObservationsParameters
 from .parameters import Parameters
-from .parameters_data_input import ParametersDataInput
-from .parameters_data_output import ParametersDataOutput
+from .parameters_data import ParametersData
 from .preset import Preset
 from .proband import Proband
 from .proband_data import ProbandData
@@ -161,6 +155,9 @@ from .system_os_data import SystemOsData
 from .system_os_network_interfaces_type_0 import SystemOsNetworkInterfacesType0
 from .system_os_network_interfaces_type_0_additional_property import SystemOsNetworkInterfacesType0AdditionalProperty
 from .system_update_stream_type_0 import SystemUpdateStreamType0
+from .target import Target
+from .target_state import TargetState
+from .target_state_status_type_0 import TargetStateStatusType0
 from .token import Token
 from .upload_credentials import UploadCredentials
 from .upload_credentials_headers_type_0 import UploadCredentialsHeadersType0
@@ -207,21 +204,12 @@ __all__ = (
     "AnalyzedAvatar3DParameters",
     "Angle",
     "AngleAnglesType0",
-    "Avatar3DParametersInput",
-    "Avatar3DParametersInputClothingType0",
-    "Avatar3DParametersInputModelType0",
-    "Avatar3DParametersInputPoseType0",
-    "Avatar3DParametersOutput",
-    "Avatar3DParametersOutputClothingType0",
-    "Avatar3DParametersOutputModelType0",
+    "Avatar3DParameters",
+    "Avatar3DParametersClothingType0",
+    "Avatar3DParametersModelType0",
+    "Avatar3DParametersPoseType0",
     "Axis",
     "AxisRotationType0",
-    "BiomechSystemManagerModelsScannerInitTarget",
-    "BiomechSystemManagerModelsScannerInitTargetState",
-    "BiomechSystemManagerModelsScannerInitTargetStateStatusType0",
-    "BiomechSystemManagerModelsViatarTarget",
-    "BiomechSystemManagerModelsViatarTargetState",
-    "BiomechSystemManagerModelsViatarTargetStateStatusType0",
     "BodyApitokenApiV2AuthentificationUsersUsernameApiTokenPost",
     "BodyApplyPresetApiV2ViatarsViatarIdPresetPut",
     "BodyCreateFirstAdminApiV2AuthentificationUsersFirstAdminPost",
@@ -236,6 +224,8 @@ __all__ = (
     "BodyPatchUpdateStreamApiV2SystemUpdateUpdateStreamPatch",
     "BodyPatchUpdateStreamApiV2SystemUpdateUpdateStreamPatchUpdateStream",
     "BodyStartTargetCreationApiV2SystemInitializationsScannerInitIdTargetsPost",
+    "BodyStartTargetCreationApiV2SystemInitializationsScannerInitIdTargetsPostRecreateTargetKindType0",
+    "BodyStartTargetCreationApiV2SystemInitializationsScannerInitIdTargetsPostTargetKind",
     "BodyStartTargetCreationApiV2ViatarsViatarIdTargetsPost",
     "BodyStartTargetCreationApiV2ViatarsViatarIdTargetsPostTargetKind",
     "BodyTlsCertUpdateApiV2SystemTlsCertificatePut",
@@ -285,9 +275,10 @@ __all__ = (
     "Models",
     "ModelsDataprocessorType0",
     "ModelsPhotogrammetryType0",
+    "ObservationModel",
+    "ObservationsParameters",
     "Parameters",
-    "ParametersDataInput",
-    "ParametersDataOutput",
+    "ParametersData",
     "Preset",
     "Proband",
     "ProbandData",
@@ -316,6 +307,9 @@ __all__ = (
     "SystemOsNetworkInterfacesType0",
     "SystemOsNetworkInterfacesType0AdditionalProperty",
     "SystemUpdateStreamType0",
+    "Target",
+    "TargetState",
+    "TargetStateStatusType0",
     "Token",
     "UploadCredentials",
     "UploadCredentialsHeadersType0",

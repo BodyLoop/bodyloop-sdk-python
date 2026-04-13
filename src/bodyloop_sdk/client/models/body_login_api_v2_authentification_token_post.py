@@ -17,7 +17,7 @@ class BodyLoginApiV2AuthentificationTokenPost:
     username: str | Unset = ""
     password: str | Unset = ""
     scope: str | Unset = ""
-    client_id: None | str | Unset = UNSET
+    client_id: None | str | Unset = ""
     client_secret: None | str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 

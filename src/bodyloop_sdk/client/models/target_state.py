@@ -6,20 +6,17 @@ from typing import Any, TypeVar, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-from ..models.biomech_system_manager_models_scanner_init_target_state_status_type_0 import (
-    BiomechSystemManagerModelsScannerInitTargetStateStatusType0,
-    check_biomech_system_manager_models_scanner_init_target_state_status_type_0,
-)
+from ..models.target_state_status_type_0 import TargetStateStatusType0, check_target_state_status_type_0
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="BiomechSystemManagerModelsScannerInitTargetState")
+T = TypeVar("T", bound="TargetState")
 
 
 @_attrs_define
-class BiomechSystemManagerModelsScannerInitTargetState:
-    """Representation of the State of a Target"""
+class TargetState:
+    """Represents the state of a Target"""
 
-    status: BiomechSystemManagerModelsScannerInitTargetStateStatusType0 | None | Unset = UNSET
+    status: None | TargetStateStatusType0 | Unset = UNSET
     progress: float | None | Unset = UNSET
     description: None | str | Unset = UNSET
     notification: list[str] | None | Unset = UNSET
@@ -73,7 +70,7 @@ class BiomechSystemManagerModelsScannerInitTargetState:
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
 
-        def _parse_status(data: object) -> BiomechSystemManagerModelsScannerInitTargetStateStatusType0 | None | Unset:
+        def _parse_status(data: object) -> None | TargetStateStatusType0 | Unset:
             if data is None:
                 return data
             if isinstance(data, Unset):
@@ -81,12 +78,12 @@ class BiomechSystemManagerModelsScannerInitTargetState:
             try:
                 if not isinstance(data, str):
                     raise TypeError()
-                status_type_0 = check_biomech_system_manager_models_scanner_init_target_state_status_type_0(data)
+                status_type_0 = check_target_state_status_type_0(data)
 
                 return status_type_0
             except (TypeError, ValueError, AttributeError, KeyError):
                 pass
-            return cast(BiomechSystemManagerModelsScannerInitTargetStateStatusType0 | None | Unset, data)
+            return cast(None | TargetStateStatusType0 | Unset, data)
 
         status = _parse_status(d.pop("status", UNSET))
 
@@ -125,15 +122,15 @@ class BiomechSystemManagerModelsScannerInitTargetState:
 
         notification = _parse_notification(d.pop("notification", UNSET))
 
-        biomech_system_manager_models_scanner_init_target_state = cls(
+        target_state = cls(
             status=status,
             progress=progress,
             description=description,
             notification=notification,
         )
 
-        biomech_system_manager_models_scanner_init_target_state.additional_properties = d
-        return biomech_system_manager_models_scanner_init_target_state
+        target_state.additional_properties = d
+        return target_state
 
     @property
     def additional_keys(self) -> list[str]:

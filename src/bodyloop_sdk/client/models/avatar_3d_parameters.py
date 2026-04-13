@@ -6,29 +6,42 @@ from typing import Any, TypeVar, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-from ..models.avatar_3d_parameters_output_clothing_type_0 import (
-    Avatar3DParametersOutputClothingType0,
-    check_avatar_3d_parameters_output_clothing_type_0,
+from ..models.avatar_3d_parameters_clothing_type_0 import (
+    Avatar3DParametersClothingType0,
+    check_avatar_3d_parameters_clothing_type_0,
 )
-from ..models.avatar_3d_parameters_output_model_type_0 import (
-    Avatar3DParametersOutputModelType0,
-    check_avatar_3d_parameters_output_model_type_0,
+from ..models.avatar_3d_parameters_model_type_0 import (
+    Avatar3DParametersModelType0,
+    check_avatar_3d_parameters_model_type_0,
+)
+from ..models.avatar_3d_parameters_pose_type_0 import (
+    Avatar3DParametersPoseType0,
+    check_avatar_3d_parameters_pose_type_0,
 )
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="Avatar3DParametersOutput")
+T = TypeVar("T", bound="Avatar3DParameters")
 
 
 @_attrs_define
-class Avatar3DParametersOutput:
+class Avatar3DParameters:
     """Parameters influencing the target Avatar3D"""
 
-    model: Avatar3DParametersOutputModelType0 | None | Unset = UNSET
-    clothing: Avatar3DParametersOutputClothingType0 | None | Unset = UNSET
+    pose: Avatar3DParametersPoseType0 | None | Unset = UNSET
+    model: Avatar3DParametersModelType0 | None | Unset = UNSET
+    clothing: Avatar3DParametersClothingType0 | None | Unset = UNSET
     reverse: bool | None | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        pose: None | str | Unset
+        if isinstance(self.pose, Unset):
+            pose = UNSET
+        elif isinstance(self.pose, str):
+            pose = self.pose
+        else:
+            pose = self.pose
+
         model: None | str | Unset
         if isinstance(self.model, Unset):
             model = UNSET
@@ -54,6 +67,8 @@ class Avatar3DParametersOutput:
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
+        if pose is not UNSET:
+            field_dict["pose"] = pose
         if model is not UNSET:
             field_dict["model"] = model
         if clothing is not UNSET:
@@ -67,7 +82,7 @@ class Avatar3DParametersOutput:
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
 
-        def _parse_model(data: object) -> Avatar3DParametersOutputModelType0 | None | Unset:
+        def _parse_pose(data: object) -> Avatar3DParametersPoseType0 | None | Unset:
             if data is None:
                 return data
             if isinstance(data, Unset):
@@ -75,16 +90,33 @@ class Avatar3DParametersOutput:
             try:
                 if not isinstance(data, str):
                     raise TypeError()
-                model_type_0 = check_avatar_3d_parameters_output_model_type_0(data)
+                pose_type_0 = check_avatar_3d_parameters_pose_type_0(data)
+
+                return pose_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(Avatar3DParametersPoseType0 | None | Unset, data)
+
+        pose = _parse_pose(d.pop("pose", UNSET))
+
+        def _parse_model(data: object) -> Avatar3DParametersModelType0 | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                model_type_0 = check_avatar_3d_parameters_model_type_0(data)
 
                 return model_type_0
             except (TypeError, ValueError, AttributeError, KeyError):
                 pass
-            return cast(Avatar3DParametersOutputModelType0 | None | Unset, data)
+            return cast(Avatar3DParametersModelType0 | None | Unset, data)
 
         model = _parse_model(d.pop("model", UNSET))
 
-        def _parse_clothing(data: object) -> Avatar3DParametersOutputClothingType0 | None | Unset:
+        def _parse_clothing(data: object) -> Avatar3DParametersClothingType0 | None | Unset:
             if data is None:
                 return data
             if isinstance(data, Unset):
@@ -92,12 +124,12 @@ class Avatar3DParametersOutput:
             try:
                 if not isinstance(data, str):
                     raise TypeError()
-                clothing_type_0 = check_avatar_3d_parameters_output_clothing_type_0(data)
+                clothing_type_0 = check_avatar_3d_parameters_clothing_type_0(data)
 
                 return clothing_type_0
             except (TypeError, ValueError, AttributeError, KeyError):
                 pass
-            return cast(Avatar3DParametersOutputClothingType0 | None | Unset, data)
+            return cast(Avatar3DParametersClothingType0 | None | Unset, data)
 
         clothing = _parse_clothing(d.pop("clothing", UNSET))
 
@@ -110,14 +142,15 @@ class Avatar3DParametersOutput:
 
         reverse = _parse_reverse(d.pop("reverse", UNSET))
 
-        avatar_3d_parameters_output = cls(
+        avatar_3d_parameters = cls(
+            pose=pose,
             model=model,
             clothing=clothing,
             reverse=reverse,
         )
 
-        avatar_3d_parameters_output.additional_properties = d
-        return avatar_3d_parameters_output
+        avatar_3d_parameters.additional_properties = d
+        return avatar_3d_parameters
 
     @property
     def additional_keys(self) -> list[str]:
