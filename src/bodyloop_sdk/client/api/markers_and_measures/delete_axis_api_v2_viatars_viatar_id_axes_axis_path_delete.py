@@ -6,6 +6,9 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
+from ...models.delete_axis_api_v2_viatars_viatar_id_axes_axis_path_delete_response_delete_axis_api_v2_viatars_viatar_id_axes_axis_path_delete import (
+    DeleteAxisApiV2ViatarsViatarIdAxesAxisPathDeleteResponseDeleteAxisApiV2ViatarsViatarIdAxesAxisPathDelete,
+)
 from ...models.http_validation_error import HTTPValidationError
 from ...types import Response
 
@@ -28,9 +31,16 @@ def _get_kwargs(
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Any | HTTPValidationError | None:
+) -> (
+    DeleteAxisApiV2ViatarsViatarIdAxesAxisPathDeleteResponseDeleteAxisApiV2ViatarsViatarIdAxesAxisPathDelete
+    | HTTPValidationError
+    | None
+):
     if response.status_code == 200:
-        response_200 = response.json()
+        response_200 = DeleteAxisApiV2ViatarsViatarIdAxesAxisPathDeleteResponseDeleteAxisApiV2ViatarsViatarIdAxesAxisPathDelete.from_dict(
+            response.json()
+        )
+
         return response_200
 
     if response.status_code == 422:
@@ -46,7 +56,10 @@ def _parse_response(
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[Any | HTTPValidationError]:
+) -> Response[
+    DeleteAxisApiV2ViatarsViatarIdAxesAxisPathDeleteResponseDeleteAxisApiV2ViatarsViatarIdAxesAxisPathDelete
+    | HTTPValidationError
+]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -60,7 +73,10 @@ def sync_detailed(
     axis_path: str,
     *,
     client: AuthenticatedClient,
-) -> Response[Any | HTTPValidationError]:
+) -> Response[
+    DeleteAxisApiV2ViatarsViatarIdAxesAxisPathDeleteResponseDeleteAxisApiV2ViatarsViatarIdAxesAxisPathDelete
+    | HTTPValidationError
+]:
     """Delete Axis
 
     Args:
@@ -72,7 +88,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Any | HTTPValidationError]
+        Response[DeleteAxisApiV2ViatarsViatarIdAxesAxisPathDeleteResponseDeleteAxisApiV2ViatarsViatarIdAxesAxisPathDelete | HTTPValidationError]
     """
 
     kwargs = _get_kwargs(
@@ -92,7 +108,11 @@ def sync(
     axis_path: str,
     *,
     client: AuthenticatedClient,
-) -> Any | HTTPValidationError | None:
+) -> (
+    DeleteAxisApiV2ViatarsViatarIdAxesAxisPathDeleteResponseDeleteAxisApiV2ViatarsViatarIdAxesAxisPathDelete
+    | HTTPValidationError
+    | None
+):
     """Delete Axis
 
     Args:
@@ -104,7 +124,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Any | HTTPValidationError
+        DeleteAxisApiV2ViatarsViatarIdAxesAxisPathDeleteResponseDeleteAxisApiV2ViatarsViatarIdAxesAxisPathDelete | HTTPValidationError
     """
 
     return sync_detailed(
@@ -119,7 +139,10 @@ async def asyncio_detailed(
     axis_path: str,
     *,
     client: AuthenticatedClient,
-) -> Response[Any | HTTPValidationError]:
+) -> Response[
+    DeleteAxisApiV2ViatarsViatarIdAxesAxisPathDeleteResponseDeleteAxisApiV2ViatarsViatarIdAxesAxisPathDelete
+    | HTTPValidationError
+]:
     """Delete Axis
 
     Args:
@@ -131,7 +154,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Any | HTTPValidationError]
+        Response[DeleteAxisApiV2ViatarsViatarIdAxesAxisPathDeleteResponseDeleteAxisApiV2ViatarsViatarIdAxesAxisPathDelete | HTTPValidationError]
     """
 
     kwargs = _get_kwargs(
@@ -149,7 +172,11 @@ async def asyncio(
     axis_path: str,
     *,
     client: AuthenticatedClient,
-) -> Any | HTTPValidationError | None:
+) -> (
+    DeleteAxisApiV2ViatarsViatarIdAxesAxisPathDeleteResponseDeleteAxisApiV2ViatarsViatarIdAxesAxisPathDelete
+    | HTTPValidationError
+    | None
+):
     """Delete Axis
 
     Args:
@@ -161,7 +188,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Any | HTTPValidationError
+        DeleteAxisApiV2ViatarsViatarIdAxesAxisPathDeleteResponseDeleteAxisApiV2ViatarsViatarIdAxesAxisPathDelete | HTTPValidationError
     """
 
     return (

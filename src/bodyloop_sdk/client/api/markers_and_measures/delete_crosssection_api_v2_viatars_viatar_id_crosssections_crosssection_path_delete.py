@@ -6,6 +6,9 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
+from ...models.delete_crosssection_api_v2_viatars_viatar_id_crosssections_crosssection_path_delete_response_delete_crosssection_api_v2_viatars_viatar_id_crosssections_crosssection_path_delete import (
+    DeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDeleteResponseDeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDelete,
+)
 from ...models.http_validation_error import HTTPValidationError
 from ...types import Response
 
@@ -28,9 +31,16 @@ def _get_kwargs(
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Any | HTTPValidationError | None:
+) -> (
+    DeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDeleteResponseDeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDelete
+    | HTTPValidationError
+    | None
+):
     if response.status_code == 200:
-        response_200 = response.json()
+        response_200 = DeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDeleteResponseDeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDelete.from_dict(
+            response.json()
+        )
+
         return response_200
 
     if response.status_code == 422:
@@ -46,7 +56,10 @@ def _parse_response(
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[Any | HTTPValidationError]:
+) -> Response[
+    DeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDeleteResponseDeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDelete
+    | HTTPValidationError
+]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -60,7 +73,10 @@ def sync_detailed(
     crosssection_path: str,
     *,
     client: AuthenticatedClient,
-) -> Response[Any | HTTPValidationError]:
+) -> Response[
+    DeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDeleteResponseDeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDelete
+    | HTTPValidationError
+]:
     """Delete Crosssection
 
     Args:
@@ -72,7 +88,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Any | HTTPValidationError]
+        Response[DeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDeleteResponseDeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDelete | HTTPValidationError]
     """
 
     kwargs = _get_kwargs(
@@ -92,7 +108,11 @@ def sync(
     crosssection_path: str,
     *,
     client: AuthenticatedClient,
-) -> Any | HTTPValidationError | None:
+) -> (
+    DeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDeleteResponseDeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDelete
+    | HTTPValidationError
+    | None
+):
     """Delete Crosssection
 
     Args:
@@ -104,7 +124,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Any | HTTPValidationError
+        DeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDeleteResponseDeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDelete | HTTPValidationError
     """
 
     return sync_detailed(
@@ -119,7 +139,10 @@ async def asyncio_detailed(
     crosssection_path: str,
     *,
     client: AuthenticatedClient,
-) -> Response[Any | HTTPValidationError]:
+) -> Response[
+    DeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDeleteResponseDeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDelete
+    | HTTPValidationError
+]:
     """Delete Crosssection
 
     Args:
@@ -131,7 +154,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Any | HTTPValidationError]
+        Response[DeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDeleteResponseDeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDelete | HTTPValidationError]
     """
 
     kwargs = _get_kwargs(
@@ -149,7 +172,11 @@ async def asyncio(
     crosssection_path: str,
     *,
     client: AuthenticatedClient,
-) -> Any | HTTPValidationError | None:
+) -> (
+    DeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDeleteResponseDeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDelete
+    | HTTPValidationError
+    | None
+):
     """Delete Crosssection
 
     Args:
@@ -161,7 +188,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Any | HTTPValidationError
+        DeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDeleteResponseDeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDelete | HTTPValidationError
     """
 
     return (

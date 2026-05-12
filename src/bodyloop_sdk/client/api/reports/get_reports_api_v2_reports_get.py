@@ -12,15 +12,25 @@ from ...types import UNSET, Response, Unset
 
 def _get_kwargs(
     *,
-    viatar_id: int | Unset = UNSET,
-    proband_id: int | Unset = UNSET,
+    viatar_id: int | None | Unset = UNSET,
+    proband_id: int | None | Unset = UNSET,
 ) -> dict[str, Any]:
 
     params: dict[str, Any] = {}
 
-    params["viatar_id"] = viatar_id
+    json_viatar_id: int | None | Unset
+    if isinstance(viatar_id, Unset):
+        json_viatar_id = UNSET
+    else:
+        json_viatar_id = viatar_id
+    params["viatar_id"] = json_viatar_id
 
-    params["proband_id"] = proband_id
+    json_proband_id: int | None | Unset
+    if isinstance(proband_id, Unset):
+        json_proband_id = UNSET
+    else:
+        json_proband_id = proband_id
+    params["proband_id"] = json_proband_id
 
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
@@ -71,16 +81,16 @@ def _build_response(
 def sync_detailed(
     *,
     client: AuthenticatedClient,
-    viatar_id: int | Unset = UNSET,
-    proband_id: int | Unset = UNSET,
+    viatar_id: int | None | Unset = UNSET,
+    proband_id: int | None | Unset = UNSET,
 ) -> Response[HTTPValidationError | list[Report]]:
     """Get Reports
 
      Returns list of reports
 
     Args:
-        viatar_id (int | Unset):
-        proband_id (int | Unset):
+        viatar_id (int | None | Unset):
+        proband_id (int | None | Unset):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -105,16 +115,16 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient,
-    viatar_id: int | Unset = UNSET,
-    proband_id: int | Unset = UNSET,
+    viatar_id: int | None | Unset = UNSET,
+    proband_id: int | None | Unset = UNSET,
 ) -> HTTPValidationError | list[Report] | None:
     """Get Reports
 
      Returns list of reports
 
     Args:
-        viatar_id (int | Unset):
-        proband_id (int | Unset):
+        viatar_id (int | None | Unset):
+        proband_id (int | None | Unset):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -134,16 +144,16 @@ def sync(
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient,
-    viatar_id: int | Unset = UNSET,
-    proband_id: int | Unset = UNSET,
+    viatar_id: int | None | Unset = UNSET,
+    proband_id: int | None | Unset = UNSET,
 ) -> Response[HTTPValidationError | list[Report]]:
     """Get Reports
 
      Returns list of reports
 
     Args:
-        viatar_id (int | Unset):
-        proband_id (int | Unset):
+        viatar_id (int | None | Unset):
+        proband_id (int | None | Unset):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -166,16 +176,16 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient,
-    viatar_id: int | Unset = UNSET,
-    proband_id: int | Unset = UNSET,
+    viatar_id: int | None | Unset = UNSET,
+    proband_id: int | None | Unset = UNSET,
 ) -> HTTPValidationError | list[Report] | None:
     """Get Reports
 
      Returns list of reports
 
     Args:
-        viatar_id (int | Unset):
-        proband_id (int | Unset):
+        viatar_id (int | None | Unset):
+        proband_id (int | None | Unset):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

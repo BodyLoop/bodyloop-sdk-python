@@ -6,7 +6,7 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.height import Height
+from ...models.height_detail import HeightDetail
 from ...models.http_validation_error import HTTPValidationError
 from ...types import Response
 
@@ -27,12 +27,12 @@ def _get_kwargs(
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> HTTPValidationError | list[Height] | None:
+) -> HTTPValidationError | list[HeightDetail] | None:
     if response.status_code == 200:
         response_200 = []
         _response_200 = response.json()
         for response_200_item_data in _response_200:
-            response_200_item = Height.from_dict(response_200_item_data)
+            response_200_item = HeightDetail.from_dict(response_200_item_data)
 
             response_200.append(response_200_item)
 
@@ -51,7 +51,7 @@ def _parse_response(
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[HTTPValidationError | list[Height]]:
+) -> Response[HTTPValidationError | list[HeightDetail]]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -64,7 +64,7 @@ def sync_detailed(
     viatar_id: int,
     *,
     client: AuthenticatedClient,
-) -> Response[HTTPValidationError | list[Height]]:
+) -> Response[HTTPValidationError | list[HeightDetail]]:
     """Get Heights
 
     Args:
@@ -75,7 +75,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[HTTPValidationError | list[Height]]
+        Response[HTTPValidationError | list[HeightDetail]]
     """
 
     kwargs = _get_kwargs(
@@ -93,7 +93,7 @@ def sync(
     viatar_id: int,
     *,
     client: AuthenticatedClient,
-) -> HTTPValidationError | list[Height] | None:
+) -> HTTPValidationError | list[HeightDetail] | None:
     """Get Heights
 
     Args:
@@ -104,7 +104,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        HTTPValidationError | list[Height]
+        HTTPValidationError | list[HeightDetail]
     """
 
     return sync_detailed(
@@ -117,7 +117,7 @@ async def asyncio_detailed(
     viatar_id: int,
     *,
     client: AuthenticatedClient,
-) -> Response[HTTPValidationError | list[Height]]:
+) -> Response[HTTPValidationError | list[HeightDetail]]:
     """Get Heights
 
     Args:
@@ -128,7 +128,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[HTTPValidationError | list[Height]]
+        Response[HTTPValidationError | list[HeightDetail]]
     """
 
     kwargs = _get_kwargs(
@@ -144,7 +144,7 @@ async def asyncio(
     viatar_id: int,
     *,
     client: AuthenticatedClient,
-) -> HTTPValidationError | list[Height] | None:
+) -> HTTPValidationError | list[HeightDetail] | None:
     """Get Heights
 
     Args:
@@ -155,7 +155,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        HTTPValidationError | list[Height]
+        HTTPValidationError | list[HeightDetail]
     """
 
     return (

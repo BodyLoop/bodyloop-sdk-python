@@ -66,7 +66,7 @@ def sync_detailed(
 ) -> Response[Any | HTTPValidationError]:
     """Diagnostics
 
-     Generates and retruns an archive for system diagnostics
+     Generates and returns an archive for system diagnostics
 
     Args:
         body (BodyDiagnosticsApiV2SystemDiagnosticPost | Unset):
@@ -97,7 +97,7 @@ def sync(
 ) -> Any | HTTPValidationError | None:
     """Diagnostics
 
-     Generates and retruns an archive for system diagnostics
+     Generates and returns an archive for system diagnostics
 
     Args:
         body (BodyDiagnosticsApiV2SystemDiagnosticPost | Unset):
@@ -123,7 +123,7 @@ async def asyncio_detailed(
 ) -> Response[Any | HTTPValidationError]:
     """Diagnostics
 
-     Generates and retruns an archive for system diagnostics
+     Generates and returns an archive for system diagnostics
 
     Args:
         body (BodyDiagnosticsApiV2SystemDiagnosticPost | Unset):
@@ -152,7 +152,7 @@ async def asyncio(
 ) -> Any | HTTPValidationError | None:
     """Diagnostics
 
-     Generates and retruns an archive for system diagnostics
+     Generates and returns an archive for system diagnostics
 
     Args:
         body (BodyDiagnosticsApiV2SystemDiagnosticPost | Unset):

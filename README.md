@@ -25,17 +25,26 @@ The top-level import of the package is the Python module `bodyloop`.
 Usage:
 
 ```python
-import bodyloop
-from bodyloop import Viatar, Proband
-from bodyloop import ScanUnit
-```
+from bodyloop_sdk.client import AuthenticatedClient
 
-## Posture Analysis
+base_url = "https://bodyloop-control-pc"
+api_token = "<YOUR_API_TOKEN_HERE>"
 
-Run a dashboard via:
+# Create Auth Client with Access Token
+client = AuthenticatedClient(
+    base_url=base_url,
+    verify_ssl=False,
+    token=api_token,
+    timeout=10.0
+)
 
-```bash
-uv run python docs/notebooks/05-posture-analysis/01-three-views.py
+from functools import partial
+from bodyloop_sdk.client.api.probands import get_probands_api_v2_probands_get
+
+get_probands = partial(get_probands_api_v2_probands_get.sync_detailed, client=client)
+probands_response = get_probands()
+
+print(probands_response.status_code)
 ```
 
 ## Contribute
@@ -50,6 +59,24 @@ uv sync
 uv run pytest
 uv build
 ```
+
+## Working on both bodyloop-sdk and another project
+
+In the project which depends on the bodyloop-sdk-python, you can install the SDK in editable mode. This allows you to work on both projects simultaneously without needing to publish the SDK to PyPI.
+
+There you do (assumed that the bodyloop-sdk-python is located at `/d/github/bodyloop/bodyloop-sdk-python`):
+
+```bash
+uv sync --no-install-project  --inexact
+
+uv pip install -e /d/github/bodyloop/bodyloop-sdk-python
+
+uv run --no-sync python some_script.py
+```
+
+Mind the `--no-sync` flag in the last command, which prevents the SDK from being reinstalled from PyPi.
+
+## Release Procedure
 
 The release / publish workflow is defined as:
 
@@ -77,7 +104,7 @@ uv run experiments/a_create_client.py
 uv run experiments/b_load_probands.py
 ```
 
-## Release Procedure
+### Actions
 
 - Make sure that you are on the `main` branch and that all changes are committed and pushed.
 - Create a new tag `vYYYY.MM.DD.r` where `YYYY.MM.DD` is the current date and `r` is the sequential release number we increment over all releases, independent of the date and push the tag as well.

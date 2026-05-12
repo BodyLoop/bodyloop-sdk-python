@@ -6,6 +6,7 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
+from ...models.height_detail import HeightDetail
 from ...models.http_validation_error import HTTPValidationError
 from ...types import Response
 
@@ -28,9 +29,10 @@ def _get_kwargs(
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Any | HTTPValidationError | None:
+) -> HTTPValidationError | HeightDetail | None:
     if response.status_code == 200:
-        response_200 = response.json()
+        response_200 = HeightDetail.from_dict(response.json())
+
         return response_200
 
     if response.status_code == 422:
@@ -46,7 +48,7 @@ def _parse_response(
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[Any | HTTPValidationError]:
+) -> Response[HTTPValidationError | HeightDetail]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -60,7 +62,7 @@ def sync_detailed(
     height_path: str,
     *,
     client: AuthenticatedClient,
-) -> Response[Any | HTTPValidationError]:
+) -> Response[HTTPValidationError | HeightDetail]:
     """Get Height
 
     Args:
@@ -72,7 +74,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Any | HTTPValidationError]
+        Response[HTTPValidationError | HeightDetail]
     """
 
     kwargs = _get_kwargs(
@@ -92,7 +94,7 @@ def sync(
     height_path: str,
     *,
     client: AuthenticatedClient,
-) -> Any | HTTPValidationError | None:
+) -> HTTPValidationError | HeightDetail | None:
     """Get Height
 
     Args:
@@ -104,7 +106,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Any | HTTPValidationError
+        HTTPValidationError | HeightDetail
     """
 
     return sync_detailed(
@@ -119,7 +121,7 @@ async def asyncio_detailed(
     height_path: str,
     *,
     client: AuthenticatedClient,
-) -> Response[Any | HTTPValidationError]:
+) -> Response[HTTPValidationError | HeightDetail]:
     """Get Height
 
     Args:
@@ -131,7 +133,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[Any | HTTPValidationError]
+        Response[HTTPValidationError | HeightDetail]
     """
 
     kwargs = _get_kwargs(
@@ -149,7 +151,7 @@ async def asyncio(
     height_path: str,
     *,
     client: AuthenticatedClient,
-) -> Any | HTTPValidationError | None:
+) -> HTTPValidationError | HeightDetail | None:
     """Get Height
 
     Args:
@@ -161,7 +163,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Any | HTTPValidationError
+        HTTPValidationError | HeightDetail
     """
 
     return (

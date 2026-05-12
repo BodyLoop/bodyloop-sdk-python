@@ -4,11 +4,17 @@ from .address import Address
 from .analyzed_avatar_3d_parameters import AnalyzedAvatar3DParameters
 from .angle import Angle
 from .angle_angles_type_0 import AngleAnglesType0
+from .angle_detail import AngleDetail
+from .angle_detail_angles_type_0 import AngleDetailAnglesType0
+from .angle_detail_details import AngleDetailDetails
 from .avatar_3d_parameters import Avatar3DParameters
 from .avatar_3d_parameters_clothing_type_0 import Avatar3DParametersClothingType0
 from .avatar_3d_parameters_model_type_0 import Avatar3DParametersModelType0
 from .avatar_3d_parameters_pose_type_0 import Avatar3DParametersPoseType0
 from .axis import Axis
+from .axis_detail import AxisDetail
+from .axis_detail_details import AxisDetailDetails
+from .axis_detail_rotation_type_0 import AxisDetailRotationType0
 from .axis_rotation_type_0 import AxisRotationType0
 from .body_apitoken_api_v2_authentification_users_username_api_token_post import (
     BodyApitokenApiV2AuthentificationUsersUsernameApiTokenPost,
@@ -67,17 +73,47 @@ from .crosssection import Crosssection
 from .crosssection_areas_type_0 import CrosssectionAreasType0
 from .crosssection_circumferences_type_0 import CrosssectionCircumferencesType0
 from .crosssection_contours_type_0 import CrosssectionContoursType0
+from .crosssection_detail import CrosssectionDetail
+from .crosssection_detail_areas_type_0 import CrosssectionDetailAreasType0
+from .crosssection_detail_circumferences_type_0 import CrosssectionDetailCircumferencesType0
+from .crosssection_detail_contours_type_0 import CrosssectionDetailContoursType0
+from .crosssection_detail_details import CrosssectionDetailDetails
+from .crosssection_detail_skeleton_position_type_0 import CrosssectionDetailSkeletonPositionType0
 from .crosssection_skeleton_position_type_0 import CrosssectionSkeletonPositionType0
+from .delete_angle_api_v2_viatars_viatar_id_angles_angle_path_delete_response_delete_angle_api_v2_viatars_viatar_id_angles_angle_path_delete import (
+    DeleteAngleApiV2ViatarsViatarIdAnglesAnglePathDeleteResponseDeleteAngleApiV2ViatarsViatarIdAnglesAnglePathDelete,
+)
+from .delete_axis_api_v2_viatars_viatar_id_axes_axis_path_delete_response_delete_axis_api_v2_viatars_viatar_id_axes_axis_path_delete import (
+    DeleteAxisApiV2ViatarsViatarIdAxesAxisPathDeleteResponseDeleteAxisApiV2ViatarsViatarIdAxesAxisPathDelete,
+)
+from .delete_crosssection_api_v2_viatars_viatar_id_crosssections_crosssection_path_delete_response_delete_crosssection_api_v2_viatars_viatar_id_crosssections_crosssection_path_delete import (
+    DeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDeleteResponseDeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDelete,
+)
+from .delete_distance_api_v2_viatars_viatar_id_distances_distance_path_delete_response_delete_distance_api_v2_viatars_viatar_id_distances_distance_path_delete import (
+    DeleteDistanceApiV2ViatarsViatarIdDistancesDistancePathDeleteResponseDeleteDistanceApiV2ViatarsViatarIdDistancesDistancePathDelete,
+)
+from .delete_height_api_v2_viatars_viatar_id_heights_height_path_delete_response_delete_height_api_v2_viatars_viatar_id_heights_height_path_delete import (
+    DeleteHeightApiV2ViatarsViatarIdHeightsHeightPathDeleteResponseDeleteHeightApiV2ViatarsViatarIdHeightsHeightPathDelete,
+)
+from .delete_marker_api_v2_viatars_viatar_id_markers_marker_path_delete_response_delete_marker_api_v2_viatars_viatar_id_markers_marker_path_delete import (
+    DeleteMarkerApiV2ViatarsViatarIdMarkersMarkerPathDeleteResponseDeleteMarkerApiV2ViatarsViatarIdMarkersMarkerPathDelete,
+)
 from .delete_parameters_api_v2_parameters_parameters_id_delete_response_delete_parameters_api_v2_parameters_parameters_id_delete import (
     DeleteParametersApiV2ParametersParametersIdDeleteResponseDeleteParametersApiV2ParametersParametersIdDelete,
 )
 from .delete_preset_api_v2_presets_preset_id_delete_response_delete_preset_api_v2_presets_preset_id_delete import (
     DeletePresetApiV2PresetsPresetIdDeleteResponseDeletePresetApiV2PresetsPresetIdDelete,
 )
+from .delete_property_api_v2_viatars_viatar_id_properties_property_path_delete_response_delete_property_api_v2_viatars_viatar_id_properties_property_path_delete import (
+    DeletePropertyApiV2ViatarsViatarIdPropertiesPropertyPathDeleteResponseDeletePropertyApiV2ViatarsViatarIdPropertiesPropertyPathDelete,
+)
 from .delete_viatar_api_v2_viatars_viatar_id_delete_response_delete_viatar_api_v2_viatars_viatar_id_delete import (
     DeleteViatarApiV2ViatarsViatarIdDeleteResponseDeleteViatarApiV2ViatarsViatarIdDelete,
 )
 from .distance import Distance
+from .distance_detail import DistanceDetail
+from .distance_detail_details import DistanceDetailDetails
+from .distance_detail_distances_type_0 import DistanceDetailDistancesType0
 from .distance_distances_type_0 import DistanceDistancesType0
 from .export_options import ExportOptions
 from .export_options_avatar_3d_format_type_0 import ExportOptionsAvatar3DFormatType0
@@ -102,6 +138,8 @@ from .get_targets_api_v2_viatars_viatar_id_targets_get_response_get_targets_api_
     GetTargetsApiV2ViatarsViatarIdTargetsGetResponseGetTargetsApiV2ViatarsViatarIdTargetsGet,
 )
 from .height import Height
+from .height_detail import HeightDetail
+from .height_detail_details import HeightDetailDetails
 from .http_validation_error import HTTPValidationError
 from .image_set_2d_parameters import ImageSet2DParameters
 from .images import Images
@@ -204,11 +242,17 @@ __all__ = (
     "AnalyzedAvatar3DParameters",
     "Angle",
     "AngleAnglesType0",
+    "AngleDetail",
+    "AngleDetailAnglesType0",
+    "AngleDetailDetails",
     "Avatar3DParameters",
     "Avatar3DParametersClothingType0",
     "Avatar3DParametersModelType0",
     "Avatar3DParametersPoseType0",
     "Axis",
+    "AxisDetail",
+    "AxisDetailDetails",
+    "AxisDetailRotationType0",
     "AxisRotationType0",
     "BodyApitokenApiV2AuthentificationUsersUsernameApiTokenPost",
     "BodyApplyPresetApiV2ViatarsViatarIdPresetPut",
@@ -239,11 +283,27 @@ __all__ = (
     "CrosssectionAreasType0",
     "CrosssectionCircumferencesType0",
     "CrosssectionContoursType0",
+    "CrosssectionDetail",
+    "CrosssectionDetailAreasType0",
+    "CrosssectionDetailCircumferencesType0",
+    "CrosssectionDetailContoursType0",
+    "CrosssectionDetailDetails",
+    "CrosssectionDetailSkeletonPositionType0",
     "CrosssectionSkeletonPositionType0",
+    "DeleteAngleApiV2ViatarsViatarIdAnglesAnglePathDeleteResponseDeleteAngleApiV2ViatarsViatarIdAnglesAnglePathDelete",
+    "DeleteAxisApiV2ViatarsViatarIdAxesAxisPathDeleteResponseDeleteAxisApiV2ViatarsViatarIdAxesAxisPathDelete",
+    "DeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDeleteResponseDeleteCrosssectionApiV2ViatarsViatarIdCrosssectionsCrosssectionPathDelete",
+    "DeleteDistanceApiV2ViatarsViatarIdDistancesDistancePathDeleteResponseDeleteDistanceApiV2ViatarsViatarIdDistancesDistancePathDelete",
+    "DeleteHeightApiV2ViatarsViatarIdHeightsHeightPathDeleteResponseDeleteHeightApiV2ViatarsViatarIdHeightsHeightPathDelete",
+    "DeleteMarkerApiV2ViatarsViatarIdMarkersMarkerPathDeleteResponseDeleteMarkerApiV2ViatarsViatarIdMarkersMarkerPathDelete",
     "DeleteParametersApiV2ParametersParametersIdDeleteResponseDeleteParametersApiV2ParametersParametersIdDelete",
     "DeletePresetApiV2PresetsPresetIdDeleteResponseDeletePresetApiV2PresetsPresetIdDelete",
+    "DeletePropertyApiV2ViatarsViatarIdPropertiesPropertyPathDeleteResponseDeletePropertyApiV2ViatarsViatarIdPropertiesPropertyPathDelete",
     "DeleteViatarApiV2ViatarsViatarIdDeleteResponseDeleteViatarApiV2ViatarsViatarIdDelete",
     "Distance",
+    "DistanceDetail",
+    "DistanceDetailDetails",
+    "DistanceDetailDistancesType0",
     "DistanceDistancesType0",
     "ExportOptions",
     "ExportOptionsAvatar3DFormatType0",
@@ -258,6 +318,8 @@ __all__ = (
     "GetModelNamesApiV2ViatarsViatarIdModelsGetResponseGetModelNamesApiV2ViatarsViatarIdModelsGet",
     "GetTargetsApiV2ViatarsViatarIdTargetsGetResponseGetTargetsApiV2ViatarsViatarIdTargetsGet",
     "Height",
+    "HeightDetail",
+    "HeightDetailDetails",
     "HTTPValidationError",
     "Images",
     "ImageSet2DParameters",

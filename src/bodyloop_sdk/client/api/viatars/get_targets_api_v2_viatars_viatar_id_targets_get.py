@@ -76,7 +76,7 @@ def sync_detailed(
 ]:
     """Get Targets
 
-     Returns List of all target
+     Returns list of all targets
 
     Args:
         viatar_id (int):
@@ -111,7 +111,7 @@ def sync(
 ):
     """Get Targets
 
-     Returns List of all target
+     Returns list of all targets
 
     Args:
         viatar_id (int):
@@ -139,7 +139,7 @@ async def asyncio_detailed(
 ]:
     """Get Targets
 
-     Returns List of all target
+     Returns list of all targets
 
     Args:
         viatar_id (int):
@@ -172,7 +172,7 @@ async def asyncio(
 ):
     """Get Targets
 
-     Returns List of all target
+     Returns list of all targets
 
     Args:
         viatar_id (int):

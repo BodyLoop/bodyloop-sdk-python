@@ -26,11 +26,11 @@ class ParametersData:
 
     title: str | Unset = ""
     imageset_2d: ImageSet2DParameters | None | Unset = UNSET
-    observations: None | ObservationsParameters | Unset = UNSET
     mesh_3d: Mesh3DParameters | None | Unset = UNSET
     avatar_3d: Avatar3DParameters | None | Unset = UNSET
     analyzed_avatar_3d: AnalyzedAvatar3DParameters | None | Unset = UNSET
     report: None | ReportParameters | Unset = UNSET
+    observations: None | ObservationsParameters | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -50,14 +50,6 @@ class ParametersData:
             imageset_2d = self.imageset_2d.to_dict()
         else:
             imageset_2d = self.imageset_2d
-
-        observations: dict[str, Any] | None | Unset
-        if isinstance(self.observations, Unset):
-            observations = UNSET
-        elif isinstance(self.observations, ObservationsParameters):
-            observations = self.observations.to_dict()
-        else:
-            observations = self.observations
 
         mesh_3d: dict[str, Any] | None | Unset
         if isinstance(self.mesh_3d, Unset):
@@ -91,6 +83,14 @@ class ParametersData:
         else:
             report = self.report
 
+        observations: dict[str, Any] | None | Unset
+        if isinstance(self.observations, Unset):
+            observations = UNSET
+        elif isinstance(self.observations, ObservationsParameters):
+            observations = self.observations.to_dict()
+        else:
+            observations = self.observations
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
@@ -98,8 +98,6 @@ class ParametersData:
             field_dict["title"] = title
         if imageset_2d is not UNSET:
             field_dict["imageset_2d"] = imageset_2d
-        if observations is not UNSET:
-            field_dict["observations"] = observations
         if mesh_3d is not UNSET:
             field_dict["mesh_3d"] = mesh_3d
         if avatar_3d is not UNSET:
@@ -108,6 +106,8 @@ class ParametersData:
             field_dict["analyzed_avatar_3d"] = analyzed_avatar_3d
         if report is not UNSET:
             field_dict["report"] = report
+        if observations is not UNSET:
+            field_dict["observations"] = observations
 
         return field_dict
 
@@ -139,23 +139,6 @@ class ParametersData:
             return cast(ImageSet2DParameters | None | Unset, data)
 
         imageset_2d = _parse_imageset_2d(d.pop("imageset_2d", UNSET))
-
-        def _parse_observations(data: object) -> None | ObservationsParameters | Unset:
-            if data is None:
-                return data
-            if isinstance(data, Unset):
-                return data
-            try:
-                if not isinstance(data, dict):
-                    raise TypeError()
-                observations_type_0 = ObservationsParameters.from_dict(data)
-
-                return observations_type_0
-            except (TypeError, ValueError, AttributeError, KeyError):
-                pass
-            return cast(None | ObservationsParameters | Unset, data)
-
-        observations = _parse_observations(d.pop("observations", UNSET))
 
         def _parse_mesh_3d(data: object) -> Mesh3DParameters | None | Unset:
             if data is None:
@@ -225,14 +208,31 @@ class ParametersData:
 
         report = _parse_report(d.pop("report", UNSET))
 
+        def _parse_observations(data: object) -> None | ObservationsParameters | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                observations_type_0 = ObservationsParameters.from_dict(data)
+
+                return observations_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(None | ObservationsParameters | Unset, data)
+
+        observations = _parse_observations(d.pop("observations", UNSET))
+
         parameters_data = cls(
             title=title,
             imageset_2d=imageset_2d,
-            observations=observations,
             mesh_3d=mesh_3d,
             avatar_3d=avatar_3d,
             analyzed_avatar_3d=analyzed_avatar_3d,
             report=report,
+            observations=observations,
         )
 
         parameters_data.additional_properties = d
