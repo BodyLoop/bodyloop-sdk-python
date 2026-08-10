@@ -1,4 +1,4 @@
-from typing import Literal, cast
+from typing import Literal
 
 BodyStartTargetCreationApiV2SystemInitializationsScannerInitIdTargetsPostTargetKind = Literal["discover", "init"]
 
@@ -17,7 +17,7 @@ def check_body_start_target_creation_api_v2_system_initializations_scanner_init_
         value
         in BODY_START_TARGET_CREATION_API_V2_SYSTEM_INITIALIZATIONS_SCANNER_INIT_ID_TARGETS_POST_TARGET_KIND_VALUES
     ):
-        return cast(BodyStartTargetCreationApiV2SystemInitializationsScannerInitIdTargetsPostTargetKind, value)
+        return value
     raise TypeError(
         f"Unexpected value {value!r}. Expected one of {BODY_START_TARGET_CREATION_API_V2_SYSTEM_INITIALIZATIONS_SCANNER_INIT_ID_TARGETS_POST_TARGET_KIND_VALUES!r}"
     )

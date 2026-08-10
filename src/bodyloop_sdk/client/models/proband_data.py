@@ -6,13 +6,13 @@ from typing import TYPE_CHECKING, Any, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
-from dateutil.parser import isoparse
 
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.address import Address
     from ..models.contact import Contact
+    from ..models.proband_data_attributes_external_type_0 import ProbandDataAttributesExternalType0
     from ..models.upload_credentials import UploadCredentials
 
 
@@ -40,12 +40,14 @@ class ProbandData:
     note: None | str | Unset = UNSET
     sub: None | str | Unset = UNSET
     key_external: None | str | Unset = UNSET
+    attributes_external: None | ProbandDataAttributesExternalType0 | Unset = UNSET
     upload_credentials: None | Unset | UploadCredentials = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         from ..models.address import Address
         from ..models.contact import Contact
+        from ..models.proband_data_attributes_external_type_0 import ProbandDataAttributesExternalType0
         from ..models.upload_credentials import UploadCredentials
 
         name_given: None | str | Unset
@@ -108,6 +110,14 @@ class ProbandData:
         else:
             key_external = self.key_external
 
+        attributes_external: dict[str, Any] | None | Unset
+        if isinstance(self.attributes_external, Unset):
+            attributes_external = UNSET
+        elif isinstance(self.attributes_external, ProbandDataAttributesExternalType0):
+            attributes_external = self.attributes_external.to_dict()
+        else:
+            attributes_external = self.attributes_external
+
         upload_credentials: dict[str, Any] | None | Unset
         if isinstance(self.upload_credentials, Unset):
             upload_credentials = UNSET
@@ -137,6 +147,8 @@ class ProbandData:
             field_dict["sub"] = sub
         if key_external is not UNSET:
             field_dict["key_external"] = key_external
+        if attributes_external is not UNSET:
+            field_dict["attributes_external"] = attributes_external
         if upload_credentials is not UNSET:
             field_dict["upload_credentials"] = upload_credentials
 
@@ -146,6 +158,7 @@ class ProbandData:
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.address import Address
         from ..models.contact import Contact
+        from ..models.proband_data_attributes_external_type_0 import ProbandDataAttributesExternalType0
         from ..models.upload_credentials import UploadCredentials
 
         d = dict(src_dict)
@@ -176,7 +189,7 @@ class ProbandData:
             try:
                 if not isinstance(data, str):
                     raise TypeError()
-                date_of_birth_type_0 = isoparse(data).date()
+                date_of_birth_type_0 = datetime.date.fromisoformat(data)
 
                 return date_of_birth_type_0
             except (TypeError, ValueError, AttributeError, KeyError):
@@ -255,6 +268,23 @@ class ProbandData:
 
         key_external = _parse_key_external(d.pop("key_external", UNSET))
 
+        def _parse_attributes_external(data: object) -> None | ProbandDataAttributesExternalType0 | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                attributes_external_type_0 = ProbandDataAttributesExternalType0.from_dict(data)
+
+                return attributes_external_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(None | ProbandDataAttributesExternalType0 | Unset, data)
+
+        attributes_external = _parse_attributes_external(d.pop("attributes_external", UNSET))
+
         def _parse_upload_credentials(data: object) -> None | Unset | UploadCredentials:
             if data is None:
                 return data
@@ -282,6 +312,7 @@ class ProbandData:
             note=note,
             sub=sub,
             key_external=key_external,
+            attributes_external=attributes_external,
             upload_credentials=upload_credentials,
         )
 

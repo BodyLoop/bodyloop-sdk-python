@@ -1,43 +1,36 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from io import BytesIO
 from typing import Any, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from .. import types
-from ..types import UNSET, File, FileTypes, Unset
+from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="BodyUploadMesh3DApiV2ViatarsViatarIdTargetsMesh3DPost")
 
 
 @_attrs_define
 class BodyUploadMesh3DApiV2ViatarsViatarIdTargetsMesh3DPost:
-    mesh_3d: File
-    control_points: File | None | Unset = UNSET
-    registration: File | None | Unset = UNSET
+    mesh_3d: str
+    control_points: None | str | Unset = UNSET
+    registration: None | str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        mesh_3d = self.mesh_3d.to_tuple()
+        mesh_3d = self.mesh_3d
 
-        control_points: FileTypes | None | Unset
+        control_points: None | str | Unset
         if isinstance(self.control_points, Unset):
             control_points = UNSET
-        elif isinstance(self.control_points, File):
-            control_points = self.control_points.to_tuple()
-
         else:
             control_points = self.control_points
 
-        registration: FileTypes | None | Unset
+        registration: None | str | Unset
         if isinstance(self.registration, Unset):
             registration = UNSET
-        elif isinstance(self.registration, File):
-            registration = self.registration.to_tuple()
-
         else:
             registration = self.registration
 
@@ -58,17 +51,17 @@ class BodyUploadMesh3DApiV2ViatarsViatarIdTargetsMesh3DPost:
     def to_multipart(self) -> types.RequestFiles:
         files: types.RequestFiles = []
 
-        files.append(("mesh_3d", self.mesh_3d.to_tuple()))
+        files.append(("mesh_3d", (None, str(self.mesh_3d).encode(), "text/plain")))
 
         if not isinstance(self.control_points, Unset):
-            if isinstance(self.control_points, File):
-                files.append(("control_points", self.control_points.to_tuple()))
+            if isinstance(self.control_points, str):
+                files.append(("control_points", (None, str(self.control_points).encode(), "text/plain")))
             else:
                 files.append(("control_points", (None, str(self.control_points).encode(), "text/plain")))
 
         if not isinstance(self.registration, Unset):
-            if isinstance(self.registration, File):
-                files.append(("registration", self.registration.to_tuple()))
+            if isinstance(self.registration, str):
+                files.append(("registration", (None, str(self.registration).encode(), "text/plain")))
             else:
                 files.append(("registration", (None, str(self.registration).encode(), "text/plain")))
 
@@ -80,39 +73,23 @@ class BodyUploadMesh3DApiV2ViatarsViatarIdTargetsMesh3DPost:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        mesh_3d = File(payload=BytesIO(d.pop("mesh_3d")))
+        mesh_3d = d.pop("mesh_3d")
 
-        def _parse_control_points(data: object) -> File | None | Unset:
+        def _parse_control_points(data: object) -> None | str | Unset:
             if data is None:
                 return data
             if isinstance(data, Unset):
                 return data
-            try:
-                if not isinstance(data, bytes):
-                    raise TypeError()
-                control_points_type_0 = File(payload=BytesIO(data))
-
-                return control_points_type_0
-            except (TypeError, ValueError, AttributeError, KeyError):
-                pass
-            return cast(File | None | Unset, data)
+            return cast(None | str | Unset, data)
 
         control_points = _parse_control_points(d.pop("control_points", UNSET))
 
-        def _parse_registration(data: object) -> File | None | Unset:
+        def _parse_registration(data: object) -> None | str | Unset:
             if data is None:
                 return data
             if isinstance(data, Unset):
                 return data
-            try:
-                if not isinstance(data, bytes):
-                    raise TypeError()
-                registration_type_0 = File(payload=BytesIO(data))
-
-                return registration_type_0
-            except (TypeError, ValueError, AttributeError, KeyError):
-                pass
-            return cast(File | None | Unset, data)
+            return cast(None | str | Unset, data)
 
         registration = _parse_registration(d.pop("registration", UNSET))
 

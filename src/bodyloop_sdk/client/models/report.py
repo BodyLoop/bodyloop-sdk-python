@@ -6,7 +6,6 @@ from typing import TYPE_CHECKING, Any, Literal, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
-from dateutil.parser import isoparse
 
 from ..types import UNSET, Unset
 
@@ -331,7 +330,7 @@ class Report:
             try:
                 if not isinstance(data, str):
                     raise TypeError()
-                scan_timestamp_type_0 = isoparse(data)
+                scan_timestamp_type_0 = datetime.datetime.fromisoformat(data)
 
                 return scan_timestamp_type_0
             except (TypeError, ValueError, AttributeError, KeyError):

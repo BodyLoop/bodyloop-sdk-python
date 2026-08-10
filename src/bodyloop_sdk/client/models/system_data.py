@@ -15,6 +15,7 @@ from ..types import UNSET, Unset
 if TYPE_CHECKING:
     from ..models.external_authentification_settings import ExternalAuthentificationSettings
     from ..models.external_upload_settings import ExternalUploadSettings
+    from ..models.system_data_attributes_external_type_0 import SystemDataAttributesExternalType0
     from ..models.system_os_data import SystemOsData
 
 
@@ -27,6 +28,7 @@ class SystemData:
 
     note: None | str | Unset = UNSET
     key_external: None | str | Unset = UNSET
+    attributes_external: None | SystemDataAttributesExternalType0 | Unset = UNSET
     update_stream: None | SystemDataUpdateStreamType0 | Unset = UNSET
     active_scanner_initialization: int | None | Unset = UNSET
     external_upload: ExternalUploadSettings | None | Unset = UNSET
@@ -37,6 +39,7 @@ class SystemData:
     def to_dict(self) -> dict[str, Any]:
         from ..models.external_authentification_settings import ExternalAuthentificationSettings
         from ..models.external_upload_settings import ExternalUploadSettings
+        from ..models.system_data_attributes_external_type_0 import SystemDataAttributesExternalType0
         from ..models.system_os_data import SystemOsData
 
         note: None | str | Unset
@@ -50,6 +53,14 @@ class SystemData:
             key_external = UNSET
         else:
             key_external = self.key_external
+
+        attributes_external: dict[str, Any] | None | Unset
+        if isinstance(self.attributes_external, Unset):
+            attributes_external = UNSET
+        elif isinstance(self.attributes_external, SystemDataAttributesExternalType0):
+            attributes_external = self.attributes_external.to_dict()
+        else:
+            attributes_external = self.attributes_external
 
         update_stream: None | str | Unset
         if isinstance(self.update_stream, Unset):
@@ -96,6 +107,8 @@ class SystemData:
             field_dict["note"] = note
         if key_external is not UNSET:
             field_dict["key_external"] = key_external
+        if attributes_external is not UNSET:
+            field_dict["attributes_external"] = attributes_external
         if update_stream is not UNSET:
             field_dict["update_stream"] = update_stream
         if active_scanner_initialization is not UNSET:
@@ -113,6 +126,7 @@ class SystemData:
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.external_authentification_settings import ExternalAuthentificationSettings
         from ..models.external_upload_settings import ExternalUploadSettings
+        from ..models.system_data_attributes_external_type_0 import SystemDataAttributesExternalType0
         from ..models.system_os_data import SystemOsData
 
         d = dict(src_dict)
@@ -134,6 +148,23 @@ class SystemData:
             return cast(None | str | Unset, data)
 
         key_external = _parse_key_external(d.pop("key_external", UNSET))
+
+        def _parse_attributes_external(data: object) -> None | SystemDataAttributesExternalType0 | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                attributes_external_type_0 = SystemDataAttributesExternalType0.from_dict(data)
+
+                return attributes_external_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(None | SystemDataAttributesExternalType0 | Unset, data)
+
+        attributes_external = _parse_attributes_external(d.pop("attributes_external", UNSET))
 
         def _parse_update_stream(data: object) -> None | SystemDataUpdateStreamType0 | Unset:
             if data is None:
@@ -217,6 +248,7 @@ class SystemData:
         system_data = cls(
             note=note,
             key_external=key_external,
+            attributes_external=attributes_external,
             update_stream=update_stream,
             active_scanner_initialization=active_scanner_initialization,
             external_upload=external_upload,

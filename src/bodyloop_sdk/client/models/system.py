@@ -13,6 +13,7 @@ if TYPE_CHECKING:
     from ..models.external_authentification_settings import ExternalAuthentificationSettings
     from ..models.external_upload_settings import ExternalUploadSettings
     from ..models.meta import Meta
+    from ..models.system_attributes_external_type_0 import SystemAttributesExternalType0
     from ..models.system_os import SystemOs
 
 
@@ -25,6 +26,7 @@ class System:
 
     note: None | str | Unset = UNSET
     key_external: None | str | Unset = UNSET
+    attributes_external: None | SystemAttributesExternalType0 | Unset = UNSET
     update_stream: None | SystemUpdateStreamType0 | Unset = UNSET
     active_scanner_initialization: int | None | Unset = UNSET
     external_upload: ExternalUploadSettings | None | Unset = UNSET
@@ -37,6 +39,7 @@ class System:
         from ..models.external_authentification_settings import ExternalAuthentificationSettings
         from ..models.external_upload_settings import ExternalUploadSettings
         from ..models.meta import Meta
+        from ..models.system_attributes_external_type_0 import SystemAttributesExternalType0
         from ..models.system_os import SystemOs
 
         note: None | str | Unset
@@ -50,6 +53,14 @@ class System:
             key_external = UNSET
         else:
             key_external = self.key_external
+
+        attributes_external: dict[str, Any] | None | Unset
+        if isinstance(self.attributes_external, Unset):
+            attributes_external = UNSET
+        elif isinstance(self.attributes_external, SystemAttributesExternalType0):
+            attributes_external = self.attributes_external.to_dict()
+        else:
+            attributes_external = self.attributes_external
 
         update_stream: None | str | Unset
         if isinstance(self.update_stream, Unset):
@@ -104,6 +115,8 @@ class System:
             field_dict["note"] = note
         if key_external is not UNSET:
             field_dict["key_external"] = key_external
+        if attributes_external is not UNSET:
+            field_dict["attributes_external"] = attributes_external
         if update_stream is not UNSET:
             field_dict["update_stream"] = update_stream
         if active_scanner_initialization is not UNSET:
@@ -124,6 +137,7 @@ class System:
         from ..models.external_authentification_settings import ExternalAuthentificationSettings
         from ..models.external_upload_settings import ExternalUploadSettings
         from ..models.meta import Meta
+        from ..models.system_attributes_external_type_0 import SystemAttributesExternalType0
         from ..models.system_os import SystemOs
 
         d = dict(src_dict)
@@ -145,6 +159,23 @@ class System:
             return cast(None | str | Unset, data)
 
         key_external = _parse_key_external(d.pop("key_external", UNSET))
+
+        def _parse_attributes_external(data: object) -> None | SystemAttributesExternalType0 | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                attributes_external_type_0 = SystemAttributesExternalType0.from_dict(data)
+
+                return attributes_external_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(None | SystemAttributesExternalType0 | Unset, data)
+
+        attributes_external = _parse_attributes_external(d.pop("attributes_external", UNSET))
 
         def _parse_update_stream(data: object) -> None | SystemUpdateStreamType0 | Unset:
             if data is None:
@@ -245,6 +276,7 @@ class System:
         system = cls(
             note=note,
             key_external=key_external,
+            attributes_external=attributes_external,
             update_stream=update_stream,
             active_scanner_initialization=active_scanner_initialization,
             external_upload=external_upload,

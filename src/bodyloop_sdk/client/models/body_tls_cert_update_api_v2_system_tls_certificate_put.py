@@ -1,28 +1,26 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from io import BytesIO
 from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from .. import types
-from ..types import File
 
 T = TypeVar("T", bound="BodyTlsCertUpdateApiV2SystemTlsCertificatePut")
 
 
 @_attrs_define
 class BodyTlsCertUpdateApiV2SystemTlsCertificatePut:
-    cert_file: File
-    key_file: File
+    cert_file: str
+    key_file: str
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        cert_file = self.cert_file.to_tuple()
+        cert_file = self.cert_file
 
-        key_file = self.key_file.to_tuple()
+        key_file = self.key_file
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -38,9 +36,9 @@ class BodyTlsCertUpdateApiV2SystemTlsCertificatePut:
     def to_multipart(self) -> types.RequestFiles:
         files: types.RequestFiles = []
 
-        files.append(("cert_file", self.cert_file.to_tuple()))
+        files.append(("cert_file", (None, str(self.cert_file).encode(), "text/plain")))
 
-        files.append(("key_file", self.key_file.to_tuple()))
+        files.append(("key_file", (None, str(self.key_file).encode(), "text/plain")))
 
         for prop_name, prop in self.additional_properties.items():
             files.append((prop_name, (None, str(prop).encode(), "text/plain")))
@@ -50,9 +48,9 @@ class BodyTlsCertUpdateApiV2SystemTlsCertificatePut:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        cert_file = File(payload=BytesIO(d.pop("cert_file")))
+        cert_file = d.pop("cert_file")
 
-        key_file = File(payload=BytesIO(d.pop("key_file")))
+        key_file = d.pop("key_file")
 
         body_tls_cert_update_api_v2_system_tls_certificate_put = cls(
             cert_file=cert_file,

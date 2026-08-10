@@ -33,6 +33,7 @@ class ExportOptions:
 
     measurements_format: ExportOptionsMeasurementsFormatType0 | None | Unset = UNSET
     contour_format: Literal["svg"] | None | Unset = UNSET
+    scatter_format: Literal["png"] | None | Unset = UNSET
     mesh_3d_format: ExportOptionsMesh3DFormatType0 | None | Unset = UNSET
     avatar_3d_format: ExportOptionsAvatar3DFormatType0 | None | Unset = UNSET
     view_format: ExportOptionsViewFormatType0 | None | Unset = UNSET
@@ -52,6 +53,12 @@ class ExportOptions:
             contour_format = UNSET
         else:
             contour_format = self.contour_format
+
+        scatter_format: Literal["png"] | None | Unset
+        if isinstance(self.scatter_format, Unset):
+            scatter_format = UNSET
+        else:
+            scatter_format = self.scatter_format
 
         mesh_3d_format: None | str | Unset
         if isinstance(self.mesh_3d_format, Unset):
@@ -84,6 +91,8 @@ class ExportOptions:
             field_dict["measurements_format"] = measurements_format
         if contour_format is not UNSET:
             field_dict["contour_format"] = contour_format
+        if scatter_format is not UNSET:
+            field_dict["scatter_format"] = scatter_format
         if mesh_3d_format is not UNSET:
             field_dict["mesh_3d_format"] = mesh_3d_format
         if avatar_3d_format is not UNSET:
@@ -126,6 +135,19 @@ class ExportOptions:
             return cast(Literal["svg"] | None | Unset, data)
 
         contour_format = _parse_contour_format(d.pop("contour_format", UNSET))
+
+        def _parse_scatter_format(data: object) -> Literal["png"] | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            scatter_format_type_0 = cast(Literal["png"], data)
+            if scatter_format_type_0 != "png":
+                raise ValueError(f"scatter_format_type_0 must match const 'png', got '{scatter_format_type_0}'")
+            return scatter_format_type_0
+            return cast(Literal["png"] | None | Unset, data)
+
+        scatter_format = _parse_scatter_format(d.pop("scatter_format", UNSET))
 
         def _parse_mesh_3d_format(data: object) -> ExportOptionsMesh3DFormatType0 | None | Unset:
             if data is None:
@@ -181,6 +203,7 @@ class ExportOptions:
         export_options = cls(
             measurements_format=measurements_format,
             contour_format=contour_format,
+            scatter_format=scatter_format,
             mesh_3d_format=mesh_3d_format,
             avatar_3d_format=avatar_3d_format,
             view_format=view_format,

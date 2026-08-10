@@ -6,7 +6,6 @@ from typing import Any, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
-from dateutil.parser import isoparse
 
 from ..types import UNSET, Unset
 
@@ -19,6 +18,7 @@ class Meta:
 
     crtime: datetime.datetime | None | Unset = UNSET
     mtime: datetime.datetime | None | Unset = UNSET
+    dtime: datetime.datetime | None | Unset = UNSET
     info: None | str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -39,6 +39,14 @@ class Meta:
         else:
             mtime = self.mtime
 
+        dtime: None | str | Unset
+        if isinstance(self.dtime, Unset):
+            dtime = UNSET
+        elif isinstance(self.dtime, datetime.datetime):
+            dtime = self.dtime.isoformat()
+        else:
+            dtime = self.dtime
+
         info: None | str | Unset
         if isinstance(self.info, Unset):
             info = UNSET
@@ -52,6 +60,8 @@ class Meta:
             field_dict["crtime"] = crtime
         if mtime is not UNSET:
             field_dict["mtime"] = mtime
+        if dtime is not UNSET:
+            field_dict["dtime"] = dtime
         if info is not UNSET:
             field_dict["info"] = info
 
@@ -69,7 +79,7 @@ class Meta:
             try:
                 if not isinstance(data, str):
                     raise TypeError()
-                crtime_type_0 = isoparse(data)
+                crtime_type_0 = datetime.datetime.fromisoformat(data)
 
                 return crtime_type_0
             except (TypeError, ValueError, AttributeError, KeyError):
@@ -86,7 +96,7 @@ class Meta:
             try:
                 if not isinstance(data, str):
                     raise TypeError()
-                mtime_type_0 = isoparse(data)
+                mtime_type_0 = datetime.datetime.fromisoformat(data)
 
                 return mtime_type_0
             except (TypeError, ValueError, AttributeError, KeyError):
@@ -94,6 +104,23 @@ class Meta:
             return cast(datetime.datetime | None | Unset, data)
 
         mtime = _parse_mtime(d.pop("mtime", UNSET))
+
+        def _parse_dtime(data: object) -> datetime.datetime | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                dtime_type_0 = datetime.datetime.fromisoformat(data)
+
+                return dtime_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(datetime.datetime | None | Unset, data)
+
+        dtime = _parse_dtime(d.pop("dtime", UNSET))
 
         def _parse_info(data: object) -> None | str | Unset:
             if data is None:
@@ -107,6 +134,7 @@ class Meta:
         meta = cls(
             crtime=crtime,
             mtime=mtime,
+            dtime=dtime,
             info=info,
         )
 

@@ -70,13 +70,13 @@ def sync_detailed(
      Create a viatar (**C**RUD)
 
     Args:
-        body (ViatarData): Summary of ViatarData Example: {'note': 'A default viatar.',
-            'observations': {}, 'parameters': {'analyzed_avatar_3d': {'orphaned_palpation_marker':
-            True, 'palp_snap_distance': 0.05, 'preset_id': -1}, 'avatar_3d': {'clothing': 'Tight',
-            'model': 'No Model', 'reverse': False}, 'imageset_2d': {'exposure_time': 30000,
-            'keep_images': False, 'projector_brightness': 83, 'ring_brightness': 40}, 'mesh_3d':
-            {'detail': 'High', 'texture': True}, 'observations': {'weight': {}}, 'report': {'preset':
-            'Default'}, 'title': ''}}.
+        body (ViatarData):  Example: {'note': 'A default viatar.', 'observations': {},
+            'parameters': {'analyzed_avatar_3d': {'orphaned_palpation_marker': True,
+            'palp_snap_distance': 0.05, 'preset_id': -1}, 'avatar_3d': {'clothing': 'Tight', 'model':
+            'No Model', 'reverse': False}, 'imageset_2d': {'exposure_time': 30000, 'keep_images':
+            False, 'projector_brightness': 83, 'ring_brightness': 40}, 'mesh_3d': {'detail': 'High',
+            'texture': True}, 'observations': {'weight': {}}, 'report': {'preset': 'Default'},
+            'title': ''}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -107,13 +107,13 @@ def sync(
      Create a viatar (**C**RUD)
 
     Args:
-        body (ViatarData): Summary of ViatarData Example: {'note': 'A default viatar.',
-            'observations': {}, 'parameters': {'analyzed_avatar_3d': {'orphaned_palpation_marker':
-            True, 'palp_snap_distance': 0.05, 'preset_id': -1}, 'avatar_3d': {'clothing': 'Tight',
-            'model': 'No Model', 'reverse': False}, 'imageset_2d': {'exposure_time': 30000,
-            'keep_images': False, 'projector_brightness': 83, 'ring_brightness': 40}, 'mesh_3d':
-            {'detail': 'High', 'texture': True}, 'observations': {'weight': {}}, 'report': {'preset':
-            'Default'}, 'title': ''}}.
+        body (ViatarData):  Example: {'note': 'A default viatar.', 'observations': {},
+            'parameters': {'analyzed_avatar_3d': {'orphaned_palpation_marker': True,
+            'palp_snap_distance': 0.05, 'preset_id': -1}, 'avatar_3d': {'clothing': 'Tight', 'model':
+            'No Model', 'reverse': False}, 'imageset_2d': {'exposure_time': 30000, 'keep_images':
+            False, 'projector_brightness': 83, 'ring_brightness': 40}, 'mesh_3d': {'detail': 'High',
+            'texture': True}, 'observations': {'weight': {}}, 'report': {'preset': 'Default'},
+            'title': ''}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -139,13 +139,13 @@ async def asyncio_detailed(
      Create a viatar (**C**RUD)
 
     Args:
-        body (ViatarData): Summary of ViatarData Example: {'note': 'A default viatar.',
-            'observations': {}, 'parameters': {'analyzed_avatar_3d': {'orphaned_palpation_marker':
-            True, 'palp_snap_distance': 0.05, 'preset_id': -1}, 'avatar_3d': {'clothing': 'Tight',
-            'model': 'No Model', 'reverse': False}, 'imageset_2d': {'exposure_time': 30000,
-            'keep_images': False, 'projector_brightness': 83, 'ring_brightness': 40}, 'mesh_3d':
-            {'detail': 'High', 'texture': True}, 'observations': {'weight': {}}, 'report': {'preset':
-            'Default'}, 'title': ''}}.
+        body (ViatarData):  Example: {'note': 'A default viatar.', 'observations': {},
+            'parameters': {'analyzed_avatar_3d': {'orphaned_palpation_marker': True,
+            'palp_snap_distance': 0.05, 'preset_id': -1}, 'avatar_3d': {'clothing': 'Tight', 'model':
+            'No Model', 'reverse': False}, 'imageset_2d': {'exposure_time': 30000, 'keep_images':
+            False, 'projector_brightness': 83, 'ring_brightness': 40}, 'mesh_3d': {'detail': 'High',
+            'texture': True}, 'observations': {'weight': {}}, 'report': {'preset': 'Default'},
+            'title': ''}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -174,13 +174,13 @@ async def asyncio(
      Create a viatar (**C**RUD)
 
     Args:
-        body (ViatarData): Summary of ViatarData Example: {'note': 'A default viatar.',
-            'observations': {}, 'parameters': {'analyzed_avatar_3d': {'orphaned_palpation_marker':
-            True, 'palp_snap_distance': 0.05, 'preset_id': -1}, 'avatar_3d': {'clothing': 'Tight',
-            'model': 'No Model', 'reverse': False}, 'imageset_2d': {'exposure_time': 30000,
-            'keep_images': False, 'projector_brightness': 83, 'ring_brightness': 40}, 'mesh_3d':
-            {'detail': 'High', 'texture': True}, 'observations': {'weight': {}}, 'report': {'preset':
-            'Default'}, 'title': ''}}.
+        body (ViatarData):  Example: {'note': 'A default viatar.', 'observations': {},
+            'parameters': {'analyzed_avatar_3d': {'orphaned_palpation_marker': True,
+            'palp_snap_distance': 0.05, 'preset_id': -1}, 'avatar_3d': {'clothing': 'Tight', 'model':
+            'No Model', 'reverse': False}, 'imageset_2d': {'exposure_time': 30000, 'keep_images':
+            False, 'projector_brightness': 83, 'ring_brightness': 40}, 'mesh_3d': {'detail': 'High',
+            'texture': True}, 'observations': {'weight': {}}, 'report': {'preset': 'Default'},
+            'title': ''}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

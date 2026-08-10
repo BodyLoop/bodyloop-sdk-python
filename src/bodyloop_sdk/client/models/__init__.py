@@ -122,6 +122,9 @@ from .export_options_mesh_3d_format_type_0 import ExportOptionsMesh3DFormatType0
 from .export_options_view_format_type_0 import ExportOptionsViewFormatType0
 from .external_authentification_settings import ExternalAuthentificationSettings
 from .external_upload_settings import ExternalUploadSettings
+from .get_event_count_api_v2_statistic_count_get_response_get_event_count_api_v2_statistic_count_get import (
+    GetEventCountApiV2StatisticCountGetResponseGetEventCountApiV2StatisticCountGet,
+)
 from .get_image_api_v2_viatars_viatar_id_images_image_type_image_name_get_image_type import (
     GetImageApiV2ViatarsViatarIdImagesImageTypeImageNameGetImageType,
 )
@@ -162,9 +165,13 @@ from .observations_parameters import ObservationsParameters
 from .parameters import Parameters
 from .parameters_data import ParametersData
 from .preset import Preset
+from .preset_attributes_external_type_0 import PresetAttributesExternalType0
 from .proband import Proband
+from .proband_attributes_external_type_0 import ProbandAttributesExternalType0
 from .proband_data import ProbandData
+from .proband_data_attributes_external_type_0 import ProbandDataAttributesExternalType0
 from .proband_detail import ProbandDetail
+from .proband_detail_attributes_external_type_0 import ProbandDetailAttributesExternalType0
 from .property_ import Property
 from .report import Report
 from .report_parameters import ReportParameters
@@ -186,7 +193,9 @@ from .state_backend_state import StateBackendState
 from .state_general_state import StateGeneralState
 from .state_initialization_state import StateInitializationState
 from .system import System
+from .system_attributes_external_type_0 import SystemAttributesExternalType0
 from .system_data import SystemData
+from .system_data_attributes_external_type_0 import SystemDataAttributesExternalType0
 from .system_data_update_stream_type_0 import SystemDataUpdateStreamType0
 from .system_os import SystemOs
 from .system_os_data import SystemOsData
@@ -212,29 +221,16 @@ from .user_data import UserData
 from .user_data_user_group import UserDataUserGroup
 from .user_user_group import UserUserGroup
 from .validation_error import ValidationError
+from .validation_error_context import ValidationErrorContext
 from .viatar import Viatar
-from .viatar_angles_type_0 import ViatarAnglesType0
-from .viatar_axes_type_0 import ViatarAxesType0
-from .viatar_crosssections_type_0 import ViatarCrosssectionsType0
+from .viatar_attributes_external_type_0 import ViatarAttributesExternalType0
 from .viatar_data import ViatarData
-from .viatar_data_angles_type_0 import ViatarDataAnglesType0
-from .viatar_data_axes_type_0 import ViatarDataAxesType0
-from .viatar_data_crosssections_type_0 import ViatarDataCrosssectionsType0
-from .viatar_data_distances_type_0 import ViatarDataDistancesType0
-from .viatar_data_heights_type_0 import ViatarDataHeightsType0
-from .viatar_data_markers_type_0 import ViatarDataMarkersType0
-from .viatar_data_markers_type_0_additional_property import ViatarDataMarkersType0AdditionalProperty
+from .viatar_data_attributes_external_type_0 import ViatarDataAttributesExternalType0
 from .viatar_data_observations_type_0 import ViatarDataObservationsType0
-from .viatar_data_properties_type_0 import ViatarDataPropertiesType0
 from .viatar_data_series import ViatarDataSeries
 from .viatar_data_series_crosssections_type_0 import ViatarDataSeriesCrosssectionsType0
 from .viatar_data_targets_type_0 import ViatarDataTargetsType0
-from .viatar_distances_type_0 import ViatarDistancesType0
-from .viatar_heights_type_0 import ViatarHeightsType0
-from .viatar_markers_type_0 import ViatarMarkersType0
-from .viatar_markers_type_0_additional_property import ViatarMarkersType0AdditionalProperty
 from .viatar_observations_type_0 import ViatarObservationsType0
-from .viatar_properties_type_0 import ViatarPropertiesType0
 from .viatar_targets_type_0 import ViatarTargetsType0
 
 __all__ = (
@@ -312,6 +308,7 @@ __all__ = (
     "ExportOptionsViewFormatType0",
     "ExternalAuthentificationSettings",
     "ExternalUploadSettings",
+    "GetEventCountApiV2StatisticCountGetResponseGetEventCountApiV2StatisticCountGet",
     "GetImageApiV2ViatarsViatarIdImagesImageTypeImageNameGetImageType",
     "GetImageNamesApiV2ViatarsViatarIdImagesGetResponseGetImageNamesApiV2ViatarsViatarIdImagesGet",
     "GetInitializationStatusApiV2SystemInitializationsScannerInitIdTargetsGetResponseGetInitializationStatusApiV2SystemInitializationsScannerInitIdTargetsGet",
@@ -342,9 +339,13 @@ __all__ = (
     "Parameters",
     "ParametersData",
     "Preset",
+    "PresetAttributesExternalType0",
     "Proband",
+    "ProbandAttributesExternalType0",
     "ProbandData",
+    "ProbandDataAttributesExternalType0",
     "ProbandDetail",
+    "ProbandDetailAttributesExternalType0",
     "Property",
     "Report",
     "ReportParameters",
@@ -362,7 +363,9 @@ __all__ = (
     "StateGeneralState",
     "StateInitializationState",
     "System",
+    "SystemAttributesExternalType0",
     "SystemData",
+    "SystemDataAttributesExternalType0",
     "SystemDataUpdateStreamType0",
     "SystemOs",
     "SystemOsData",
@@ -384,28 +387,15 @@ __all__ = (
     "UserDataUserGroup",
     "UserUserGroup",
     "ValidationError",
+    "ValidationErrorContext",
     "Viatar",
-    "ViatarAnglesType0",
-    "ViatarAxesType0",
-    "ViatarCrosssectionsType0",
+    "ViatarAttributesExternalType0",
     "ViatarData",
-    "ViatarDataAnglesType0",
-    "ViatarDataAxesType0",
-    "ViatarDataCrosssectionsType0",
-    "ViatarDataDistancesType0",
-    "ViatarDataHeightsType0",
-    "ViatarDataMarkersType0",
-    "ViatarDataMarkersType0AdditionalProperty",
+    "ViatarDataAttributesExternalType0",
     "ViatarDataObservationsType0",
-    "ViatarDataPropertiesType0",
     "ViatarDataSeries",
     "ViatarDataSeriesCrosssectionsType0",
     "ViatarDataTargetsType0",
-    "ViatarDistancesType0",
-    "ViatarHeightsType0",
-    "ViatarMarkersType0",
-    "ViatarMarkersType0AdditionalProperty",
     "ViatarObservationsType0",
-    "ViatarPropertiesType0",
     "ViatarTargetsType0",
 )

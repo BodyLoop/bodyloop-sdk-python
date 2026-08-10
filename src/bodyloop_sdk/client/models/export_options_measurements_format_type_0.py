@@ -1,4 +1,4 @@
-from typing import Literal, cast
+from typing import Literal
 
 ExportOptionsMeasurementsFormatType0 = Literal["csv", "json"]
 
@@ -10,5 +10,5 @@ EXPORT_OPTIONS_MEASUREMENTS_FORMAT_TYPE_0_VALUES: set[ExportOptionsMeasurementsF
 
 def check_export_options_measurements_format_type_0(value: str) -> ExportOptionsMeasurementsFormatType0:
     if value in EXPORT_OPTIONS_MEASUREMENTS_FORMAT_TYPE_0_VALUES:
-        return cast(ExportOptionsMeasurementsFormatType0, value)
+        return value
     raise TypeError(f"Unexpected value {value!r}. Expected one of {EXPORT_OPTIONS_MEASUREMENTS_FORMAT_TYPE_0_VALUES!r}")

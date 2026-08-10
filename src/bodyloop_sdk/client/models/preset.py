@@ -16,6 +16,7 @@ if TYPE_CHECKING:
     from ..models.height import Height
     from ..models.marker import Marker
     from ..models.meta import Meta
+    from ..models.preset_attributes_external_type_0 import PresetAttributesExternalType0
     from ..models.property_ import Property
 
 
@@ -39,11 +40,13 @@ class Preset:
     label: None | str | Unset = UNSET
     note: None | str | Unset = UNSET
     key_external: None | str | Unset = UNSET
+    attributes_external: None | PresetAttributesExternalType0 | Unset = UNSET
     meta: Meta | None | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         from ..models.meta import Meta
+        from ..models.preset_attributes_external_type_0 import PresetAttributesExternalType0
 
         preset_id = self.preset_id
 
@@ -128,6 +131,14 @@ class Preset:
         else:
             key_external = self.key_external
 
+        attributes_external: dict[str, Any] | None | Unset
+        if isinstance(self.attributes_external, Unset):
+            attributes_external = UNSET
+        elif isinstance(self.attributes_external, PresetAttributesExternalType0):
+            attributes_external = self.attributes_external.to_dict()
+        else:
+            attributes_external = self.attributes_external
+
         meta: dict[str, Any] | None | Unset
         if isinstance(self.meta, Unset):
             meta = UNSET
@@ -167,6 +178,8 @@ class Preset:
             field_dict["note"] = note
         if key_external is not UNSET:
             field_dict["key_external"] = key_external
+        if attributes_external is not UNSET:
+            field_dict["attributes_external"] = attributes_external
         if meta is not UNSET:
             field_dict["meta"] = meta
 
@@ -181,6 +194,7 @@ class Preset:
         from ..models.height import Height
         from ..models.marker import Marker
         from ..models.meta import Meta
+        from ..models.preset_attributes_external_type_0 import PresetAttributesExternalType0
         from ..models.property_ import Property
 
         d = dict(src_dict)
@@ -294,6 +308,23 @@ class Preset:
 
         key_external = _parse_key_external(d.pop("key_external", UNSET))
 
+        def _parse_attributes_external(data: object) -> None | PresetAttributesExternalType0 | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                attributes_external_type_0 = PresetAttributesExternalType0.from_dict(data)
+
+                return attributes_external_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(None | PresetAttributesExternalType0 | Unset, data)
+
+        attributes_external = _parse_attributes_external(d.pop("attributes_external", UNSET))
+
         def _parse_meta(data: object) -> Meta | None | Unset:
             if data is None:
                 return data
@@ -325,6 +356,7 @@ class Preset:
             label=label,
             note=note,
             key_external=key_external,
+            attributes_external=attributes_external,
             meta=meta,
         )
 

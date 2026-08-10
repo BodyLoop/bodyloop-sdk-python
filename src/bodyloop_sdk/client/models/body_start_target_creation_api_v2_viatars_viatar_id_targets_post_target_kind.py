@@ -1,4 +1,4 @@
-from typing import Literal, cast
+from typing import Literal
 
 BodyStartTargetCreationApiV2ViatarsViatarIdTargetsPostTargetKind = Literal[
     "analyzed_avatar_3d", "avatar_3d", "coarse_pointcloud_3d", "imageset_2d", "mesh_3d", "report"
@@ -20,7 +20,7 @@ def check_body_start_target_creation_api_v2_viatars_viatar_id_targets_post_targe
     value: str,
 ) -> BodyStartTargetCreationApiV2ViatarsViatarIdTargetsPostTargetKind:
     if value in BODY_START_TARGET_CREATION_API_V2_VIATARS_VIATAR_ID_TARGETS_POST_TARGET_KIND_VALUES:
-        return cast(BodyStartTargetCreationApiV2ViatarsViatarIdTargetsPostTargetKind, value)
+        return value
     raise TypeError(
         f"Unexpected value {value!r}. Expected one of {BODY_START_TARGET_CREATION_API_V2_VIATARS_VIATAR_ID_TARGETS_POST_TARGET_KIND_VALUES!r}"
     )

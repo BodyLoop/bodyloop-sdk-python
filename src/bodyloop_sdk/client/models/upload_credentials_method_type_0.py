@@ -1,4 +1,4 @@
-from typing import Literal, cast
+from typing import Literal
 
 UploadCredentialsMethodType0 = Literal["POST", "PUT"]
 
@@ -10,5 +10,5 @@ UPLOAD_CREDENTIALS_METHOD_TYPE_0_VALUES: set[UploadCredentialsMethodType0] = {
 
 def check_upload_credentials_method_type_0(value: str) -> UploadCredentialsMethodType0:
     if value in UPLOAD_CREDENTIALS_METHOD_TYPE_0_VALUES:
-        return cast(UploadCredentialsMethodType0, value)
+        return value
     raise TypeError(f"Unexpected value {value!r}. Expected one of {UPLOAD_CREDENTIALS_METHOD_TYPE_0_VALUES!r}")
