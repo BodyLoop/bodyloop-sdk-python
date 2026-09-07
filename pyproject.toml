@@ -12,6 +12,14 @@ dependencies = [
     "python-dateutil>=2.9.0.post0",
 ]
 
+[project.optional-dependencies]
+# Only needed for `bodyloop_sdk.bodyloop_client_panel`; install with
+# `pip install bodyloop-sdk[panel]`.
+panel = [
+    "panel>=1.9.4",
+    "param>=2.0.0",
+]
+
 [project.urls]
 Homepage = "https://github.com/BodyLoop/bodyloop-pypi"
 Repository = "https://github.com/BodyLoop/bodyloop-pypi"
@@ -37,5 +45,6 @@ testpaths = ["tests"]
 
 [dependency-groups]
 dev = [
+    "bodyloop-sdk[panel]",
     "pytest>=8.0.0",
 ]
