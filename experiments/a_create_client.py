@@ -22,7 +22,8 @@ client = AuthenticatedClient(
     base_url=base_url,
     verify_ssl=False,
     token=api_token,
-    timeout=10.0
+    timeout=10.0,
+    raise_on_unexpected_status=True
 )
 
 print(f"Client configured for: {base_url}")

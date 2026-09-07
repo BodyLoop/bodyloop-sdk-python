@@ -122,8 +122,15 @@ git push --tags
 - Create a new GitHub release based on that tag, baptize the release identical to the tag and add release notes. You can use the web frontend or the GitHub CLI:
 
 ```bash
-gh release create v2026.04.13.2 --title "v2026.04.13.2" --notes "Release notes here"
+version=$(git tag | tail -1)
+
+gh release create $version --title $version --notes "Release notes here"
 ```
+
+Double-check that ...
+
+- GitHub Actions release run starts and runs through green at https://github.com/BodyLoop/bodyloop-sdk-python/actions
+- Package has been arrived at https://pypi.org/project/bodyloop-sdk/
 
 ## License
 
