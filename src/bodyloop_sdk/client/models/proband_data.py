@@ -45,10 +45,10 @@ class ProbandData:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.address import Address
-        from ..models.contact import Contact
-        from ..models.proband_data_attributes_external_type_0 import ProbandDataAttributesExternalType0
-        from ..models.upload_credentials import UploadCredentials
+        from ..models.address import Address  # noqa: PLC0415
+        from ..models.contact import Contact  # noqa: PLC0415
+        from ..models.proband_data_attributes_external_type_0 import ProbandDataAttributesExternalType0  # noqa: PLC0415
+        from ..models.upload_credentials import UploadCredentials  # noqa: PLC0415
 
         name_given: None | str | Unset
         if isinstance(self.name_given, Unset):
@@ -156,10 +156,10 @@ class ProbandData:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.address import Address
-        from ..models.contact import Contact
-        from ..models.proband_data_attributes_external_type_0 import ProbandDataAttributesExternalType0
-        from ..models.upload_credentials import UploadCredentials
+        from ..models.address import Address  # noqa: PLC0415
+        from ..models.contact import Contact  # noqa: PLC0415
+        from ..models.proband_data_attributes_external_type_0 import ProbandDataAttributesExternalType0  # noqa: PLC0415
+        from ..models.upload_credentials import UploadCredentials  # noqa: PLC0415
 
         d = dict(src_dict)
 

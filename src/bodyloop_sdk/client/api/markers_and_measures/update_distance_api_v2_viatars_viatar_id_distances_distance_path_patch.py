@@ -79,7 +79,8 @@ def sync_detailed(
         distance_path (str):
         body (Distance): Distance representation between two markers Example: {'distance_path':
             'custom.path.M', 'from_marker': 'marker_a', 'hidden': False, 'key_external': '', 'label':
-            'Descriptive label', 'note': 'Meaningful description...', 'to_marker': 'marker_b'}.
+            'Descriptive label', 'note': 'Meaningful description...', 'preference': 'linear',
+            'to_marker': 'marker_b'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -116,7 +117,8 @@ def sync(
         distance_path (str):
         body (Distance): Distance representation between two markers Example: {'distance_path':
             'custom.path.M', 'from_marker': 'marker_a', 'hidden': False, 'key_external': '', 'label':
-            'Descriptive label', 'note': 'Meaningful description...', 'to_marker': 'marker_b'}.
+            'Descriptive label', 'note': 'Meaningful description...', 'preference': 'linear',
+            'to_marker': 'marker_b'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -148,7 +150,8 @@ async def asyncio_detailed(
         distance_path (str):
         body (Distance): Distance representation between two markers Example: {'distance_path':
             'custom.path.M', 'from_marker': 'marker_a', 'hidden': False, 'key_external': '', 'label':
-            'Descriptive label', 'note': 'Meaningful description...', 'to_marker': 'marker_b'}.
+            'Descriptive label', 'note': 'Meaningful description...', 'preference': 'linear',
+            'to_marker': 'marker_b'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -183,7 +186,8 @@ async def asyncio(
         distance_path (str):
         body (Distance): Distance representation between two markers Example: {'distance_path':
             'custom.path.M', 'from_marker': 'marker_a', 'hidden': False, 'key_external': '', 'label':
-            'Descriptive label', 'note': 'Meaningful description...', 'to_marker': 'marker_b'}.
+            'Descriptive label', 'note': 'Meaningful description...', 'preference': 'linear',
+            'to_marker': 'marker_b'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

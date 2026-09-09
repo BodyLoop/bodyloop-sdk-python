@@ -25,7 +25,7 @@ class SystemOs:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.system_os_network_interfaces_type_0 import SystemOsNetworkInterfacesType0
+        from ..models.system_os_network_interfaces_type_0 import SystemOsNetworkInterfacesType0  # noqa: PLC0415
 
         keyboard_layout: None | str | Unset
         if isinstance(self.keyboard_layout, Unset):
@@ -61,7 +61,7 @@ class SystemOs:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.system_os_network_interfaces_type_0 import SystemOsNetworkInterfacesType0
+        from ..models.system_os_network_interfaces_type_0 import SystemOsNetworkInterfacesType0  # noqa: PLC0415
 
         d = dict(src_dict)
 

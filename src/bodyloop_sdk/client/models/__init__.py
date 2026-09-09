@@ -7,6 +7,8 @@ from .angle_angles_type_0 import AngleAnglesType0
 from .angle_detail import AngleDetail
 from .angle_detail_angles_type_0 import AngleDetailAnglesType0
 from .angle_detail_details import AngleDetailDetails
+from .angle_detail_preference_type_0 import AngleDetailPreferenceType0
+from .angle_preference_type_0 import AnglePreferenceType0
 from .avatar_3d_parameters import Avatar3DParameters
 from .avatar_3d_parameters_clothing_type_0 import Avatar3DParametersClothingType0
 from .avatar_3d_parameters_model_type_0 import Avatar3DParametersModelType0
@@ -20,6 +22,9 @@ from .body_apitoken_api_v2_authentification_users_username_api_token_post import
     BodyApitokenApiV2AuthentificationUsersUsernameApiTokenPost,
 )
 from .body_apply_preset_api_v2_viatars_viatar_id_preset_put import BodyApplyPresetApiV2ViatarsViatarIdPresetPut
+from .body_capture_camera_image_api_v2_system_cameras_camera_capture_post import (
+    BodyCaptureCameraImageApiV2SystemCamerasCameraCapturePost,
+)
 from .body_create_first_admin_api_v2_authentification_users_first_admin_post import (
     BodyCreateFirstAdminApiV2AuthentificationUsersFirstAdminPost,
 )
@@ -37,6 +42,10 @@ from .body_patch_update_stream_api_v2_system_update_update_stream_patch import (
 from .body_patch_update_stream_api_v2_system_update_update_stream_patch_update_stream import (
     BodyPatchUpdateStreamApiV2SystemUpdateUpdateStreamPatchUpdateStream,
 )
+from .body_set_event_api_v2_statistic_event_post import BodySetEventApiV2StatisticEventPost
+from .body_set_event_api_v2_statistic_event_post_event_status_type_0 import (
+    BodySetEventApiV2StatisticEventPostEventStatusType0,
+)
 from .body_start_target_creation_api_v2_system_initializations_scanner_init_id_targets_post import (
     BodyStartTargetCreationApiV2SystemInitializationsScannerInitIdTargetsPost,
 )
@@ -52,12 +61,19 @@ from .body_start_target_creation_api_v2_viatars_viatar_id_targets_post import (
 from .body_start_target_creation_api_v2_viatars_viatar_id_targets_post_target_kind import (
     BodyStartTargetCreationApiV2ViatarsViatarIdTargetsPostTargetKind,
 )
+from .body_test_blink_lights_api_v2_system_lights_blink_post import BodyTestBlinkLightsApiV2SystemLightsBlinkPost
+from .body_test_blink_lights_api_v2_system_lights_blink_post_mode import (
+    BodyTestBlinkLightsApiV2SystemLightsBlinkPostMode,
+)
 from .body_tls_cert_update_api_v2_system_tls_certificate_put import BodyTlsCertUpdateApiV2SystemTlsCertificatePut
 from .body_update_keyboard_layout_api_v2_system_settings_keyboard_layout_patch import (
     BodyUpdateKeyboardLayoutApiV2SystemSettingsKeyboardLayoutPatch,
 )
 from .body_update_user_api_v2_authentification_users_username_patch import (
     BodyUpdateUserApiV2AuthentificationUsersUsernamePatch,
+)
+from .body_update_user_api_v2_authentification_users_username_patch_ui_preference_type_0 import (
+    BodyUpdateUserApiV2AuthentificationUsersUsernamePatchUiPreferenceType0,
 )
 from .body_update_user_api_v2_authentification_users_username_patch_user_group_type_0 import (
     BodyUpdateUserApiV2AuthentificationUsersUsernamePatchUserGroupType0,
@@ -78,7 +94,9 @@ from .crosssection_detail_areas_type_0 import CrosssectionDetailAreasType0
 from .crosssection_detail_circumferences_type_0 import CrosssectionDetailCircumferencesType0
 from .crosssection_detail_contours_type_0 import CrosssectionDetailContoursType0
 from .crosssection_detail_details import CrosssectionDetailDetails
+from .crosssection_detail_preference_type_0 import CrosssectionDetailPreferenceType0
 from .crosssection_detail_skeleton_position_type_0 import CrosssectionDetailSkeletonPositionType0
+from .crosssection_preference_type_0 import CrosssectionPreferenceType0
 from .crosssection_skeleton_position_type_0 import CrosssectionSkeletonPositionType0
 from .delete_angle_api_v2_viatars_viatar_id_angles_angle_path_delete_response_delete_angle_api_v2_viatars_viatar_id_angles_angle_path_delete import (
     DeleteAngleApiV2ViatarsViatarIdAnglesAnglePathDeleteResponseDeleteAngleApiV2ViatarsViatarIdAnglesAnglePathDelete,
@@ -111,10 +129,14 @@ from .delete_viatar_api_v2_viatars_viatar_id_delete_response_delete_viatar_api_v
     DeleteViatarApiV2ViatarsViatarIdDeleteResponseDeleteViatarApiV2ViatarsViatarIdDelete,
 )
 from .distance import Distance
+from .distance_contours_type_0 import DistanceContoursType0
 from .distance_detail import DistanceDetail
+from .distance_detail_contours_type_0 import DistanceDetailContoursType0
 from .distance_detail_details import DistanceDetailDetails
 from .distance_detail_distances_type_0 import DistanceDetailDistancesType0
+from .distance_detail_preference_type_0 import DistanceDetailPreferenceType0
 from .distance_distances_type_0 import DistanceDistancesType0
+from .distance_preference_type_0 import DistancePreferenceType0
 from .export_options import ExportOptions
 from .export_options_avatar_3d_format_type_0 import ExportOptionsAvatar3DFormatType0
 from .export_options_measurements_format_type_0 import ExportOptionsMeasurementsFormatType0
@@ -122,6 +144,9 @@ from .export_options_mesh_3d_format_type_0 import ExportOptionsMesh3DFormatType0
 from .export_options_view_format_type_0 import ExportOptionsViewFormatType0
 from .external_authentification_settings import ExternalAuthentificationSettings
 from .external_upload_settings import ExternalUploadSettings
+from .get_event_count_api_v2_statistic_count_get_event_status_type_0 import (
+    GetEventCountApiV2StatisticCountGetEventStatusType0,
+)
 from .get_event_count_api_v2_statistic_count_get_response_get_event_count_api_v2_statistic_count_get import (
     GetEventCountApiV2StatisticCountGetResponseGetEventCountApiV2StatisticCountGet,
 )
@@ -145,9 +170,6 @@ from .height_detail import HeightDetail
 from .height_detail_details import HeightDetailDetails
 from .http_validation_error import HTTPValidationError
 from .image_set_2d_parameters import ImageSet2DParameters
-from .images import Images
-from .images_geometry_type_0 import ImagesGeometryType0
-from .images_texture_type_0 import ImagesTextureType0
 from .marker import Marker
 from .marker_detail import MarkerDetail
 from .marker_detail_marker_type_type_0 import MarkerDetailMarkerTypeType0
@@ -157,9 +179,6 @@ from .marker_marker_type_type_0 import MarkerMarkerTypeType0
 from .mesh_3d_parameters import Mesh3DParameters
 from .mesh_3d_parameters_detail_type_0 import Mesh3DParametersDetailType0
 from .meta import Meta
-from .models import Models
-from .models_dataprocessor_type_0 import ModelsDataprocessorType0
-from .models_photogrammetry_type_0 import ModelsPhotogrammetryType0
 from .observation_model import ObservationModel
 from .observations_parameters import ObservationsParameters
 from .parameters import Parameters
@@ -196,11 +215,13 @@ from .system import System
 from .system_attributes_external_type_0 import SystemAttributesExternalType0
 from .system_data import SystemData
 from .system_data_attributes_external_type_0 import SystemDataAttributesExternalType0
+from .system_data_ui_preference_type_0 import SystemDataUiPreferenceType0
 from .system_data_update_stream_type_0 import SystemDataUpdateStreamType0
 from .system_os import SystemOs
 from .system_os_data import SystemOsData
 from .system_os_network_interfaces_type_0 import SystemOsNetworkInterfacesType0
 from .system_os_network_interfaces_type_0_additional_property import SystemOsNetworkInterfacesType0AdditionalProperty
+from .system_ui_preference_type_0 import SystemUiPreferenceType0
 from .system_update_stream_type_0 import SystemUpdateStreamType0
 from .target import Target
 from .target_state import TargetState
@@ -218,7 +239,9 @@ from .upload_mesh_3d_api_v2_viatars_viatar_id_targets_mesh_3d_post_response_uplo
 from .user import User
 from .user_api_token import UserApiToken
 from .user_data import UserData
+from .user_data_ui_preference_type_0 import UserDataUiPreferenceType0
 from .user_data_user_group import UserDataUserGroup
+from .user_ui_preference_type_0 import UserUiPreferenceType0
 from .user_user_group import UserUserGroup
 from .validation_error import ValidationError
 from .validation_error_context import ValidationErrorContext
@@ -227,8 +250,6 @@ from .viatar_attributes_external_type_0 import ViatarAttributesExternalType0
 from .viatar_data import ViatarData
 from .viatar_data_attributes_external_type_0 import ViatarDataAttributesExternalType0
 from .viatar_data_observations_type_0 import ViatarDataObservationsType0
-from .viatar_data_series import ViatarDataSeries
-from .viatar_data_series_crosssections_type_0 import ViatarDataSeriesCrosssectionsType0
 from .viatar_data_targets_type_0 import ViatarDataTargetsType0
 from .viatar_observations_type_0 import ViatarObservationsType0
 from .viatar_targets_type_0 import ViatarTargetsType0
@@ -241,6 +262,8 @@ __all__ = (
     "AngleDetail",
     "AngleDetailAnglesType0",
     "AngleDetailDetails",
+    "AngleDetailPreferenceType0",
+    "AnglePreferenceType0",
     "Avatar3DParameters",
     "Avatar3DParametersClothingType0",
     "Avatar3DParametersModelType0",
@@ -252,6 +275,7 @@ __all__ = (
     "AxisRotationType0",
     "BodyApitokenApiV2AuthentificationUsersUsernameApiTokenPost",
     "BodyApplyPresetApiV2ViatarsViatarIdPresetPut",
+    "BodyCaptureCameraImageApiV2SystemCamerasCameraCapturePost",
     "BodyCreateFirstAdminApiV2AuthentificationUsersFirstAdminPost",
     "BodyCreatePresetApiV2PresetsPost",
     "BodyCreateUserApiV2AuthentificationUsersPost",
@@ -263,14 +287,19 @@ __all__ = (
     "BodyOverridePresetApiV2PresetsPresetIdPut",
     "BodyPatchUpdateStreamApiV2SystemUpdateUpdateStreamPatch",
     "BodyPatchUpdateStreamApiV2SystemUpdateUpdateStreamPatchUpdateStream",
+    "BodySetEventApiV2StatisticEventPost",
+    "BodySetEventApiV2StatisticEventPostEventStatusType0",
     "BodyStartTargetCreationApiV2SystemInitializationsScannerInitIdTargetsPost",
     "BodyStartTargetCreationApiV2SystemInitializationsScannerInitIdTargetsPostRecreateTargetKindType0",
     "BodyStartTargetCreationApiV2SystemInitializationsScannerInitIdTargetsPostTargetKind",
     "BodyStartTargetCreationApiV2ViatarsViatarIdTargetsPost",
     "BodyStartTargetCreationApiV2ViatarsViatarIdTargetsPostTargetKind",
+    "BodyTestBlinkLightsApiV2SystemLightsBlinkPost",
+    "BodyTestBlinkLightsApiV2SystemLightsBlinkPostMode",
     "BodyTlsCertUpdateApiV2SystemTlsCertificatePut",
     "BodyUpdateKeyboardLayoutApiV2SystemSettingsKeyboardLayoutPatch",
     "BodyUpdateUserApiV2AuthentificationUsersUsernamePatch",
+    "BodyUpdateUserApiV2AuthentificationUsersUsernamePatchUiPreferenceType0",
     "BodyUpdateUserApiV2AuthentificationUsersUsernamePatchUserGroupType0",
     "BodyUploadImageset2DApiV2ViatarsViatarIdTargetsImageset2DPost",
     "BodyUploadMesh3DApiV2ViatarsViatarIdTargetsMesh3DPost",
@@ -284,7 +313,9 @@ __all__ = (
     "CrosssectionDetailCircumferencesType0",
     "CrosssectionDetailContoursType0",
     "CrosssectionDetailDetails",
+    "CrosssectionDetailPreferenceType0",
     "CrosssectionDetailSkeletonPositionType0",
+    "CrosssectionPreferenceType0",
     "CrosssectionSkeletonPositionType0",
     "DeleteAngleApiV2ViatarsViatarIdAnglesAnglePathDeleteResponseDeleteAngleApiV2ViatarsViatarIdAnglesAnglePathDelete",
     "DeleteAxisApiV2ViatarsViatarIdAxesAxisPathDeleteResponseDeleteAxisApiV2ViatarsViatarIdAxesAxisPathDelete",
@@ -297,10 +328,14 @@ __all__ = (
     "DeletePropertyApiV2ViatarsViatarIdPropertiesPropertyPathDeleteResponseDeletePropertyApiV2ViatarsViatarIdPropertiesPropertyPathDelete",
     "DeleteViatarApiV2ViatarsViatarIdDeleteResponseDeleteViatarApiV2ViatarsViatarIdDelete",
     "Distance",
+    "DistanceContoursType0",
     "DistanceDetail",
+    "DistanceDetailContoursType0",
     "DistanceDetailDetails",
     "DistanceDetailDistancesType0",
+    "DistanceDetailPreferenceType0",
     "DistanceDistancesType0",
+    "DistancePreferenceType0",
     "ExportOptions",
     "ExportOptionsAvatar3DFormatType0",
     "ExportOptionsMeasurementsFormatType0",
@@ -308,6 +343,7 @@ __all__ = (
     "ExportOptionsViewFormatType0",
     "ExternalAuthentificationSettings",
     "ExternalUploadSettings",
+    "GetEventCountApiV2StatisticCountGetEventStatusType0",
     "GetEventCountApiV2StatisticCountGetResponseGetEventCountApiV2StatisticCountGet",
     "GetImageApiV2ViatarsViatarIdImagesImageTypeImageNameGetImageType",
     "GetImageNamesApiV2ViatarsViatarIdImagesGetResponseGetImageNamesApiV2ViatarsViatarIdImagesGet",
@@ -318,10 +354,7 @@ __all__ = (
     "HeightDetail",
     "HeightDetailDetails",
     "HTTPValidationError",
-    "Images",
     "ImageSet2DParameters",
-    "ImagesGeometryType0",
-    "ImagesTextureType0",
     "Marker",
     "MarkerDetail",
     "MarkerDetailMarkerTypeType0",
@@ -331,9 +364,6 @@ __all__ = (
     "Mesh3DParameters",
     "Mesh3DParametersDetailType0",
     "Meta",
-    "Models",
-    "ModelsDataprocessorType0",
-    "ModelsPhotogrammetryType0",
     "ObservationModel",
     "ObservationsParameters",
     "Parameters",
@@ -366,11 +396,13 @@ __all__ = (
     "SystemAttributesExternalType0",
     "SystemData",
     "SystemDataAttributesExternalType0",
+    "SystemDataUiPreferenceType0",
     "SystemDataUpdateStreamType0",
     "SystemOs",
     "SystemOsData",
     "SystemOsNetworkInterfacesType0",
     "SystemOsNetworkInterfacesType0AdditionalProperty",
+    "SystemUiPreferenceType0",
     "SystemUpdateStreamType0",
     "Target",
     "TargetState",
@@ -384,7 +416,9 @@ __all__ = (
     "User",
     "UserApiToken",
     "UserData",
+    "UserDataUiPreferenceType0",
     "UserDataUserGroup",
+    "UserUiPreferenceType0",
     "UserUserGroup",
     "ValidationError",
     "ValidationErrorContext",
@@ -393,8 +427,6 @@ __all__ = (
     "ViatarData",
     "ViatarDataAttributesExternalType0",
     "ViatarDataObservationsType0",
-    "ViatarDataSeries",
-    "ViatarDataSeriesCrosssectionsType0",
     "ViatarDataTargetsType0",
     "ViatarObservationsType0",
     "ViatarTargetsType0",

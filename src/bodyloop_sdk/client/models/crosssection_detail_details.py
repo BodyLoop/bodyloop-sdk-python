@@ -27,7 +27,7 @@ class CrosssectionDetailDetails:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.marker import Marker
+        from ..models.marker import Marker  # noqa: PLC0415
 
         d = dict(src_dict)
         crosssection_detail_details = cls()

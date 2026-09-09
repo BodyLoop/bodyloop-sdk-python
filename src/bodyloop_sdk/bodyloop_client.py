@@ -20,7 +20,7 @@ import base64
 import json
 import logging
 from collections.abc import Awaitable, Callable
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 
 import httpx
 
@@ -52,11 +52,9 @@ def expiry_of_jwt(token: str) -> datetime | None:
 
     try:
         payload = token.split(".")[1]
-        claims = json.loads(
-            base64.urlsafe_b64decode(payload + "=" * (-len(payload) % 4))
-        )
+        claims = json.loads(base64.urlsafe_b64decode(payload + "=" * (-len(payload) % 4)))
 
-        return datetime.fromtimestamp(claims["exp"], tz=timezone.utc)
+        return datetime.fromtimestamp(claims["exp"], tz=UTC)
 
     except (IndexError, KeyError, TypeError, ValueError):
         return None
@@ -75,9 +73,7 @@ class _TokenAuth(httpx.Auth):
 
     async def async_auth_flow(self, request: httpx.Request):
         token = self._client.token
-        request.headers[self._client.auth_header_name] = (
-            self._client.authorization(token)
-        )
+        request.headers[self._client.auth_header_name] = self._client.authorization(token)
 
         response = yield request
 
@@ -88,9 +84,7 @@ class _TokenAuth(httpx.Auth):
         # have been revoked, or the host may have restarted. Log in and retry.
         await self._client.refresh_token(stale_token=token)
 
-        request.headers[self._client.auth_header_name] = (
-            self._client.authorization(self._client.token)
-        )
+        request.headers[self._client.auth_header_name] = self._client.authorization(self._client.token)
 
         yield request
 
@@ -130,7 +124,7 @@ class LoginAuthenticatedClient(AuthenticatedClient):
         self.password = password
 
         # No token yet, so it is expired as far as `token_is_fresh` cares.
-        self.token_expires_at = datetime.min.replace(tzinfo=timezone.utc)
+        self.token_expires_at = datetime.min.replace(tzinfo=UTC)
         self._login_lock = asyncio.Lock()
 
         # Where tokens come from, in order of preference. Logging in with the
@@ -152,10 +146,7 @@ class LoginAuthenticatedClient(AuthenticatedClient):
     def token_is_fresh(self) -> bool:
         """Whether the current token is good for a while yet."""
 
-        return (
-            datetime.now(timezone.utc) + TOKEN_REFRESH_MARGIN
-            < self.token_expires_at
-        )
+        return datetime.now(UTC) + TOKEN_REFRESH_MARGIN < self.token_expires_at
 
     async def ensure_token(self) -> None:
         """Log in, unless the current token is still fresh."""
@@ -217,9 +208,7 @@ class LoginAuthenticatedClient(AuthenticatedClient):
 
                 return token
 
-        raise RuntimeError(
-            f"No token source worked — {'; '.join(problems)}"
-        ) from last_exception
+        raise RuntimeError(f"No token source worked — {'; '.join(problems)}") from last_exception
 
     async def login_with_password(self) -> Token:
         """Request a token for the configured credentials."""
@@ -246,7 +235,7 @@ class LoginAuthenticatedClient(AuthenticatedClient):
     def _apply_token(self, token: Token) -> None:
         self.token = token.access_token
         self.token_expires_at = expiry_of_jwt(token.access_token) or (
-            datetime.now(timezone.utc) + timedelta(seconds=token.expires_in)
+            datetime.now(UTC) + timedelta(seconds=token.expires_in)
         )
 
         # The base class only stamps the header while building an httpx client,
@@ -265,9 +254,7 @@ class LoginAuthenticatedClient(AuthenticatedClient):
         return await super().__aenter__()
 
     def __enter__(self) -> "LoginAuthenticatedClient":
-        raise NotImplementedError(
-            "Logging in is asynchronous — use 'async with' instead of 'with'."
-        )
+        raise NotImplementedError("Logging in is asynchronous — use 'async with' instead of 'with'.")
 
 
 # One client for the whole app: it holds the token and the connection pool,

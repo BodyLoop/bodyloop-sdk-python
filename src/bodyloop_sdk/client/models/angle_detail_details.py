@@ -27,7 +27,7 @@ class AngleDetailDetails:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.marker import Marker
+        from ..models.marker import Marker  # noqa: PLC0415
 
         d = dict(src_dict)
         angle_detail_details = cls()

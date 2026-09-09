@@ -41,7 +41,7 @@ class BodyCreateUserApiV2AuthentificationUsersPost:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.user_data import UserData
+        from ..models.user_data import UserData  # noqa: PLC0415
 
         d = dict(src_dict)
         _user_data = d.pop("user_data", UNSET)

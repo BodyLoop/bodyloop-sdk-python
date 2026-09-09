@@ -6,6 +6,7 @@ from typing import TYPE_CHECKING, Any, TypeVar, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.crosssection_preference_type_0 import CrosssectionPreferenceType0, check_crosssection_preference_type_0
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
@@ -24,7 +25,7 @@ class Crosssection:
 
     Example:
         {'at_marker': 'marker_a', 'crosssection_path': 'custom.path.M', 'hidden': False, 'key_external': '', 'label':
-            'Descriptive label', 'note': 'Meaningful description...'}
+            'Descriptive label', 'note': 'Meaningful description...', 'preference': 'convex'}
 
     """
 
@@ -39,14 +40,14 @@ class Crosssection:
     style: None | str | Unset = UNSET
     key_external: None | str | Unset = UNSET
     hidden: bool | None | Unset = UNSET
-    preference: None | str | Unset = UNSET
+    preference: CrosssectionPreferenceType0 | None | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.crosssection_areas_type_0 import CrosssectionAreasType0
-        from ..models.crosssection_circumferences_type_0 import CrosssectionCircumferencesType0
-        from ..models.crosssection_contours_type_0 import CrosssectionContoursType0
-        from ..models.crosssection_skeleton_position_type_0 import CrosssectionSkeletonPositionType0
+        from ..models.crosssection_areas_type_0 import CrosssectionAreasType0  # noqa: PLC0415
+        from ..models.crosssection_circumferences_type_0 import CrosssectionCircumferencesType0  # noqa: PLC0415
+        from ..models.crosssection_contours_type_0 import CrosssectionContoursType0  # noqa: PLC0415
+        from ..models.crosssection_skeleton_position_type_0 import CrosssectionSkeletonPositionType0  # noqa: PLC0415
 
         crosssection_path = self.crosssection_path
 
@@ -117,6 +118,8 @@ class Crosssection:
         preference: None | str | Unset
         if isinstance(self.preference, Unset):
             preference = UNSET
+        elif isinstance(self.preference, str):
+            preference = self.preference
         else:
             preference = self.preference
 
@@ -152,10 +155,10 @@ class Crosssection:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.crosssection_areas_type_0 import CrosssectionAreasType0
-        from ..models.crosssection_circumferences_type_0 import CrosssectionCircumferencesType0
-        from ..models.crosssection_contours_type_0 import CrosssectionContoursType0
-        from ..models.crosssection_skeleton_position_type_0 import CrosssectionSkeletonPositionType0
+        from ..models.crosssection_areas_type_0 import CrosssectionAreasType0  # noqa: PLC0415
+        from ..models.crosssection_circumferences_type_0 import CrosssectionCircumferencesType0  # noqa: PLC0415
+        from ..models.crosssection_contours_type_0 import CrosssectionContoursType0  # noqa: PLC0415
+        from ..models.crosssection_skeleton_position_type_0 import CrosssectionSkeletonPositionType0  # noqa: PLC0415
 
         d = dict(src_dict)
         crosssection_path = d.pop("crosssection_path", UNSET)
@@ -275,12 +278,20 @@ class Crosssection:
 
         hidden = _parse_hidden(d.pop("hidden", UNSET))
 
-        def _parse_preference(data: object) -> None | str | Unset:
+        def _parse_preference(data: object) -> CrosssectionPreferenceType0 | None | Unset:
             if data is None:
                 return data
             if isinstance(data, Unset):
                 return data
-            return cast(None | str | Unset, data)
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                preference_type_0 = check_crosssection_preference_type_0(data)
+
+                return preference_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(CrosssectionPreferenceType0 | None | Unset, data)
 
         preference = _parse_preference(d.pop("preference", UNSET))
 

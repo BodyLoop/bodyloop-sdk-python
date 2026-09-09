@@ -6,6 +6,9 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
+from ...models.get_event_count_api_v2_statistic_count_get_event_status_type_0 import (
+    GetEventCountApiV2StatisticCountGetEventStatusType0,
+)
 from ...models.get_event_count_api_v2_statistic_count_get_response_get_event_count_api_v2_statistic_count_get import (
     GetEventCountApiV2StatisticCountGetResponseGetEventCountApiV2StatisticCountGet,
 )
@@ -17,6 +20,9 @@ def _get_kwargs(
     *,
     start: datetime.datetime | None | Unset = UNSET,
     end: datetime.datetime | None | Unset = UNSET,
+    event: None | str | Unset = UNSET,
+    event_status: GetEventCountApiV2StatisticCountGetEventStatusType0 | None | Unset = UNSET,
+    info: None | str | Unset = UNSET,
 ) -> dict[str, Any]:
 
     params: dict[str, Any] = {}
@@ -38,6 +44,29 @@ def _get_kwargs(
     else:
         json_end = end
     params["end"] = json_end
+
+    json_event: None | str | Unset
+    if isinstance(event, Unset):
+        json_event = UNSET
+    else:
+        json_event = event
+    params["event"] = json_event
+
+    json_event_status: None | str | Unset
+    if isinstance(event_status, Unset):
+        json_event_status = UNSET
+    elif isinstance(event_status, str):
+        json_event_status = event_status
+    else:
+        json_event_status = event_status
+    params["event_status"] = json_event_status
+
+    json_info: None | str | Unset
+    if isinstance(info, Unset):
+        json_info = UNSET
+    else:
+        json_info = info
+    params["info"] = json_info
 
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
@@ -87,17 +116,24 @@ def sync_detailed(
     client: AuthenticatedClient,
     start: datetime.datetime | None | Unset = UNSET,
     end: datetime.datetime | None | Unset = UNSET,
+    event: None | str | Unset = UNSET,
+    event_status: GetEventCountApiV2StatisticCountGetEventStatusType0 | None | Unset = UNSET,
+    info: None | str | Unset = UNSET,
 ) -> Response[GetEventCountApiV2StatisticCountGetResponseGetEventCountApiV2StatisticCountGet | HTTPValidationError]:
     """Get Event Count
 
      Returns counts for all events, broken down by event, by event & status, and by event & status &
     info.
     `start`/`end` (i.e. 2026-01-01) add a `custom` window counting occurrences within that (inclusive)
-    range
+    range.
+    `event`/`event_status`/`info` are all optional and, when given, restrict the results to that value.
 
     Args:
         start (datetime.datetime | None | Unset):
         end (datetime.datetime | None | Unset):
+        event (None | str | Unset):
+        event_status (GetEventCountApiV2StatisticCountGetEventStatusType0 | None | Unset):
+        info (None | str | Unset):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -110,6 +146,9 @@ def sync_detailed(
     kwargs = _get_kwargs(
         start=start,
         end=end,
+        event=event,
+        event_status=event_status,
+        info=info,
     )
 
     response = client.get_httpx_client().request(
@@ -124,17 +163,24 @@ def sync(
     client: AuthenticatedClient,
     start: datetime.datetime | None | Unset = UNSET,
     end: datetime.datetime | None | Unset = UNSET,
+    event: None | str | Unset = UNSET,
+    event_status: GetEventCountApiV2StatisticCountGetEventStatusType0 | None | Unset = UNSET,
+    info: None | str | Unset = UNSET,
 ) -> GetEventCountApiV2StatisticCountGetResponseGetEventCountApiV2StatisticCountGet | HTTPValidationError | None:
     """Get Event Count
 
      Returns counts for all events, broken down by event, by event & status, and by event & status &
     info.
     `start`/`end` (i.e. 2026-01-01) add a `custom` window counting occurrences within that (inclusive)
-    range
+    range.
+    `event`/`event_status`/`info` are all optional and, when given, restrict the results to that value.
 
     Args:
         start (datetime.datetime | None | Unset):
         end (datetime.datetime | None | Unset):
+        event (None | str | Unset):
+        event_status (GetEventCountApiV2StatisticCountGetEventStatusType0 | None | Unset):
+        info (None | str | Unset):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -148,6 +194,9 @@ def sync(
         client=client,
         start=start,
         end=end,
+        event=event,
+        event_status=event_status,
+        info=info,
     ).parsed
 
 
@@ -156,17 +205,24 @@ async def asyncio_detailed(
     client: AuthenticatedClient,
     start: datetime.datetime | None | Unset = UNSET,
     end: datetime.datetime | None | Unset = UNSET,
+    event: None | str | Unset = UNSET,
+    event_status: GetEventCountApiV2StatisticCountGetEventStatusType0 | None | Unset = UNSET,
+    info: None | str | Unset = UNSET,
 ) -> Response[GetEventCountApiV2StatisticCountGetResponseGetEventCountApiV2StatisticCountGet | HTTPValidationError]:
     """Get Event Count
 
      Returns counts for all events, broken down by event, by event & status, and by event & status &
     info.
     `start`/`end` (i.e. 2026-01-01) add a `custom` window counting occurrences within that (inclusive)
-    range
+    range.
+    `event`/`event_status`/`info` are all optional and, when given, restrict the results to that value.
 
     Args:
         start (datetime.datetime | None | Unset):
         end (datetime.datetime | None | Unset):
+        event (None | str | Unset):
+        event_status (GetEventCountApiV2StatisticCountGetEventStatusType0 | None | Unset):
+        info (None | str | Unset):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -179,6 +235,9 @@ async def asyncio_detailed(
     kwargs = _get_kwargs(
         start=start,
         end=end,
+        event=event,
+        event_status=event_status,
+        info=info,
     )
 
     response = await client.get_async_httpx_client().request(**kwargs)
@@ -191,17 +250,24 @@ async def asyncio(
     client: AuthenticatedClient,
     start: datetime.datetime | None | Unset = UNSET,
     end: datetime.datetime | None | Unset = UNSET,
+    event: None | str | Unset = UNSET,
+    event_status: GetEventCountApiV2StatisticCountGetEventStatusType0 | None | Unset = UNSET,
+    info: None | str | Unset = UNSET,
 ) -> GetEventCountApiV2StatisticCountGetResponseGetEventCountApiV2StatisticCountGet | HTTPValidationError | None:
     """Get Event Count
 
      Returns counts for all events, broken down by event, by event & status, and by event & status &
     info.
     `start`/`end` (i.e. 2026-01-01) add a `custom` window counting occurrences within that (inclusive)
-    range
+    range.
+    `event`/`event_status`/`info` are all optional and, when given, restrict the results to that value.
 
     Args:
         start (datetime.datetime | None | Unset):
         end (datetime.datetime | None | Unset):
+        event (None | str | Unset):
+        event_status (GetEventCountApiV2StatisticCountGetEventStatusType0 | None | Unset):
+        info (None | str | Unset):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -216,5 +282,8 @@ async def asyncio(
             client=client,
             start=start,
             end=end,
+            event=event,
+            event_status=event_status,
+            info=info,
         )
     ).parsed

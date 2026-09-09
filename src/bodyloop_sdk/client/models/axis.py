@@ -36,7 +36,7 @@ class Axis:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.axis_rotation_type_0 import AxisRotationType0
+        from ..models.axis_rotation_type_0 import AxisRotationType0  # noqa: PLC0415
 
         axis_path = self.axis_path
 
@@ -110,7 +110,7 @@ class Axis:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.axis_rotation_type_0 import AxisRotationType0
+        from ..models.axis_rotation_type_0 import AxisRotationType0  # noqa: PLC0415
 
         d = dict(src_dict)
         axis_path = d.pop("axis_path", UNSET)

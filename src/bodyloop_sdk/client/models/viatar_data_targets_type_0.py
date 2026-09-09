@@ -27,7 +27,7 @@ class ViatarDataTargetsType0:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.target import Target
+        from ..models.target import Target  # noqa: PLC0415
 
         d = dict(src_dict)
         viatar_data_targets_type_0 = cls()

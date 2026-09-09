@@ -61,10 +61,10 @@ class State:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.state_acquisition_state import StateAcquisitionState
-        from ..models.state_backend_state import StateBackendState
-        from ..models.state_general_state import StateGeneralState
-        from ..models.state_initialization_state import StateInitializationState
+        from ..models.state_acquisition_state import StateAcquisitionState  # noqa: PLC0415
+        from ..models.state_backend_state import StateBackendState  # noqa: PLC0415
+        from ..models.state_general_state import StateGeneralState  # noqa: PLC0415
+        from ..models.state_initialization_state import StateInitializationState  # noqa: PLC0415
 
         d = dict(src_dict)
         _general_state = d.pop("General_State", UNSET)

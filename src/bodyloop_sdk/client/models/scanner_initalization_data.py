@@ -35,7 +35,9 @@ class ScannerInitalizationData:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.scanner_initalization_data_targets_type_0 import ScannerInitalizationDataTargetsType0
+        from ..models.scanner_initalization_data_targets_type_0 import (
+            ScannerInitalizationDataTargetsType0,  # noqa: PLC0415
+        )
 
         targets: dict[str, Any] | None | Unset
         if isinstance(self.targets, Unset):
@@ -81,7 +83,9 @@ class ScannerInitalizationData:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.scanner_initalization_data_targets_type_0 import ScannerInitalizationDataTargetsType0
+        from ..models.scanner_initalization_data_targets_type_0 import (
+            ScannerInitalizationDataTargetsType0,  # noqa: PLC0415
+        )
 
         d = dict(src_dict)
 

@@ -6,9 +6,14 @@ from typing import TYPE_CHECKING, Any, TypeVar, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.distance_detail_preference_type_0 import (
+    DistanceDetailPreferenceType0,
+    check_distance_detail_preference_type_0,
+)
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
+    from ..models.distance_detail_contours_type_0 import DistanceDetailContoursType0
     from ..models.distance_detail_details import DistanceDetailDetails
     from ..models.distance_detail_distances_type_0 import DistanceDetailDistancesType0
 
@@ -22,7 +27,7 @@ class DistanceDetail:
 
     Example:
         {'distance_path': 'custom.path.M', 'from_marker': 'marker_a', 'hidden': False, 'key_external': '', 'label':
-            'Descriptive label', 'note': 'Meaningful description...', 'to_marker': 'marker_b'}
+            'Descriptive label', 'note': 'Meaningful description...', 'preference': 'linear', 'to_marker': 'marker_b'}
 
     """
 
@@ -30,17 +35,19 @@ class DistanceDetail:
     from_marker: str | Unset = UNSET
     to_marker: str | Unset = UNSET
     distances: DistanceDetailDistancesType0 | None | Unset = UNSET
+    contours: DistanceDetailContoursType0 | None | Unset = UNSET
     label: None | str | Unset = UNSET
     note: None | str | Unset = UNSET
     style: None | str | Unset = UNSET
     key_external: None | str | Unset = UNSET
     hidden: bool | None | Unset = UNSET
-    preference: None | str | Unset = UNSET
+    preference: DistanceDetailPreferenceType0 | None | Unset = UNSET
     details: DistanceDetailDetails | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.distance_detail_distances_type_0 import DistanceDetailDistancesType0
+        from ..models.distance_detail_contours_type_0 import DistanceDetailContoursType0  # noqa: PLC0415
+        from ..models.distance_detail_distances_type_0 import DistanceDetailDistancesType0  # noqa: PLC0415
 
         distance_path = self.distance_path
 
@@ -55,6 +62,14 @@ class DistanceDetail:
             distances = self.distances.to_dict()
         else:
             distances = self.distances
+
+        contours: dict[str, Any] | None | Unset
+        if isinstance(self.contours, Unset):
+            contours = UNSET
+        elif isinstance(self.contours, DistanceDetailContoursType0):
+            contours = self.contours.to_dict()
+        else:
+            contours = self.contours
 
         label: None | str | Unset
         if isinstance(self.label, Unset):
@@ -89,6 +104,8 @@ class DistanceDetail:
         preference: None | str | Unset
         if isinstance(self.preference, Unset):
             preference = UNSET
+        elif isinstance(self.preference, str):
+            preference = self.preference
         else:
             preference = self.preference
 
@@ -107,6 +124,8 @@ class DistanceDetail:
             field_dict["to_marker"] = to_marker
         if distances is not UNSET:
             field_dict["distances"] = distances
+        if contours is not UNSET:
+            field_dict["contours"] = contours
         if label is not UNSET:
             field_dict["label"] = label
         if note is not UNSET:
@@ -126,8 +145,9 @@ class DistanceDetail:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.distance_detail_details import DistanceDetailDetails
-        from ..models.distance_detail_distances_type_0 import DistanceDetailDistancesType0
+        from ..models.distance_detail_contours_type_0 import DistanceDetailContoursType0  # noqa: PLC0415
+        from ..models.distance_detail_details import DistanceDetailDetails  # noqa: PLC0415
+        from ..models.distance_detail_distances_type_0 import DistanceDetailDistancesType0  # noqa: PLC0415
 
         d = dict(src_dict)
         distance_path = d.pop("distance_path", UNSET)
@@ -152,6 +172,23 @@ class DistanceDetail:
             return cast(DistanceDetailDistancesType0 | None | Unset, data)
 
         distances = _parse_distances(d.pop("distances", UNSET))
+
+        def _parse_contours(data: object) -> DistanceDetailContoursType0 | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                contours_type_0 = DistanceDetailContoursType0.from_dict(data)
+
+                return contours_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(DistanceDetailContoursType0 | None | Unset, data)
+
+        contours = _parse_contours(d.pop("contours", UNSET))
 
         def _parse_label(data: object) -> None | str | Unset:
             if data is None:
@@ -198,12 +235,20 @@ class DistanceDetail:
 
         hidden = _parse_hidden(d.pop("hidden", UNSET))
 
-        def _parse_preference(data: object) -> None | str | Unset:
+        def _parse_preference(data: object) -> DistanceDetailPreferenceType0 | None | Unset:
             if data is None:
                 return data
             if isinstance(data, Unset):
                 return data
-            return cast(None | str | Unset, data)
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                preference_type_0 = check_distance_detail_preference_type_0(data)
+
+                return preference_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(DistanceDetailPreferenceType0 | None | Unset, data)
 
         preference = _parse_preference(d.pop("preference", UNSET))
 
@@ -219,6 +264,7 @@ class DistanceDetail:
             from_marker=from_marker,
             to_marker=to_marker,
             distances=distances,
+            contours=contours,
             label=label,
             note=note,
             style=style,

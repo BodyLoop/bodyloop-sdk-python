@@ -107,7 +107,7 @@ class HeightDetail:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.height_detail_details import HeightDetailDetails
+        from ..models.height_detail_details import HeightDetailDetails  # noqa: PLC0415
 
         d = dict(src_dict)
         height_path = d.pop("height_path", UNSET)

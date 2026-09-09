@@ -50,11 +50,13 @@ class ProbandDetail:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.address import Address
-        from ..models.contact import Contact
-        from ..models.meta import Meta
-        from ..models.proband_detail_attributes_external_type_0 import ProbandDetailAttributesExternalType0
-        from ..models.upload_credentials import UploadCredentials
+        from ..models.address import Address  # noqa: PLC0415
+        from ..models.contact import Contact  # noqa: PLC0415
+        from ..models.meta import Meta  # noqa: PLC0415
+        from ..models.proband_detail_attributes_external_type_0 import (
+            ProbandDetailAttributesExternalType0,  # noqa: PLC0415
+        )
+        from ..models.upload_credentials import UploadCredentials  # noqa: PLC0415
 
         proband_id = self.proband_id
 
@@ -187,12 +189,14 @@ class ProbandDetail:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.address import Address
-        from ..models.contact import Contact
-        from ..models.meta import Meta
-        from ..models.proband_detail_attributes_external_type_0 import ProbandDetailAttributesExternalType0
-        from ..models.upload_credentials import UploadCredentials
-        from ..models.viatar import Viatar
+        from ..models.address import Address  # noqa: PLC0415
+        from ..models.contact import Contact  # noqa: PLC0415
+        from ..models.meta import Meta  # noqa: PLC0415
+        from ..models.proband_detail_attributes_external_type_0 import (
+            ProbandDetailAttributesExternalType0,  # noqa: PLC0415
+        )
+        from ..models.upload_credentials import UploadCredentials  # noqa: PLC0415
+        from ..models.viatar import Viatar  # noqa: PLC0415
 
         d = dict(src_dict)
         proband_id = d.pop("proband_id")

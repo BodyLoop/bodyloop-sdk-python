@@ -30,7 +30,7 @@ class GetInitializationStatusApiV2SystemInitializationsScannerInitIdTargetsGetRe
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.target import Target
+        from ..models.target import Target  # noqa: PLC0415
 
         d = dict(src_dict)
         get_initialization_status_api_v2_system_initializations_scanner_init_id_targets_get_response_get_initialization_status_api_v2_system_initializations_scanner_init_id_targets_get = cls()

@@ -46,10 +46,10 @@ class Viatar:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.meta import Meta
-        from ..models.viatar_attributes_external_type_0 import ViatarAttributesExternalType0
-        from ..models.viatar_observations_type_0 import ViatarObservationsType0
-        from ..models.viatar_targets_type_0 import ViatarTargetsType0
+        from ..models.meta import Meta  # noqa: PLC0415
+        from ..models.viatar_attributes_external_type_0 import ViatarAttributesExternalType0  # noqa: PLC0415
+        from ..models.viatar_observations_type_0 import ViatarObservationsType0  # noqa: PLC0415
+        from ..models.viatar_targets_type_0 import ViatarTargetsType0  # noqa: PLC0415
 
         viatar_id = self.viatar_id
 
@@ -154,11 +154,11 @@ class Viatar:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.meta import Meta
-        from ..models.parameters_data import ParametersData
-        from ..models.viatar_attributes_external_type_0 import ViatarAttributesExternalType0
-        from ..models.viatar_observations_type_0 import ViatarObservationsType0
-        from ..models.viatar_targets_type_0 import ViatarTargetsType0
+        from ..models.meta import Meta  # noqa: PLC0415
+        from ..models.parameters_data import ParametersData  # noqa: PLC0415
+        from ..models.viatar_attributes_external_type_0 import ViatarAttributesExternalType0  # noqa: PLC0415
+        from ..models.viatar_observations_type_0 import ViatarObservationsType0  # noqa: PLC0415
+        from ..models.viatar_targets_type_0 import ViatarTargetsType0  # noqa: PLC0415
 
         d = dict(src_dict)
         viatar_id = d.pop("viatar_id")

@@ -80,7 +80,7 @@ def sync_detailed(
         body (Angle): Angle representation between three markers Example: {'angle_path':
             'custom.path.M', 'at_marker': 'marker_o', 'from_marker': 'marker_a', 'hidden': False,
             'key_external': '', 'label': 'Descriptive label', 'note': 'Meaningful description...',
-            'to_marker': 'marker_b'}.
+            'preference': 'primary', 'to_marker': 'marker_b'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -118,7 +118,7 @@ def sync(
         body (Angle): Angle representation between three markers Example: {'angle_path':
             'custom.path.M', 'at_marker': 'marker_o', 'from_marker': 'marker_a', 'hidden': False,
             'key_external': '', 'label': 'Descriptive label', 'note': 'Meaningful description...',
-            'to_marker': 'marker_b'}.
+            'preference': 'primary', 'to_marker': 'marker_b'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -151,7 +151,7 @@ async def asyncio_detailed(
         body (Angle): Angle representation between three markers Example: {'angle_path':
             'custom.path.M', 'at_marker': 'marker_o', 'from_marker': 'marker_a', 'hidden': False,
             'key_external': '', 'label': 'Descriptive label', 'note': 'Meaningful description...',
-            'to_marker': 'marker_b'}.
+            'preference': 'primary', 'to_marker': 'marker_b'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -187,7 +187,7 @@ async def asyncio(
         body (Angle): Angle representation between three markers Example: {'angle_path':
             'custom.path.M', 'at_marker': 'marker_o', 'from_marker': 'marker_a', 'hidden': False,
             'key_external': '', 'label': 'Descriptive label', 'note': 'Meaningful description...',
-            'to_marker': 'marker_b'}.
+            'preference': 'primary', 'to_marker': 'marker_b'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

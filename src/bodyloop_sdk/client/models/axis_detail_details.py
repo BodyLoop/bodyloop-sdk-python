@@ -18,7 +18,7 @@ class AxisDetailDetails:
     additional_properties: dict[str, list[Marker]] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.marker import Marker
+        from ..models.marker import Marker  # noqa: PLC0415
 
         field_dict: dict[str, Any] = {}
         for prop_name, prop in self.additional_properties.items():
@@ -34,7 +34,7 @@ class AxisDetailDetails:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.marker import Marker
+        from ..models.marker import Marker  # noqa: PLC0415
 
         d = dict(src_dict)
         axis_detail_details = cls()

@@ -30,7 +30,7 @@ class UploadCredentials:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.upload_credentials_headers_type_0 import UploadCredentialsHeadersType0
+        from ..models.upload_credentials_headers_type_0 import UploadCredentialsHeadersType0  # noqa: PLC0415
 
         method: None | str | Unset
         if isinstance(self.method, Unset):
@@ -83,7 +83,7 @@ class UploadCredentials:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.upload_credentials_headers_type_0 import UploadCredentialsHeadersType0
+        from ..models.upload_credentials_headers_type_0 import UploadCredentialsHeadersType0  # noqa: PLC0415
 
         d = dict(src_dict)
 

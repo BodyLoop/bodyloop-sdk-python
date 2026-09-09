@@ -37,7 +37,7 @@ class ObservationsParameters:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.observation_model import ObservationModel
+        from ..models.observation_model import ObservationModel  # noqa: PLC0415
 
         d = dict(src_dict)
         _weight = d.pop("weight", UNSET)

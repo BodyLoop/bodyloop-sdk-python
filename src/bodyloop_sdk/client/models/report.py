@@ -46,7 +46,7 @@ class Report:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.meta import Meta
+        from ..models.meta import Meta  # noqa: PLC0415
 
         report_type = self.report_type
 
@@ -217,7 +217,7 @@ class Report:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.meta import Meta
+        from ..models.meta import Meta  # noqa: PLC0415
 
         d = dict(src_dict)
         report_type = cast(Literal["viatar"], d.pop("report_type"))

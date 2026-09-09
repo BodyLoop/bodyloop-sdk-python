@@ -37,13 +37,13 @@ class Parameters:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.analyzed_avatar_3d_parameters import AnalyzedAvatar3DParameters
-        from ..models.avatar_3d_parameters import Avatar3DParameters
-        from ..models.image_set_2d_parameters import ImageSet2DParameters
-        from ..models.mesh_3d_parameters import Mesh3DParameters
-        from ..models.meta import Meta
-        from ..models.observations_parameters import ObservationsParameters
-        from ..models.report_parameters import ReportParameters
+        from ..models.analyzed_avatar_3d_parameters import AnalyzedAvatar3DParameters  # noqa: PLC0415
+        from ..models.avatar_3d_parameters import Avatar3DParameters  # noqa: PLC0415
+        from ..models.image_set_2d_parameters import ImageSet2DParameters  # noqa: PLC0415
+        from ..models.mesh_3d_parameters import Mesh3DParameters  # noqa: PLC0415
+        from ..models.meta import Meta  # noqa: PLC0415
+        from ..models.observations_parameters import ObservationsParameters  # noqa: PLC0415
+        from ..models.report_parameters import ReportParameters  # noqa: PLC0415
 
         parameters_id = self.parameters_id
 
@@ -133,13 +133,13 @@ class Parameters:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.analyzed_avatar_3d_parameters import AnalyzedAvatar3DParameters
-        from ..models.avatar_3d_parameters import Avatar3DParameters
-        from ..models.image_set_2d_parameters import ImageSet2DParameters
-        from ..models.mesh_3d_parameters import Mesh3DParameters
-        from ..models.meta import Meta
-        from ..models.observations_parameters import ObservationsParameters
-        from ..models.report_parameters import ReportParameters
+        from ..models.analyzed_avatar_3d_parameters import AnalyzedAvatar3DParameters  # noqa: PLC0415
+        from ..models.avatar_3d_parameters import Avatar3DParameters  # noqa: PLC0415
+        from ..models.image_set_2d_parameters import ImageSet2DParameters  # noqa: PLC0415
+        from ..models.mesh_3d_parameters import Mesh3DParameters  # noqa: PLC0415
+        from ..models.meta import Meta  # noqa: PLC0415
+        from ..models.observations_parameters import ObservationsParameters  # noqa: PLC0415
+        from ..models.report_parameters import ReportParameters  # noqa: PLC0415
 
         d = dict(src_dict)
         parameters_id = d.pop("parameters_id")

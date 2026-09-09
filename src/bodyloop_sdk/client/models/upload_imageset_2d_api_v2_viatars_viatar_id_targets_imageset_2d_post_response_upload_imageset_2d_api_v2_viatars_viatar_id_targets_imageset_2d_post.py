@@ -30,7 +30,7 @@ class UploadImageset2DApiV2ViatarsViatarIdTargetsImageset2DPostResponseUploadIma
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.target import Target
+        from ..models.target import Target  # noqa: PLC0415
 
         d = dict(src_dict)
         upload_imageset_2d_api_v2_viatars_viatar_id_targets_imageset_2d_post_response_upload_imageset_2d_api_v2_viatars_viatar_id_targets_imageset_2d_post = cls()

@@ -75,7 +75,8 @@ def sync_detailed(
         viatar_id (int):
         body (Crosssection): Crosssection representation at one marker Example: {'at_marker':
             'marker_a', 'crosssection_path': 'custom.path.M', 'hidden': False, 'key_external': '',
-            'label': 'Descriptive label', 'note': 'Meaningful description...'}.
+            'label': 'Descriptive label', 'note': 'Meaningful description...', 'preference':
+            'convex'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -109,7 +110,8 @@ def sync(
         viatar_id (int):
         body (Crosssection): Crosssection representation at one marker Example: {'at_marker':
             'marker_a', 'crosssection_path': 'custom.path.M', 'hidden': False, 'key_external': '',
-            'label': 'Descriptive label', 'note': 'Meaningful description...'}.
+            'label': 'Descriptive label', 'note': 'Meaningful description...', 'preference':
+            'convex'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -138,7 +140,8 @@ async def asyncio_detailed(
         viatar_id (int):
         body (Crosssection): Crosssection representation at one marker Example: {'at_marker':
             'marker_a', 'crosssection_path': 'custom.path.M', 'hidden': False, 'key_external': '',
-            'label': 'Descriptive label', 'note': 'Meaningful description...'}.
+            'label': 'Descriptive label', 'note': 'Meaningful description...', 'preference':
+            'convex'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -170,7 +173,8 @@ async def asyncio(
         viatar_id (int):
         body (Crosssection): Crosssection representation at one marker Example: {'at_marker':
             'marker_a', 'crosssection_path': 'custom.path.M', 'hidden': False, 'key_external': '',
-            'label': 'Descriptive label', 'note': 'Meaningful description...'}.
+            'label': 'Descriptive label', 'note': 'Meaningful description...', 'preference':
+            'convex'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

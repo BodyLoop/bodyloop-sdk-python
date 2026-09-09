@@ -23,7 +23,7 @@ class ExternalUploadSettings:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.upload_credentials import UploadCredentials
+        from ..models.upload_credentials import UploadCredentials  # noqa: PLC0415
 
         upload_credentials: dict[str, Any] | None | Unset
         if isinstance(self.upload_credentials, Unset):
@@ -43,7 +43,7 @@ class ExternalUploadSettings:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.upload_credentials import UploadCredentials
+        from ..models.upload_credentials import UploadCredentials  # noqa: PLC0415
 
         d = dict(src_dict)
 

@@ -32,7 +32,7 @@ class SystemOsNetworkInterfacesType0:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.system_os_network_interfaces_type_0_additional_property import (
-            SystemOsNetworkInterfacesType0AdditionalProperty,
+            SystemOsNetworkInterfacesType0AdditionalProperty,  # noqa: PLC0415
         )
 
         d = dict(src_dict)

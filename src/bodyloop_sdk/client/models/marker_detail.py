@@ -152,7 +152,7 @@ class MarkerDetail:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.marker_detail_refering_measures import MarkerDetailReferingMeasures
+        from ..models.marker_detail_refering_measures import MarkerDetailReferingMeasures  # noqa: PLC0415
 
         d = dict(src_dict)
 

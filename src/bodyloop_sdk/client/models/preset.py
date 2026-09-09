@@ -45,8 +45,8 @@ class Preset:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.meta import Meta
-        from ..models.preset_attributes_external_type_0 import PresetAttributesExternalType0
+        from ..models.meta import Meta  # noqa: PLC0415
+        from ..models.preset_attributes_external_type_0 import PresetAttributesExternalType0  # noqa: PLC0415
 
         preset_id = self.preset_id
 
@@ -187,15 +187,15 @@ class Preset:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.angle import Angle
-        from ..models.axis import Axis
-        from ..models.crosssection import Crosssection
-        from ..models.distance import Distance
-        from ..models.height import Height
-        from ..models.marker import Marker
-        from ..models.meta import Meta
-        from ..models.preset_attributes_external_type_0 import PresetAttributesExternalType0
-        from ..models.property_ import Property
+        from ..models.angle import Angle  # noqa: PLC0415
+        from ..models.axis import Axis  # noqa: PLC0415
+        from ..models.crosssection import Crosssection  # noqa: PLC0415
+        from ..models.distance import Distance  # noqa: PLC0415
+        from ..models.height import Height  # noqa: PLC0415
+        from ..models.marker import Marker  # noqa: PLC0415
+        from ..models.meta import Meta  # noqa: PLC0415
+        from ..models.preset_attributes_external_type_0 import PresetAttributesExternalType0  # noqa: PLC0415
+        from ..models.property_ import Property  # noqa: PLC0415
 
         d = dict(src_dict)
         preset_id = d.pop("preset_id")

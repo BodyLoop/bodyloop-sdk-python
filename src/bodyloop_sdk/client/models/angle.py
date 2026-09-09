@@ -6,6 +6,7 @@ from typing import TYPE_CHECKING, Any, TypeVar, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.angle_preference_type_0 import AnglePreferenceType0, check_angle_preference_type_0
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
@@ -21,7 +22,8 @@ class Angle:
 
     Example:
         {'angle_path': 'custom.path.M', 'at_marker': 'marker_o', 'from_marker': 'marker_a', 'hidden': False,
-            'key_external': '', 'label': 'Descriptive label', 'note': 'Meaningful description...', 'to_marker': 'marker_b'}
+            'key_external': '', 'label': 'Descriptive label', 'note': 'Meaningful description...', 'preference': 'primary',
+            'to_marker': 'marker_b'}
 
     """
 
@@ -35,11 +37,11 @@ class Angle:
     style: None | str | Unset = UNSET
     key_external: None | str | Unset = UNSET
     hidden: bool | None | Unset = UNSET
-    preference: None | str | Unset = UNSET
+    preference: AnglePreferenceType0 | None | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.angle_angles_type_0 import AngleAnglesType0
+        from ..models.angle_angles_type_0 import AngleAnglesType0  # noqa: PLC0415
 
         angle_path = self.angle_path
 
@@ -90,6 +92,8 @@ class Angle:
         preference: None | str | Unset
         if isinstance(self.preference, Unset):
             preference = UNSET
+        elif isinstance(self.preference, str):
+            preference = self.preference
         else:
             preference = self.preference
 
@@ -123,7 +127,7 @@ class Angle:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.angle_angles_type_0 import AngleAnglesType0
+        from ..models.angle_angles_type_0 import AngleAnglesType0  # noqa: PLC0415
 
         d = dict(src_dict)
         angle_path = d.pop("angle_path", UNSET)
@@ -196,12 +200,20 @@ class Angle:
 
         hidden = _parse_hidden(d.pop("hidden", UNSET))
 
-        def _parse_preference(data: object) -> None | str | Unset:
+        def _parse_preference(data: object) -> AnglePreferenceType0 | None | Unset:
             if data is None:
                 return data
             if isinstance(data, Unset):
                 return data
-            return cast(None | str | Unset, data)
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                preference_type_0 = check_angle_preference_type_0(data)
+
+                return preference_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(AnglePreferenceType0 | None | Unset, data)
 
         preference = _parse_preference(d.pop("preference", UNSET))
 
