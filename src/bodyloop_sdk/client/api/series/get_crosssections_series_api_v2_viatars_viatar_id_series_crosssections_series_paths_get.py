@@ -1,11 +1,12 @@
 from http import HTTPStatus
-from typing import Any, cast
+from typing import Any
 from urllib.parse import quote
 
 import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
+from ...models.crosssection_series_point import CrosssectionSeriesPoint
 from ...models.http_validation_error import HTTPValidationError
 from ...types import Response
 
@@ -28,9 +29,14 @@ def _get_kwargs(
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> HTTPValidationError | list[Any] | None:
+) -> HTTPValidationError | list[CrosssectionSeriesPoint] | None:
     if response.status_code == 200:
-        response_200 = cast(list[Any], response.json())
+        response_200 = []
+        _response_200 = response.json()
+        for response_200_item_data in _response_200:
+            response_200_item = CrosssectionSeriesPoint.from_dict(response_200_item_data)
+
+            response_200.append(response_200_item)
 
         return response_200
 
@@ -47,7 +53,7 @@ def _parse_response(
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[HTTPValidationError | list[Any]]:
+) -> Response[HTTPValidationError | list[CrosssectionSeriesPoint]]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -61,7 +67,7 @@ def sync_detailed(
     series_paths: str,
     *,
     client: AuthenticatedClient,
-) -> Response[HTTPValidationError | list[Any]]:
+) -> Response[HTTPValidationError | list[CrosssectionSeriesPoint]]:
     """Get Crosssections Series
 
      Returns the crosssection series of the matching viatar and series_paths
@@ -75,7 +81,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[HTTPValidationError | list[Any]]
+        Response[HTTPValidationError | list[CrosssectionSeriesPoint]]
     """
 
     kwargs = _get_kwargs(
@@ -95,7 +101,7 @@ def sync(
     series_paths: str,
     *,
     client: AuthenticatedClient,
-) -> HTTPValidationError | list[Any] | None:
+) -> HTTPValidationError | list[CrosssectionSeriesPoint] | None:
     """Get Crosssections Series
 
      Returns the crosssection series of the matching viatar and series_paths
@@ -109,7 +115,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        HTTPValidationError | list[Any]
+        HTTPValidationError | list[CrosssectionSeriesPoint]
     """
 
     return sync_detailed(
@@ -124,7 +130,7 @@ async def asyncio_detailed(
     series_paths: str,
     *,
     client: AuthenticatedClient,
-) -> Response[HTTPValidationError | list[Any]]:
+) -> Response[HTTPValidationError | list[CrosssectionSeriesPoint]]:
     """Get Crosssections Series
 
      Returns the crosssection series of the matching viatar and series_paths
@@ -138,7 +144,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[HTTPValidationError | list[Any]]
+        Response[HTTPValidationError | list[CrosssectionSeriesPoint]]
     """
 
     kwargs = _get_kwargs(
@@ -156,7 +162,7 @@ async def asyncio(
     series_paths: str,
     *,
     client: AuthenticatedClient,
-) -> HTTPValidationError | list[Any] | None:
+) -> HTTPValidationError | list[CrosssectionSeriesPoint] | None:
     """Get Crosssections Series
 
      Returns the crosssection series of the matching viatar and series_paths
@@ -170,7 +176,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        HTTPValidationError | list[Any]
+        HTTPValidationError | list[CrosssectionSeriesPoint]
     """
 
     return (

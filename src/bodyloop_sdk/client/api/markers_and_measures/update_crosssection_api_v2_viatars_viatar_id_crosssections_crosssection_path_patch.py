@@ -77,10 +77,11 @@ def sync_detailed(
     Args:
         viatar_id (int):
         crosssection_path (str):
-        body (Crosssection): Crosssection representation at one marker Example: {'at_marker':
-            'marker_a', 'crosssection_path': 'custom.path.M', 'hidden': False, 'key_external': '',
-            'label': 'Descriptive label', 'note': 'Meaningful description...', 'preference':
-            'convex'}.
+        body (Crosssection): Crosssection representation at one marker, optionally oriented by two
+            further markers (3-point plane) or by a normal vector Example: {'at_marker': 'marker_a',
+            'crosssection_path': 'custom.path.M', 'hidden': False, 'key_external': '', 'label':
+            'Descriptive label', 'note': 'Meaningful description...', 'plane_markers': ['marker_b',
+            'marker_c'], 'plane_type': 'markers', 'preference': 'convex'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -115,10 +116,11 @@ def sync(
     Args:
         viatar_id (int):
         crosssection_path (str):
-        body (Crosssection): Crosssection representation at one marker Example: {'at_marker':
-            'marker_a', 'crosssection_path': 'custom.path.M', 'hidden': False, 'key_external': '',
-            'label': 'Descriptive label', 'note': 'Meaningful description...', 'preference':
-            'convex'}.
+        body (Crosssection): Crosssection representation at one marker, optionally oriented by two
+            further markers (3-point plane) or by a normal vector Example: {'at_marker': 'marker_a',
+            'crosssection_path': 'custom.path.M', 'hidden': False, 'key_external': '', 'label':
+            'Descriptive label', 'note': 'Meaningful description...', 'plane_markers': ['marker_b',
+            'marker_c'], 'plane_type': 'markers', 'preference': 'convex'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -148,10 +150,11 @@ async def asyncio_detailed(
     Args:
         viatar_id (int):
         crosssection_path (str):
-        body (Crosssection): Crosssection representation at one marker Example: {'at_marker':
-            'marker_a', 'crosssection_path': 'custom.path.M', 'hidden': False, 'key_external': '',
-            'label': 'Descriptive label', 'note': 'Meaningful description...', 'preference':
-            'convex'}.
+        body (Crosssection): Crosssection representation at one marker, optionally oriented by two
+            further markers (3-point plane) or by a normal vector Example: {'at_marker': 'marker_a',
+            'crosssection_path': 'custom.path.M', 'hidden': False, 'key_external': '', 'label':
+            'Descriptive label', 'note': 'Meaningful description...', 'plane_markers': ['marker_b',
+            'marker_c'], 'plane_type': 'markers', 'preference': 'convex'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -184,10 +187,11 @@ async def asyncio(
     Args:
         viatar_id (int):
         crosssection_path (str):
-        body (Crosssection): Crosssection representation at one marker Example: {'at_marker':
-            'marker_a', 'crosssection_path': 'custom.path.M', 'hidden': False, 'key_external': '',
-            'label': 'Descriptive label', 'note': 'Meaningful description...', 'preference':
-            'convex'}.
+        body (Crosssection): Crosssection representation at one marker, optionally oriented by two
+            further markers (3-point plane) or by a normal vector Example: {'at_marker': 'marker_a',
+            'crosssection_path': 'custom.path.M', 'hidden': False, 'key_external': '', 'label':
+            'Descriptive label', 'note': 'Meaningful description...', 'plane_markers': ['marker_b',
+            'marker_c'], 'plane_type': 'markers', 'preference': 'convex'}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

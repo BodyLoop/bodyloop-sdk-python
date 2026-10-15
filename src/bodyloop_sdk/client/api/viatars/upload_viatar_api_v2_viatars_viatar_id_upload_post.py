@@ -70,7 +70,7 @@ def sync_detailed(
 ) -> Response[Any | HTTPValidationError]:
     """Upload Viatar
 
-     Generates and returns an archive with infomation of the viatar
+     Generates and returns an archive with information of the viatar
 
     Args:
         viatar_id (int):
@@ -104,7 +104,7 @@ def sync(
 ) -> Any | HTTPValidationError | None:
     """Upload Viatar
 
-     Generates and returns an archive with infomation of the viatar
+     Generates and returns an archive with information of the viatar
 
     Args:
         viatar_id (int):
@@ -133,7 +133,7 @@ async def asyncio_detailed(
 ) -> Response[Any | HTTPValidationError]:
     """Upload Viatar
 
-     Generates and returns an archive with infomation of the viatar
+     Generates and returns an archive with information of the viatar
 
     Args:
         viatar_id (int):
@@ -165,7 +165,7 @@ async def asyncio(
 ) -> Any | HTTPValidationError | None:
     """Upload Viatar
 
-     Generates and returns an archive with infomation of the viatar
+     Generates and returns an archive with information of the viatar
 
     Args:
         viatar_id (int):

@@ -12,7 +12,7 @@ from ..types import UNSET, Unset
 if TYPE_CHECKING:
     from ..models.meta import Meta
     from ..models.user_api_token import UserApiToken
-    from ..models.user_ui_preference_type_0 import UserUiPreferenceType0
+    from ..models.user_preferences_type_0 import UserPreferencesType0
 
 
 T = TypeVar("T", bound="User")
@@ -26,14 +26,14 @@ class User:
     full_name: str | Unset = UNSET
     user_group: UserUserGroup | Unset = UNSET
     disabled: bool | Unset = False
-    ui_preference: None | Unset | UserUiPreferenceType0 = UNSET
+    preferences: None | Unset | UserPreferencesType0 = UNSET
     api_token: UserApiToken | Unset = UNSET
     meta: Meta | None | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         from ..models.meta import Meta  # noqa: PLC0415
-        from ..models.user_ui_preference_type_0 import UserUiPreferenceType0  # noqa: PLC0415
+        from ..models.user_preferences_type_0 import UserPreferencesType0  # noqa: PLC0415
 
         username = self.username
 
@@ -45,13 +45,13 @@ class User:
 
         disabled = self.disabled
 
-        ui_preference: dict[str, Any] | None | Unset
-        if isinstance(self.ui_preference, Unset):
-            ui_preference = UNSET
-        elif isinstance(self.ui_preference, UserUiPreferenceType0):
-            ui_preference = self.ui_preference.to_dict()
+        preferences: dict[str, Any] | None | Unset
+        if isinstance(self.preferences, Unset):
+            preferences = UNSET
+        elif isinstance(self.preferences, UserPreferencesType0):
+            preferences = self.preferences.to_dict()
         else:
-            ui_preference = self.ui_preference
+            preferences = self.preferences
 
         api_token: dict[str, Any] | Unset = UNSET
         if not isinstance(self.api_token, Unset):
@@ -78,8 +78,8 @@ class User:
             field_dict["user_group"] = user_group
         if disabled is not UNSET:
             field_dict["disabled"] = disabled
-        if ui_preference is not UNSET:
-            field_dict["ui_preference"] = ui_preference
+        if preferences is not UNSET:
+            field_dict["preferences"] = preferences
         if api_token is not UNSET:
             field_dict["api_token"] = api_token
         if meta is not UNSET:
@@ -91,7 +91,7 @@ class User:
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.meta import Meta  # noqa: PLC0415
         from ..models.user_api_token import UserApiToken  # noqa: PLC0415
-        from ..models.user_ui_preference_type_0 import UserUiPreferenceType0  # noqa: PLC0415
+        from ..models.user_preferences_type_0 import UserPreferencesType0  # noqa: PLC0415
 
         d = dict(src_dict)
         username = d.pop("username")
@@ -107,7 +107,7 @@ class User:
 
         disabled = d.pop("disabled", UNSET)
 
-        def _parse_ui_preference(data: object) -> None | Unset | UserUiPreferenceType0:
+        def _parse_preferences(data: object) -> None | Unset | UserPreferencesType0:
             if data is None:
                 return data
             if isinstance(data, Unset):
@@ -115,14 +115,14 @@ class User:
             try:
                 if not isinstance(data, dict):
                     raise TypeError()
-                ui_preference_type_0 = UserUiPreferenceType0.from_dict(data)
+                preferences_type_0 = UserPreferencesType0.from_dict(data)
 
-                return ui_preference_type_0
+                return preferences_type_0
             except (TypeError, ValueError, AttributeError, KeyError):
                 pass
-            return cast(None | Unset | UserUiPreferenceType0, data)
+            return cast(None | Unset | UserPreferencesType0, data)
 
-        ui_preference = _parse_ui_preference(d.pop("ui_preference", UNSET))
+        preferences = _parse_preferences(d.pop("preferences", UNSET))
 
         _api_token = d.pop("api_token", UNSET)
         api_token: UserApiToken | Unset
@@ -153,7 +153,7 @@ class User:
             full_name=full_name,
             user_group=user_group,
             disabled=disabled,
-            ui_preference=ui_preference,
+            preferences=preferences,
             api_token=api_token,
             meta=meta,
         )

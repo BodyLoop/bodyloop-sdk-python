@@ -60,7 +60,7 @@ def sync_detailed(
 ) -> Response[Any | HTTPValidationError]:
     """Delete Initialization
 
-     Delete a initialization (CRU**D**)
+     Delete an initialization (CRU**D**)
 
     Args:
         scanner_init_id (int):
@@ -91,7 +91,7 @@ def sync(
 ) -> Any | HTTPValidationError | None:
     """Delete Initialization
 
-     Delete a initialization (CRU**D**)
+     Delete an initialization (CRU**D**)
 
     Args:
         scanner_init_id (int):
@@ -117,7 +117,7 @@ async def asyncio_detailed(
 ) -> Response[Any | HTTPValidationError]:
     """Delete Initialization
 
-     Delete a initialization (CRU**D**)
+     Delete an initialization (CRU**D**)
 
     Args:
         scanner_init_id (int):
@@ -146,7 +146,7 @@ async def asyncio(
 ) -> Any | HTTPValidationError | None:
     """Delete Initialization
 
-     Delete a initialization (CRU**D**)
+     Delete an initialization (CRU**D**)
 
     Args:
         scanner_init_id (int):

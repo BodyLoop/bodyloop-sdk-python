@@ -90,14 +90,14 @@ def sync_detailed(
 
      Triggers the initialisation process for scanner_init_id
 
-     The targets have a hierarchical dependency to each other. It is not neccessary, but possible to
-    trigger each target seperat.
-        To create the target 'discover' it is only neccessary to trigger the target creation of this
-    target_kind. All dependant targets will be triggered automaticaly, if not 'Ready'.
+     The targets have a hierarchical dependency to each other. It is not necessary, but possible to
+    trigger each target separately.
+        To create the target 'discover' it is only necessary to trigger the target creation of this
+    target_kind. All dependent targets will be triggered automatically, if not 'Ready'.
 
-     A (re-)creation of a target (and all dependant targets) can be set with 'recreate_target_kind'.
+     A (re-)creation of a target (and all dependent targets) can be set with 'recreate_target_kind'.
 
-    **init**          -> The initalization process of the ScanUnit.
+    **init**          -> The initialization process of the ScanUnit.
     *(Precondition to use the Bodyloop ScanUnit for scanning.)*
 
     **discover**      -> Discover supported nearby 'Personal Health Devices'
@@ -141,14 +141,14 @@ def sync(
 
      Triggers the initialisation process for scanner_init_id
 
-     The targets have a hierarchical dependency to each other. It is not neccessary, but possible to
-    trigger each target seperat.
-        To create the target 'discover' it is only neccessary to trigger the target creation of this
-    target_kind. All dependant targets will be triggered automaticaly, if not 'Ready'.
+     The targets have a hierarchical dependency to each other. It is not necessary, but possible to
+    trigger each target separately.
+        To create the target 'discover' it is only necessary to trigger the target creation of this
+    target_kind. All dependent targets will be triggered automatically, if not 'Ready'.
 
-     A (re-)creation of a target (and all dependant targets) can be set with 'recreate_target_kind'.
+     A (re-)creation of a target (and all dependent targets) can be set with 'recreate_target_kind'.
 
-    **init**          -> The initalization process of the ScanUnit.
+    **init**          -> The initialization process of the ScanUnit.
     *(Precondition to use the Bodyloop ScanUnit for scanning.)*
 
     **discover**      -> Discover supported nearby 'Personal Health Devices'
@@ -186,14 +186,14 @@ async def asyncio_detailed(
 
      Triggers the initialisation process for scanner_init_id
 
-     The targets have a hierarchical dependency to each other. It is not neccessary, but possible to
-    trigger each target seperat.
-        To create the target 'discover' it is only neccessary to trigger the target creation of this
-    target_kind. All dependant targets will be triggered automaticaly, if not 'Ready'.
+     The targets have a hierarchical dependency to each other. It is not necessary, but possible to
+    trigger each target separately.
+        To create the target 'discover' it is only necessary to trigger the target creation of this
+    target_kind. All dependent targets will be triggered automatically, if not 'Ready'.
 
-     A (re-)creation of a target (and all dependant targets) can be set with 'recreate_target_kind'.
+     A (re-)creation of a target (and all dependent targets) can be set with 'recreate_target_kind'.
 
-    **init**          -> The initalization process of the ScanUnit.
+    **init**          -> The initialization process of the ScanUnit.
     *(Precondition to use the Bodyloop ScanUnit for scanning.)*
 
     **discover**      -> Discover supported nearby 'Personal Health Devices'
@@ -235,14 +235,14 @@ async def asyncio(
 
      Triggers the initialisation process for scanner_init_id
 
-     The targets have a hierarchical dependency to each other. It is not neccessary, but possible to
-    trigger each target seperat.
-        To create the target 'discover' it is only neccessary to trigger the target creation of this
-    target_kind. All dependant targets will be triggered automaticaly, if not 'Ready'.
+     The targets have a hierarchical dependency to each other. It is not necessary, but possible to
+    trigger each target separately.
+        To create the target 'discover' it is only necessary to trigger the target creation of this
+    target_kind. All dependent targets will be triggered automatically, if not 'Ready'.
 
-     A (re-)creation of a target (and all dependant targets) can be set with 'recreate_target_kind'.
+     A (re-)creation of a target (and all dependent targets) can be set with 'recreate_target_kind'.
 
-    **init**          -> The initalization process of the ScanUnit.
+    **init**          -> The initialization process of the ScanUnit.
     *(Precondition to use the Bodyloop ScanUnit for scanning.)*
 
     **discover**      -> Discover supported nearby 'Personal Health Devices'

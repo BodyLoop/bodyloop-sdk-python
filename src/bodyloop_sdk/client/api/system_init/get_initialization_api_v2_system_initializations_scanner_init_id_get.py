@@ -62,7 +62,7 @@ def sync_detailed(
 ) -> Response[HTTPValidationError | ScannerInitalization]:
     """Get Initialization
 
-     Read a initialization (C**R**UD)
+     Read an initialization (C**R**UD)
 
     Args:
         scanner_init_id (int):
@@ -93,7 +93,7 @@ def sync(
 ) -> HTTPValidationError | ScannerInitalization | None:
     """Get Initialization
 
-     Read a initialization (C**R**UD)
+     Read an initialization (C**R**UD)
 
     Args:
         scanner_init_id (int):
@@ -119,7 +119,7 @@ async def asyncio_detailed(
 ) -> Response[HTTPValidationError | ScannerInitalization]:
     """Get Initialization
 
-     Read a initialization (C**R**UD)
+     Read an initialization (C**R**UD)
 
     Args:
         scanner_init_id (int):
@@ -148,7 +148,7 @@ async def asyncio(
 ) -> HTTPValidationError | ScannerInitalization | None:
     """Get Initialization
 
-     Read a initialization (C**R**UD)
+     Read an initialization (C**R**UD)
 
     Args:
         scanner_init_id (int):

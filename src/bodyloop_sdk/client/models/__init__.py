@@ -72,9 +72,6 @@ from .body_update_keyboard_layout_api_v2_system_settings_keyboard_layout_patch i
 from .body_update_user_api_v2_authentification_users_username_patch import (
     BodyUpdateUserApiV2AuthentificationUsersUsernamePatch,
 )
-from .body_update_user_api_v2_authentification_users_username_patch_ui_preference_type_0 import (
-    BodyUpdateUserApiV2AuthentificationUsersUsernamePatchUiPreferenceType0,
-)
 from .body_update_user_api_v2_authentification_users_username_patch_user_group_type_0 import (
     BodyUpdateUserApiV2AuthentificationUsersUsernamePatchUserGroupType0,
 )
@@ -84,6 +81,7 @@ from .body_upload_imageset_2d_api_v2_viatars_viatar_id_targets_imageset_2d_post 
 from .body_upload_mesh_3d_api_v2_viatars_viatar_id_targets_mesh_3d_post import (
     BodyUploadMesh3DApiV2ViatarsViatarIdTargetsMesh3DPost,
 )
+from .body_upload_report_api_v2_reports_post import BodyUploadReportApiV2ReportsPost
 from .contact import Contact
 from .crosssection import Crosssection
 from .crosssection_areas_type_0 import CrosssectionAreasType0
@@ -94,9 +92,12 @@ from .crosssection_detail_areas_type_0 import CrosssectionDetailAreasType0
 from .crosssection_detail_circumferences_type_0 import CrosssectionDetailCircumferencesType0
 from .crosssection_detail_contours_type_0 import CrosssectionDetailContoursType0
 from .crosssection_detail_details import CrosssectionDetailDetails
+from .crosssection_detail_plane_type_type_0 import CrosssectionDetailPlaneTypeType0
 from .crosssection_detail_preference_type_0 import CrosssectionDetailPreferenceType0
 from .crosssection_detail_skeleton_position_type_0 import CrosssectionDetailSkeletonPositionType0
+from .crosssection_plane_type_type_0 import CrosssectionPlaneTypeType0
 from .crosssection_preference_type_0 import CrosssectionPreferenceType0
+from .crosssection_series_point import CrosssectionSeriesPoint
 from .crosssection_skeleton_position_type_0 import CrosssectionSkeletonPositionType0
 from .delete_angle_api_v2_viatars_viatar_id_angles_angle_path_delete_response_delete_angle_api_v2_viatars_viatar_id_angles_angle_path_delete import (
     DeleteAngleApiV2ViatarsViatarIdAnglesAnglePathDeleteResponseDeleteAngleApiV2ViatarsViatarIdAnglesAnglePathDelete,
@@ -118,6 +119,9 @@ from .delete_marker_api_v2_viatars_viatar_id_markers_marker_path_delete_response
 )
 from .delete_parameters_api_v2_parameters_parameters_id_delete_response_delete_parameters_api_v2_parameters_parameters_id_delete import (
     DeleteParametersApiV2ParametersParametersIdDeleteResponseDeleteParametersApiV2ParametersParametersIdDelete,
+)
+from .delete_polygonal_chain_api_v2_viatars_viatar_id_polygonal_chains_polygonal_chain_path_delete_response_delete_polygonal_chain_api_v2_viatars_viatar_id_polygonal_chains_polygonal_chain_path_delete import (
+    DeletePolygonalChainApiV2ViatarsViatarIdPolygonalChainsPolygonalChainPathDeleteResponseDeletePolygonalChainApiV2ViatarsViatarIdPolygonalChainsPolygonalChainPathDelete,
 )
 from .delete_preset_api_v2_presets_preset_id_delete_response_delete_preset_api_v2_presets_preset_id_delete import (
     DeletePresetApiV2PresetsPresetIdDeleteResponseDeletePresetApiV2PresetsPresetIdDelete,
@@ -159,6 +163,15 @@ from .get_image_names_api_v2_viatars_viatar_id_images_get_response_get_image_nam
 from .get_initialization_status_api_v2_system_initializations_scanner_init_id_targets_get_response_get_initialization_status_api_v2_system_initializations_scanner_init_id_targets_get import (
     GetInitializationStatusApiV2SystemInitializationsScannerInitIdTargetsGetResponseGetInitializationStatusApiV2SystemInitializationsScannerInitIdTargetsGet,
 )
+from .get_model_api_v2_viatars_viatar_id_models_model_name_get_convention_type_0 import (
+    GetModelApiV2ViatarsViatarIdModelsModelNameGetConventionType0,
+)
+from .get_model_api_v2_viatars_viatar_id_models_model_name_get_forward_type_0 import (
+    GetModelApiV2ViatarsViatarIdModelsModelNameGetForwardType0,
+)
+from .get_model_api_v2_viatars_viatar_id_models_model_name_get_up_type_0 import (
+    GetModelApiV2ViatarsViatarIdModelsModelNameGetUpType0,
+)
 from .get_model_names_api_v2_viatars_viatar_id_models_get_response_get_model_names_api_v2_viatars_viatar_id_models_get import (
     GetModelNamesApiV2ViatarsViatarIdModelsGetResponseGetModelNamesApiV2ViatarsViatarIdModelsGet,
 )
@@ -183,8 +196,21 @@ from .observation_model import ObservationModel
 from .observations_parameters import ObservationsParameters
 from .parameters import Parameters
 from .parameters_data import ParametersData
+from .polygonal_chain import PolygonalChain
+from .polygonal_chain_contours_type_0 import PolygonalChainContoursType0
+from .polygonal_chain_detail import PolygonalChainDetail
+from .polygonal_chain_detail_contours_type_0 import PolygonalChainDetailContoursType0
+from .polygonal_chain_detail_details import PolygonalChainDetailDetails
+from .polygonal_chain_detail_distances_type_0 import PolygonalChainDetailDistancesType0
+from .polygonal_chain_detail_preference_type_0 import PolygonalChainDetailPreferenceType0
+from .polygonal_chain_distances_type_0 import PolygonalChainDistancesType0
+from .polygonal_chain_preference_type_0 import PolygonalChainPreferenceType0
+from .preference import Preference
+from .preference_data import PreferenceData
 from .preset import Preset
 from .preset_attributes_external_type_0 import PresetAttributesExternalType0
+from .preset_update import PresetUpdate
+from .preset_update_attributes_external_type_0 import PresetUpdateAttributesExternalType0
 from .proband import Proband
 from .proband_attributes_external_type_0 import ProbandAttributesExternalType0
 from .proband_data import ProbandData
@@ -194,6 +220,7 @@ from .proband_detail_attributes_external_type_0 import ProbandDetailAttributesEx
 from .property_ import Property
 from .report import Report
 from .report_parameters import ReportParameters
+from .report_report_type import ReportReportType
 from .scanner_initalization import ScannerInitalization
 from .scanner_initalization_data import ScannerInitalizationData
 from .scanner_initalization_data_scanner_type_type_0 import ScannerInitalizationDataScannerTypeType0
@@ -215,13 +242,12 @@ from .system import System
 from .system_attributes_external_type_0 import SystemAttributesExternalType0
 from .system_data import SystemData
 from .system_data_attributes_external_type_0 import SystemDataAttributesExternalType0
-from .system_data_ui_preference_type_0 import SystemDataUiPreferenceType0
 from .system_data_update_stream_type_0 import SystemDataUpdateStreamType0
 from .system_os import SystemOs
 from .system_os_data import SystemOsData
 from .system_os_network_interfaces_type_0 import SystemOsNetworkInterfacesType0
 from .system_os_network_interfaces_type_0_additional_property import SystemOsNetworkInterfacesType0AdditionalProperty
-from .system_ui_preference_type_0 import SystemUiPreferenceType0
+from .system_preference import SystemPreference
 from .system_update_stream_type_0 import SystemUpdateStreamType0
 from .target import Target
 from .target_state import TargetState
@@ -239,9 +265,9 @@ from .upload_mesh_3d_api_v2_viatars_viatar_id_targets_mesh_3d_post_response_uplo
 from .user import User
 from .user_api_token import UserApiToken
 from .user_data import UserData
-from .user_data_ui_preference_type_0 import UserDataUiPreferenceType0
+from .user_data_preferences_type_0 import UserDataPreferencesType0
 from .user_data_user_group import UserDataUserGroup
-from .user_ui_preference_type_0 import UserUiPreferenceType0
+from .user_preferences_type_0 import UserPreferencesType0
 from .user_user_group import UserUserGroup
 from .validation_error import ValidationError
 from .validation_error_context import ValidationErrorContext
@@ -299,10 +325,10 @@ __all__ = (
     "BodyTlsCertUpdateApiV2SystemTlsCertificatePut",
     "BodyUpdateKeyboardLayoutApiV2SystemSettingsKeyboardLayoutPatch",
     "BodyUpdateUserApiV2AuthentificationUsersUsernamePatch",
-    "BodyUpdateUserApiV2AuthentificationUsersUsernamePatchUiPreferenceType0",
     "BodyUpdateUserApiV2AuthentificationUsersUsernamePatchUserGroupType0",
     "BodyUploadImageset2DApiV2ViatarsViatarIdTargetsImageset2DPost",
     "BodyUploadMesh3DApiV2ViatarsViatarIdTargetsMesh3DPost",
+    "BodyUploadReportApiV2ReportsPost",
     "Contact",
     "Crosssection",
     "CrosssectionAreasType0",
@@ -313,9 +339,12 @@ __all__ = (
     "CrosssectionDetailCircumferencesType0",
     "CrosssectionDetailContoursType0",
     "CrosssectionDetailDetails",
+    "CrosssectionDetailPlaneTypeType0",
     "CrosssectionDetailPreferenceType0",
     "CrosssectionDetailSkeletonPositionType0",
+    "CrosssectionPlaneTypeType0",
     "CrosssectionPreferenceType0",
+    "CrosssectionSeriesPoint",
     "CrosssectionSkeletonPositionType0",
     "DeleteAngleApiV2ViatarsViatarIdAnglesAnglePathDeleteResponseDeleteAngleApiV2ViatarsViatarIdAnglesAnglePathDelete",
     "DeleteAxisApiV2ViatarsViatarIdAxesAxisPathDeleteResponseDeleteAxisApiV2ViatarsViatarIdAxesAxisPathDelete",
@@ -324,6 +353,7 @@ __all__ = (
     "DeleteHeightApiV2ViatarsViatarIdHeightsHeightPathDeleteResponseDeleteHeightApiV2ViatarsViatarIdHeightsHeightPathDelete",
     "DeleteMarkerApiV2ViatarsViatarIdMarkersMarkerPathDeleteResponseDeleteMarkerApiV2ViatarsViatarIdMarkersMarkerPathDelete",
     "DeleteParametersApiV2ParametersParametersIdDeleteResponseDeleteParametersApiV2ParametersParametersIdDelete",
+    "DeletePolygonalChainApiV2ViatarsViatarIdPolygonalChainsPolygonalChainPathDeleteResponseDeletePolygonalChainApiV2ViatarsViatarIdPolygonalChainsPolygonalChainPathDelete",
     "DeletePresetApiV2PresetsPresetIdDeleteResponseDeletePresetApiV2PresetsPresetIdDelete",
     "DeletePropertyApiV2ViatarsViatarIdPropertiesPropertyPathDeleteResponseDeletePropertyApiV2ViatarsViatarIdPropertiesPropertyPathDelete",
     "DeleteViatarApiV2ViatarsViatarIdDeleteResponseDeleteViatarApiV2ViatarsViatarIdDelete",
@@ -348,6 +378,9 @@ __all__ = (
     "GetImageApiV2ViatarsViatarIdImagesImageTypeImageNameGetImageType",
     "GetImageNamesApiV2ViatarsViatarIdImagesGetResponseGetImageNamesApiV2ViatarsViatarIdImagesGet",
     "GetInitializationStatusApiV2SystemInitializationsScannerInitIdTargetsGetResponseGetInitializationStatusApiV2SystemInitializationsScannerInitIdTargetsGet",
+    "GetModelApiV2ViatarsViatarIdModelsModelNameGetConventionType0",
+    "GetModelApiV2ViatarsViatarIdModelsModelNameGetForwardType0",
+    "GetModelApiV2ViatarsViatarIdModelsModelNameGetUpType0",
     "GetModelNamesApiV2ViatarsViatarIdModelsGetResponseGetModelNamesApiV2ViatarsViatarIdModelsGet",
     "GetTargetsApiV2ViatarsViatarIdTargetsGetResponseGetTargetsApiV2ViatarsViatarIdTargetsGet",
     "Height",
@@ -368,8 +401,21 @@ __all__ = (
     "ObservationsParameters",
     "Parameters",
     "ParametersData",
+    "PolygonalChain",
+    "PolygonalChainContoursType0",
+    "PolygonalChainDetail",
+    "PolygonalChainDetailContoursType0",
+    "PolygonalChainDetailDetails",
+    "PolygonalChainDetailDistancesType0",
+    "PolygonalChainDetailPreferenceType0",
+    "PolygonalChainDistancesType0",
+    "PolygonalChainPreferenceType0",
+    "Preference",
+    "PreferenceData",
     "Preset",
     "PresetAttributesExternalType0",
+    "PresetUpdate",
+    "PresetUpdateAttributesExternalType0",
     "Proband",
     "ProbandAttributesExternalType0",
     "ProbandData",
@@ -379,6 +425,7 @@ __all__ = (
     "Property",
     "Report",
     "ReportParameters",
+    "ReportReportType",
     "ScannerInitalization",
     "ScannerInitalizationData",
     "ScannerInitalizationDataScannerTypeType0",
@@ -396,13 +443,12 @@ __all__ = (
     "SystemAttributesExternalType0",
     "SystemData",
     "SystemDataAttributesExternalType0",
-    "SystemDataUiPreferenceType0",
     "SystemDataUpdateStreamType0",
     "SystemOs",
     "SystemOsData",
     "SystemOsNetworkInterfacesType0",
     "SystemOsNetworkInterfacesType0AdditionalProperty",
-    "SystemUiPreferenceType0",
+    "SystemPreference",
     "SystemUpdateStreamType0",
     "Target",
     "TargetState",
@@ -416,9 +462,9 @@ __all__ = (
     "User",
     "UserApiToken",
     "UserData",
-    "UserDataUiPreferenceType0",
+    "UserDataPreferencesType0",
     "UserDataUserGroup",
-    "UserUiPreferenceType0",
+    "UserPreferencesType0",
     "UserUserGroup",
     "ValidationError",
     "ValidationErrorContext",

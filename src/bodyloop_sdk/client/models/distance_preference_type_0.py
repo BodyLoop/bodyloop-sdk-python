@@ -1,6 +1,6 @@
 from typing import Literal
 
-DistancePreferenceType0 = Literal["geodesic", "linear", "linear_x", "linear_y", "linear_z"]
+DistancePreferenceType0 = Literal["geodesic", "linear", "linear_x", "linear_y", "linear_z", "tape_surface", "tape_taut"]
 
 DISTANCE_PREFERENCE_TYPE_0_VALUES: set[DistancePreferenceType0] = {
     "geodesic",
@@ -8,6 +8,8 @@ DISTANCE_PREFERENCE_TYPE_0_VALUES: set[DistancePreferenceType0] = {
     "linear_x",
     "linear_y",
     "linear_z",
+    "tape_surface",
+    "tape_taut",
 }
 
 

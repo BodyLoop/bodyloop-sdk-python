@@ -16,6 +16,7 @@ if TYPE_CHECKING:
     from ..models.height import Height
     from ..models.marker import Marker
     from ..models.meta import Meta
+    from ..models.polygonal_chain import PolygonalChain
     from ..models.preset_attributes_external_type_0 import PresetAttributesExternalType0
     from ..models.property_ import Property
 
@@ -34,6 +35,7 @@ class Preset:
     custom_marker: list[Marker] | Unset = UNSET
     heights: list[Height] | Unset = UNSET
     distances: list[Distance] | Unset = UNSET
+    polygonal_chains: list[PolygonalChain] | Unset = UNSET
     angles: list[Angle] | Unset = UNSET
     crosssections: list[Crosssection] | Unset = UNSET
     axes: list[Axis] | Unset = UNSET
@@ -91,6 +93,13 @@ class Preset:
             for distances_item_data in self.distances:
                 distances_item = distances_item_data.to_dict()
                 distances.append(distances_item)
+
+        polygonal_chains: list[dict[str, Any]] | Unset = UNSET
+        if not isinstance(self.polygonal_chains, Unset):
+            polygonal_chains = []
+            for polygonal_chains_item_data in self.polygonal_chains:
+                polygonal_chains_item = polygonal_chains_item_data.to_dict()
+                polygonal_chains.append(polygonal_chains_item)
 
         angles: list[dict[str, Any]] | Unset = UNSET
         if not isinstance(self.angles, Unset):
@@ -166,6 +175,8 @@ class Preset:
             field_dict["heights"] = heights
         if distances is not UNSET:
             field_dict["distances"] = distances
+        if polygonal_chains is not UNSET:
+            field_dict["polygonal_chains"] = polygonal_chains
         if angles is not UNSET:
             field_dict["angles"] = angles
         if crosssections is not UNSET:
@@ -194,6 +205,7 @@ class Preset:
         from ..models.height import Height  # noqa: PLC0415
         from ..models.marker import Marker  # noqa: PLC0415
         from ..models.meta import Meta  # noqa: PLC0415
+        from ..models.polygonal_chain import PolygonalChain  # noqa: PLC0415
         from ..models.preset_attributes_external_type_0 import PresetAttributesExternalType0  # noqa: PLC0415
         from ..models.property_ import Property  # noqa: PLC0415
 
@@ -253,6 +265,15 @@ class Preset:
                 distances_item = Distance.from_dict(distances_item_data)
 
                 distances.append(distances_item)
+
+        _polygonal_chains = d.pop("polygonal_chains", UNSET)
+        polygonal_chains: list[PolygonalChain] | Unset = UNSET
+        if _polygonal_chains is not UNSET:
+            polygonal_chains = []
+            for polygonal_chains_item_data in _polygonal_chains:
+                polygonal_chains_item = PolygonalChain.from_dict(polygonal_chains_item_data)
+
+                polygonal_chains.append(polygonal_chains_item)
 
         _angles = d.pop("angles", UNSET)
         angles: list[Angle] | Unset = UNSET
@@ -350,6 +371,7 @@ class Preset:
             custom_marker=custom_marker,
             heights=heights,
             distances=distances,
+            polygonal_chains=polygonal_chains,
             angles=angles,
             crosssections=crosssections,
             axes=axes,

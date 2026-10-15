@@ -90,15 +90,15 @@ def sync_detailed(
 
      Triggers target creation of a specific 'target_kind'
 
-     The targets have a hierarchical dependency to each other. It is not neccessary, but possible to
-    trigger each taget seperat.
-        To create the target 'analyzed_avatar_3d' it is only neccessary to trigger the target createion
-    of this target_kind. All dependant targets will be triggered automaticaly, if not 'Ready'.
+     The targets have a hierarchical dependency to each other. It is not necessary, but possible to
+    trigger each target separately.
+        To create the target 'analyzed_avatar_3d' it is only necessary to trigger the target creation of
+    this target_kind. All dependent targets will be triggered automatically, if not 'Ready'.
 
     **imageset_2d**           -> A set of images are captured, using a BodyLoop Scan Device.
     *(Results can be accessed under 'images' endpoints)*
 
-    **coarse_pointcloud_3d**  -> A spares pointcloud of the captured scene.
+    **coarse_pointcloud_3d**  -> A sparse pointcloud of the captured scene.
     *(Results can be accessed under 'models' endpoints)*
 
     **mesh_3d**               -> A 3d reconstruction of the captured scene.
@@ -107,10 +107,10 @@ def sync_detailed(
     **avatar_3d**             -> A 3d modeled avatar of the 3d reconstruction.
     *(Results can be accessed under 'models' endpoints)*
 
-    **analyzed_avatar_3d**    -> Automatic analyzation of the modeled avatar.
+    **analyzed_avatar_3d**    -> Automatic analysis of the modeled avatar.
     *(Results can be accessed under 'markers_and_measures' and 'series' endpoints)*
 
-    **report**                -> A first report of the analyzation and the modeled avatar.
+    **report**                -> A first report of the analysis and the modeled avatar.
     *(Results can be accessed under 'reports' endpoints)*
 
     Args:
@@ -151,15 +151,15 @@ def sync(
 
      Triggers target creation of a specific 'target_kind'
 
-     The targets have a hierarchical dependency to each other. It is not neccessary, but possible to
-    trigger each taget seperat.
-        To create the target 'analyzed_avatar_3d' it is only neccessary to trigger the target createion
-    of this target_kind. All dependant targets will be triggered automaticaly, if not 'Ready'.
+     The targets have a hierarchical dependency to each other. It is not necessary, but possible to
+    trigger each target separately.
+        To create the target 'analyzed_avatar_3d' it is only necessary to trigger the target creation of
+    this target_kind. All dependent targets will be triggered automatically, if not 'Ready'.
 
     **imageset_2d**           -> A set of images are captured, using a BodyLoop Scan Device.
     *(Results can be accessed under 'images' endpoints)*
 
-    **coarse_pointcloud_3d**  -> A spares pointcloud of the captured scene.
+    **coarse_pointcloud_3d**  -> A sparse pointcloud of the captured scene.
     *(Results can be accessed under 'models' endpoints)*
 
     **mesh_3d**               -> A 3d reconstruction of the captured scene.
@@ -168,10 +168,10 @@ def sync(
     **avatar_3d**             -> A 3d modeled avatar of the 3d reconstruction.
     *(Results can be accessed under 'models' endpoints)*
 
-    **analyzed_avatar_3d**    -> Automatic analyzation of the modeled avatar.
+    **analyzed_avatar_3d**    -> Automatic analysis of the modeled avatar.
     *(Results can be accessed under 'markers_and_measures' and 'series' endpoints)*
 
-    **report**                -> A first report of the analyzation and the modeled avatar.
+    **report**                -> A first report of the analysis and the modeled avatar.
     *(Results can be accessed under 'reports' endpoints)*
 
     Args:
@@ -206,15 +206,15 @@ async def asyncio_detailed(
 
      Triggers target creation of a specific 'target_kind'
 
-     The targets have a hierarchical dependency to each other. It is not neccessary, but possible to
-    trigger each taget seperat.
-        To create the target 'analyzed_avatar_3d' it is only neccessary to trigger the target createion
-    of this target_kind. All dependant targets will be triggered automaticaly, if not 'Ready'.
+     The targets have a hierarchical dependency to each other. It is not necessary, but possible to
+    trigger each target separately.
+        To create the target 'analyzed_avatar_3d' it is only necessary to trigger the target creation of
+    this target_kind. All dependent targets will be triggered automatically, if not 'Ready'.
 
     **imageset_2d**           -> A set of images are captured, using a BodyLoop Scan Device.
     *(Results can be accessed under 'images' endpoints)*
 
-    **coarse_pointcloud_3d**  -> A spares pointcloud of the captured scene.
+    **coarse_pointcloud_3d**  -> A sparse pointcloud of the captured scene.
     *(Results can be accessed under 'models' endpoints)*
 
     **mesh_3d**               -> A 3d reconstruction of the captured scene.
@@ -223,10 +223,10 @@ async def asyncio_detailed(
     **avatar_3d**             -> A 3d modeled avatar of the 3d reconstruction.
     *(Results can be accessed under 'models' endpoints)*
 
-    **analyzed_avatar_3d**    -> Automatic analyzation of the modeled avatar.
+    **analyzed_avatar_3d**    -> Automatic analysis of the modeled avatar.
     *(Results can be accessed under 'markers_and_measures' and 'series' endpoints)*
 
-    **report**                -> A first report of the analyzation and the modeled avatar.
+    **report**                -> A first report of the analysis and the modeled avatar.
     *(Results can be accessed under 'reports' endpoints)*
 
     Args:
@@ -265,15 +265,15 @@ async def asyncio(
 
      Triggers target creation of a specific 'target_kind'
 
-     The targets have a hierarchical dependency to each other. It is not neccessary, but possible to
-    trigger each taget seperat.
-        To create the target 'analyzed_avatar_3d' it is only neccessary to trigger the target createion
-    of this target_kind. All dependant targets will be triggered automaticaly, if not 'Ready'.
+     The targets have a hierarchical dependency to each other. It is not necessary, but possible to
+    trigger each target separately.
+        To create the target 'analyzed_avatar_3d' it is only necessary to trigger the target creation of
+    this target_kind. All dependent targets will be triggered automatically, if not 'Ready'.
 
     **imageset_2d**           -> A set of images are captured, using a BodyLoop Scan Device.
     *(Results can be accessed under 'images' endpoints)*
 
-    **coarse_pointcloud_3d**  -> A spares pointcloud of the captured scene.
+    **coarse_pointcloud_3d**  -> A sparse pointcloud of the captured scene.
     *(Results can be accessed under 'models' endpoints)*
 
     **mesh_3d**               -> A 3d reconstruction of the captured scene.
@@ -282,10 +282,10 @@ async def asyncio(
     **avatar_3d**             -> A 3d modeled avatar of the 3d reconstruction.
     *(Results can be accessed under 'models' endpoints)*
 
-    **analyzed_avatar_3d**    -> Automatic analyzation of the modeled avatar.
+    **analyzed_avatar_3d**    -> Automatic analysis of the modeled avatar.
     *(Results can be accessed under 'markers_and_measures' and 'series' endpoints)*
 
-    **report**                -> A first report of the analyzation and the modeled avatar.
+    **report**                -> A first report of the analysis and the modeled avatar.
     *(Results can be accessed under 'reports' endpoints)*
 
     Args:

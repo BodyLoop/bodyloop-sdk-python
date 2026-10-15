@@ -72,7 +72,7 @@ def sync_detailed(
 ) -> Response[HTTPValidationError | ScannerInitalization]:
     """Update Initialization
 
-     Update a initialization (CR**U**D)
+     Update an initialization (CR**U**D)
 
     Args:
         scanner_init_id (int):
@@ -107,7 +107,7 @@ def sync(
 ) -> HTTPValidationError | ScannerInitalization | None:
     """Update Initialization
 
-     Update a initialization (CR**U**D)
+     Update an initialization (CR**U**D)
 
     Args:
         scanner_init_id (int):
@@ -137,7 +137,7 @@ async def asyncio_detailed(
 ) -> Response[HTTPValidationError | ScannerInitalization]:
     """Update Initialization
 
-     Update a initialization (CR**U**D)
+     Update an initialization (CR**U**D)
 
     Args:
         scanner_init_id (int):
@@ -170,7 +170,7 @@ async def asyncio(
 ) -> HTTPValidationError | ScannerInitalization | None:
     """Update Initialization
 
-     Update a initialization (CR**U**D)
+     Update an initialization (CR**U**D)
 
     Args:
         scanner_init_id (int):

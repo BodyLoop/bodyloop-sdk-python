@@ -6,27 +6,50 @@ from typing import Any, TypeVar
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-T = TypeVar("T", bound="UserUiPreferenceType0")
+from ..types import UNSET, Unset
+
+T = TypeVar("T", bound="Preference")
 
 
 @_attrs_define
-class UserUiPreferenceType0:
+class Preference:
+    """A single named preference, keyed uniquely by `key`"""
+
+    key: str
+    data: Any | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        key = self.key
+
+        data = self.data
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
+        field_dict.update(
+            {
+                "key": key,
+            }
+        )
+        if data is not UNSET:
+            field_dict["data"] = data
 
         return field_dict
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        user_ui_preference_type_0 = cls()
+        key = d.pop("key")
 
-        user_ui_preference_type_0.additional_properties = d
-        return user_ui_preference_type_0
+        data = d.pop("data", UNSET)
+
+        preference = cls(
+            key=key,
+            data=data,
+        )
+
+        preference.additional_properties = d
+        return preference
 
     @property
     def additional_keys(self) -> list[str]:

@@ -23,7 +23,7 @@ T = TypeVar("T", bound="ProbandDetail")
 
 @_attrs_define
 class ProbandDetail:
-    """Extended version of `Proband` that includes matching reffering Viatars
+    """Extended version of `Proband` that includes matching referring Viatars
 
     Example:
         {'address': {'city': 'Stuttgart', 'country': 'Germany', 'street': 'Hauptstraße 20', 'zip_code': '70173'},
@@ -53,9 +53,7 @@ class ProbandDetail:
         from ..models.address import Address  # noqa: PLC0415
         from ..models.contact import Contact  # noqa: PLC0415
         from ..models.meta import Meta  # noqa: PLC0415
-        from ..models.proband_detail_attributes_external_type_0 import (
-            ProbandDetailAttributesExternalType0,  # noqa: PLC0415
-        )
+        from ..models.proband_detail_attributes_external_type_0 import ProbandDetailAttributesExternalType0  # noqa: PLC0415
         from ..models.upload_credentials import UploadCredentials  # noqa: PLC0415
 
         proband_id = self.proband_id
@@ -192,9 +190,7 @@ class ProbandDetail:
         from ..models.address import Address  # noqa: PLC0415
         from ..models.contact import Contact  # noqa: PLC0415
         from ..models.meta import Meta  # noqa: PLC0415
-        from ..models.proband_detail_attributes_external_type_0 import (
-            ProbandDetailAttributesExternalType0,  # noqa: PLC0415
-        )
+        from ..models.proband_detail_attributes_external_type_0 import ProbandDetailAttributesExternalType0  # noqa: PLC0415
         from ..models.upload_credentials import UploadCredentials  # noqa: PLC0415
         from ..models.viatar import Viatar  # noqa: PLC0415
 

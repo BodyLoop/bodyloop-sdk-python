@@ -46,7 +46,7 @@ def sync_detailed(
 ) -> Response[State]:
     """Get Status
 
-     Returns information about the BodyLoop. Inclued hirarchic sub states and combined states.
+     Returns information about the BodyLoop. Includes hierarchical sub states and combined states.
 
     **General_State**         A general combined State
 
@@ -79,7 +79,7 @@ def sync(
 ) -> State | None:
     """Get Status
 
-     Returns information about the BodyLoop. Inclued hirarchic sub states and combined states.
+     Returns information about the BodyLoop. Includes hierarchical sub states and combined states.
 
     **General_State**         A general combined State
 
@@ -108,7 +108,7 @@ async def asyncio_detailed(
 ) -> Response[State]:
     """Get Status
 
-     Returns information about the BodyLoop. Inclued hirarchic sub states and combined states.
+     Returns information about the BodyLoop. Includes hierarchical sub states and combined states.
 
     **General_State**         A general combined State
 
@@ -139,7 +139,7 @@ async def asyncio(
 ) -> State | None:
     """Get Status
 
-     Returns information about the BodyLoop. Inclued hirarchic sub states and combined states.
+     Returns information about the BodyLoop. Includes hierarchical sub states and combined states.
 
     **General_State**         A general combined State
 

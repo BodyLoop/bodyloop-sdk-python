@@ -6,11 +6,11 @@ from typing import Any, TypeVar
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-T = TypeVar("T", bound="SystemUiPreferenceType0")
+T = TypeVar("T", bound="PolygonalChainDetailContoursType0")
 
 
 @_attrs_define
-class SystemUiPreferenceType0:
+class PolygonalChainDetailContoursType0:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -23,10 +23,10 @@ class SystemUiPreferenceType0:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        system_ui_preference_type_0 = cls()
+        polygonal_chain_detail_contours_type_0 = cls()
 
-        system_ui_preference_type_0.additional_properties = d
-        return system_ui_preference_type_0
+        polygonal_chain_detail_contours_type_0.additional_properties = d
+        return polygonal_chain_detail_contours_type_0
 
     @property
     def additional_keys(self) -> list[str]:

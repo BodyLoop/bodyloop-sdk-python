@@ -6,27 +6,40 @@ from typing import Any, TypeVar
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-T = TypeVar("T", bound="SystemDataUiPreferenceType0")
+from ..types import UNSET, Unset
+
+T = TypeVar("T", bound="PreferenceData")
 
 
 @_attrs_define
-class SystemDataUiPreferenceType0:
+class PreferenceData:
+    """The flexible value of a preference"""
+
+    data: Any | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        data = self.data
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
+        field_dict.update({})
+        if data is not UNSET:
+            field_dict["data"] = data
 
         return field_dict
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        system_data_ui_preference_type_0 = cls()
+        data = d.pop("data", UNSET)
 
-        system_data_ui_preference_type_0.additional_properties = d
-        return system_data_ui_preference_type_0
+        preference_data = cls(
+            data=data,
+        )
+
+        preference_data.additional_properties = d
+        return preference_data
 
     @property
     def additional_keys(self) -> list[str]:

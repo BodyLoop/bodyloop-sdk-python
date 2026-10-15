@@ -15,7 +15,6 @@ if TYPE_CHECKING:
     from ..models.meta import Meta
     from ..models.system_attributes_external_type_0 import SystemAttributesExternalType0
     from ..models.system_os import SystemOs
-    from ..models.system_ui_preference_type_0 import SystemUiPreferenceType0
 
 
 T = TypeVar("T", bound="System")
@@ -28,7 +27,6 @@ class System:
     note: None | str | Unset = UNSET
     key_external: None | str | Unset = UNSET
     attributes_external: None | SystemAttributesExternalType0 | Unset = UNSET
-    ui_preference: None | SystemUiPreferenceType0 | Unset = UNSET
     update_stream: None | SystemUpdateStreamType0 | Unset = UNSET
     active_scanner_initialization: int | None | Unset = UNSET
     external_upload: ExternalUploadSettings | None | Unset = UNSET
@@ -43,7 +41,6 @@ class System:
         from ..models.meta import Meta  # noqa: PLC0415
         from ..models.system_attributes_external_type_0 import SystemAttributesExternalType0  # noqa: PLC0415
         from ..models.system_os import SystemOs  # noqa: PLC0415
-        from ..models.system_ui_preference_type_0 import SystemUiPreferenceType0  # noqa: PLC0415
 
         note: None | str | Unset
         if isinstance(self.note, Unset):
@@ -64,14 +61,6 @@ class System:
             attributes_external = self.attributes_external.to_dict()
         else:
             attributes_external = self.attributes_external
-
-        ui_preference: dict[str, Any] | None | Unset
-        if isinstance(self.ui_preference, Unset):
-            ui_preference = UNSET
-        elif isinstance(self.ui_preference, SystemUiPreferenceType0):
-            ui_preference = self.ui_preference.to_dict()
-        else:
-            ui_preference = self.ui_preference
 
         update_stream: None | str | Unset
         if isinstance(self.update_stream, Unset):
@@ -128,8 +117,6 @@ class System:
             field_dict["key_external"] = key_external
         if attributes_external is not UNSET:
             field_dict["attributes_external"] = attributes_external
-        if ui_preference is not UNSET:
-            field_dict["ui_preference"] = ui_preference
         if update_stream is not UNSET:
             field_dict["update_stream"] = update_stream
         if active_scanner_initialization is not UNSET:
@@ -152,7 +139,6 @@ class System:
         from ..models.meta import Meta  # noqa: PLC0415
         from ..models.system_attributes_external_type_0 import SystemAttributesExternalType0  # noqa: PLC0415
         from ..models.system_os import SystemOs  # noqa: PLC0415
-        from ..models.system_ui_preference_type_0 import SystemUiPreferenceType0  # noqa: PLC0415
 
         d = dict(src_dict)
 
@@ -190,23 +176,6 @@ class System:
             return cast(None | SystemAttributesExternalType0 | Unset, data)
 
         attributes_external = _parse_attributes_external(d.pop("attributes_external", UNSET))
-
-        def _parse_ui_preference(data: object) -> None | SystemUiPreferenceType0 | Unset:
-            if data is None:
-                return data
-            if isinstance(data, Unset):
-                return data
-            try:
-                if not isinstance(data, dict):
-                    raise TypeError()
-                ui_preference_type_0 = SystemUiPreferenceType0.from_dict(data)
-
-                return ui_preference_type_0
-            except (TypeError, ValueError, AttributeError, KeyError):
-                pass
-            return cast(None | SystemUiPreferenceType0 | Unset, data)
-
-        ui_preference = _parse_ui_preference(d.pop("ui_preference", UNSET))
 
         def _parse_update_stream(data: object) -> None | SystemUpdateStreamType0 | Unset:
             if data is None:
@@ -308,7 +277,6 @@ class System:
             note=note,
             key_external=key_external,
             attributes_external=attributes_external,
-            ui_preference=ui_preference,
             update_stream=update_stream,
             active_scanner_initialization=active_scanner_initialization,
             external_upload=external_upload,

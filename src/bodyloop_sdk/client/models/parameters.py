@@ -23,7 +23,7 @@ T = TypeVar("T", bound="Parameters")
 
 @_attrs_define
 class Parameters:
-    """Extended version of `ParametersData` that includes parameters_id and meta infomration"""
+    """Extended version of `ParametersData` that includes parameters_id and meta information"""
 
     parameters_id: int
     title: str | Unset = ""

@@ -22,7 +22,7 @@ T = TypeVar("T", bound="MarkerDetail")
 
 @_attrs_define
 class MarkerDetail:
-    """Extended version of `Marker` that includes refering_measures and overriding infomation
+    """Extended version of `Marker` that includes refering_measures and overriding information
 
     Example:
         {'hidden': False, 'key_external': '', 'label': 'Descriptive label', 'marker_path': 'custom.path.M', 'normal':

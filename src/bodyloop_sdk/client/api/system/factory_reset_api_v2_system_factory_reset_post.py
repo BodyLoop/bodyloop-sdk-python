@@ -70,10 +70,10 @@ def sync_detailed(
 
     **dongle_serial** This must correspond to the imprinted serial number of the dongle.
 
-    **data**          Data falg of factory-reset for system independant data (i.e. probands, viatars,
+    **data**          Data flag of factory-reset for system independent data (i.e. probands, viatars,
     ...)
 
-    **system**        System flag of factory-reset for system dependant data (i.e. initializations, ...)
+    **system**        System flag of factory-reset for system dependent data (i.e. initializations, ...)
 
     **user**          System flag of factory-reset for API users
 
@@ -110,10 +110,10 @@ def sync(
 
     **dongle_serial** This must correspond to the imprinted serial number of the dongle.
 
-    **data**          Data falg of factory-reset for system independant data (i.e. probands, viatars,
+    **data**          Data flag of factory-reset for system independent data (i.e. probands, viatars,
     ...)
 
-    **system**        System flag of factory-reset for system dependant data (i.e. initializations, ...)
+    **system**        System flag of factory-reset for system dependent data (i.e. initializations, ...)
 
     **user**          System flag of factory-reset for API users
 
@@ -145,10 +145,10 @@ async def asyncio_detailed(
 
     **dongle_serial** This must correspond to the imprinted serial number of the dongle.
 
-    **data**          Data falg of factory-reset for system independant data (i.e. probands, viatars,
+    **data**          Data flag of factory-reset for system independent data (i.e. probands, viatars,
     ...)
 
-    **system**        System flag of factory-reset for system dependant data (i.e. initializations, ...)
+    **system**        System flag of factory-reset for system dependent data (i.e. initializations, ...)
 
     **user**          System flag of factory-reset for API users
 
@@ -183,10 +183,10 @@ async def asyncio(
 
     **dongle_serial** This must correspond to the imprinted serial number of the dongle.
 
-    **data**          Data falg of factory-reset for system independant data (i.e. probands, viatars,
+    **data**          Data flag of factory-reset for system independent data (i.e. probands, viatars,
     ...)
 
-    **system**        System flag of factory-reset for system dependant data (i.e. initializations, ...)
+    **system**        System flag of factory-reset for system dependent data (i.e. initializations, ...)
 
     **user**          System flag of factory-reset for API users
 

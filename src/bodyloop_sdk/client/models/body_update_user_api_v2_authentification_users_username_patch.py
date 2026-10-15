@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar, cast
+from typing import Any, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -12,12 +12,6 @@ from ..models.body_update_user_api_v2_authentification_users_username_patch_user
 )
 from ..types import UNSET, Unset
 
-if TYPE_CHECKING:
-    from ..models.body_update_user_api_v2_authentification_users_username_patch_ui_preference_type_0 import (
-        BodyUpdateUserApiV2AuthentificationUsersUsernamePatchUiPreferenceType0,
-    )
-
-
 T = TypeVar("T", bound="BodyUpdateUserApiV2AuthentificationUsersUsernamePatch")
 
 
@@ -27,14 +21,9 @@ class BodyUpdateUserApiV2AuthentificationUsersUsernamePatch:
     password: None | str | Unset = UNSET
     user_group: BodyUpdateUserApiV2AuthentificationUsersUsernamePatchUserGroupType0 | None | Unset = UNSET
     disabled: bool | None | Unset = UNSET
-    ui_preference: BodyUpdateUserApiV2AuthentificationUsersUsernamePatchUiPreferenceType0 | None | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.body_update_user_api_v2_authentification_users_username_patch_ui_preference_type_0 import (
-            BodyUpdateUserApiV2AuthentificationUsersUsernamePatchUiPreferenceType0,  # noqa: PLC0415
-        )
-
         full_name: None | str | Unset
         if isinstance(self.full_name, Unset):
             full_name = UNSET
@@ -61,14 +50,6 @@ class BodyUpdateUserApiV2AuthentificationUsersUsernamePatch:
         else:
             disabled = self.disabled
 
-        ui_preference: dict[str, Any] | None | Unset
-        if isinstance(self.ui_preference, Unset):
-            ui_preference = UNSET
-        elif isinstance(self.ui_preference, BodyUpdateUserApiV2AuthentificationUsersUsernamePatchUiPreferenceType0):
-            ui_preference = self.ui_preference.to_dict()
-        else:
-            ui_preference = self.ui_preference
-
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
@@ -80,17 +61,11 @@ class BodyUpdateUserApiV2AuthentificationUsersUsernamePatch:
             field_dict["user_group"] = user_group
         if disabled is not UNSET:
             field_dict["disabled"] = disabled
-        if ui_preference is not UNSET:
-            field_dict["ui_preference"] = ui_preference
 
         return field_dict
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.body_update_user_api_v2_authentification_users_username_patch_ui_preference_type_0 import (
-            BodyUpdateUserApiV2AuthentificationUsersUsernamePatchUiPreferenceType0,  # noqa: PLC0415
-        )
-
         d = dict(src_dict)
 
         def _parse_full_name(data: object) -> None | str | Unset:
@@ -141,33 +116,11 @@ class BodyUpdateUserApiV2AuthentificationUsersUsernamePatch:
 
         disabled = _parse_disabled(d.pop("disabled", UNSET))
 
-        def _parse_ui_preference(
-            data: object,
-        ) -> BodyUpdateUserApiV2AuthentificationUsersUsernamePatchUiPreferenceType0 | None | Unset:
-            if data is None:
-                return data
-            if isinstance(data, Unset):
-                return data
-            try:
-                if not isinstance(data, dict):
-                    raise TypeError()
-                ui_preference_type_0 = BodyUpdateUserApiV2AuthentificationUsersUsernamePatchUiPreferenceType0.from_dict(
-                    data
-                )
-
-                return ui_preference_type_0
-            except (TypeError, ValueError, AttributeError, KeyError):
-                pass
-            return cast(BodyUpdateUserApiV2AuthentificationUsersUsernamePatchUiPreferenceType0 | None | Unset, data)
-
-        ui_preference = _parse_ui_preference(d.pop("ui_preference", UNSET))
-
         body_update_user_api_v2_authentification_users_username_patch = cls(
             full_name=full_name,
             password=password,
             user_group=user_group,
             disabled=disabled,
-            ui_preference=ui_preference,
         )
 
         body_update_user_api_v2_authentification_users_username_patch.additional_properties = d

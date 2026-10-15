@@ -2,11 +2,12 @@ from __future__ import annotations
 
 import datetime
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, Literal, TypeVar, cast
+from typing import TYPE_CHECKING, Any, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.report_report_type import ReportReportType, check_report_report_type
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
@@ -20,7 +21,7 @@ T = TypeVar("T", bound="Report")
 class Report:
     """Extended version of `ReportData` that includes unique report_id and meta information."""
 
-    report_type: Literal["viatar"]
+    report_type: ReportReportType
     report_id: int
     probands: list[int] | Unset = UNSET
     viatars: list[int] | Unset = UNSET
@@ -39,6 +40,7 @@ class Report:
     properties: list[Any] | Unset = UNSET
     heights: list[Any] | Unset = UNSET
     distances: list[Any] | Unset = UNSET
+    polygonal_chains: list[Any] | Unset = UNSET
     crosssections: list[Any] | Unset = UNSET
     angles: list[Any] | Unset = UNSET
     axes: list[Any] | Unset = UNSET
@@ -48,7 +50,7 @@ class Report:
     def to_dict(self) -> dict[str, Any]:
         from ..models.meta import Meta  # noqa: PLC0415
 
-        report_type = self.report_type
+        report_type: str = self.report_type
 
         report_id = self.report_id
 
@@ -142,6 +144,10 @@ class Report:
         if not isinstance(self.distances, Unset):
             distances = self.distances
 
+        polygonal_chains: list[Any] | Unset = UNSET
+        if not isinstance(self.polygonal_chains, Unset):
+            polygonal_chains = self.polygonal_chains
+
         crosssections: list[Any] | Unset = UNSET
         if not isinstance(self.crosssections, Unset):
             crosssections = self.crosssections
@@ -204,6 +210,8 @@ class Report:
             field_dict["heights"] = heights
         if distances is not UNSET:
             field_dict["distances"] = distances
+        if polygonal_chains is not UNSET:
+            field_dict["polygonal_chains"] = polygonal_chains
         if crosssections is not UNSET:
             field_dict["crosssections"] = crosssections
         if angles is not UNSET:
@@ -220,9 +228,7 @@ class Report:
         from ..models.meta import Meta  # noqa: PLC0415
 
         d = dict(src_dict)
-        report_type = cast(Literal["viatar"], d.pop("report_type"))
-        if report_type != "viatar":
-            raise ValueError(f"report_type must match const 'viatar', got '{report_type}'")
+        report_type = check_report_report_type(d.pop("report_type"))
 
         report_id = d.pop("report_id")
 
@@ -345,6 +351,8 @@ class Report:
 
         distances = cast(list[Any], d.pop("distances", UNSET))
 
+        polygonal_chains = cast(list[Any], d.pop("polygonal_chains", UNSET))
+
         crosssections = cast(list[Any], d.pop("crosssections", UNSET))
 
         angles = cast(list[Any], d.pop("angles", UNSET))
@@ -388,6 +396,7 @@ class Report:
             properties=properties,
             heights=heights,
             distances=distances,
+            polygonal_chains=polygonal_chains,
             crosssections=crosssections,
             angles=angles,
             axes=axes,

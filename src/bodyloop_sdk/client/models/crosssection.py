@@ -6,6 +6,7 @@ from typing import TYPE_CHECKING, Any, TypeVar, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..models.crosssection_plane_type_type_0 import CrosssectionPlaneTypeType0, check_crosssection_plane_type_type_0
 from ..models.crosssection_preference_type_0 import CrosssectionPreferenceType0, check_crosssection_preference_type_0
 from ..types import UNSET, Unset
 
@@ -21,17 +22,22 @@ T = TypeVar("T", bound="Crosssection")
 
 @_attrs_define
 class Crosssection:
-    """Crosssection representation at one marker
+    """Crosssection representation at one marker, optionally oriented by two
+    further markers (3-point plane) or by a normal vector
 
-    Example:
-        {'at_marker': 'marker_a', 'crosssection_path': 'custom.path.M', 'hidden': False, 'key_external': '', 'label':
-            'Descriptive label', 'note': 'Meaningful description...', 'preference': 'convex'}
+        Example:
+            {'at_marker': 'marker_a', 'crosssection_path': 'custom.path.M', 'hidden': False, 'key_external': '', 'label':
+                'Descriptive label', 'note': 'Meaningful description...', 'plane_markers': ['marker_b', 'marker_c'],
+                'plane_type': 'markers', 'preference': 'convex'}
 
     """
 
     crosssection_path: str | Unset = UNSET
     label: None | str | Unset = UNSET
     at_marker: str | Unset = UNSET
+    plane_type: CrosssectionPlaneTypeType0 | None | Unset = UNSET
+    plane_markers: list[str] | None | Unset = UNSET
+    normal: list[float] | None | Unset = UNSET
     circumferences: CrosssectionCircumferencesType0 | None | Unset = UNSET
     areas: CrosssectionAreasType0 | None | Unset = UNSET
     contours: CrosssectionContoursType0 | None | Unset = UNSET
@@ -58,6 +64,40 @@ class Crosssection:
             label = self.label
 
         at_marker = self.at_marker
+
+        plane_type: None | str | Unset
+        if isinstance(self.plane_type, Unset):
+            plane_type = UNSET
+        elif isinstance(self.plane_type, str):
+            plane_type = self.plane_type
+        else:
+            plane_type = self.plane_type
+
+        plane_markers: list[str] | None | Unset
+        if isinstance(self.plane_markers, Unset):
+            plane_markers = UNSET
+        elif isinstance(self.plane_markers, list):
+            plane_markers = []
+            for plane_markers_type_0_item_data in self.plane_markers:
+                plane_markers_type_0_item: str
+                plane_markers_type_0_item = plane_markers_type_0_item_data
+                plane_markers.append(plane_markers_type_0_item)
+
+        else:
+            plane_markers = self.plane_markers
+
+        normal: list[float] | None | Unset
+        if isinstance(self.normal, Unset):
+            normal = UNSET
+        elif isinstance(self.normal, list):
+            normal = []
+            for normal_type_0_item_data in self.normal:
+                normal_type_0_item: float
+                normal_type_0_item = normal_type_0_item_data
+                normal.append(normal_type_0_item)
+
+        else:
+            normal = self.normal
 
         circumferences: dict[str, Any] | None | Unset
         if isinstance(self.circumferences, Unset):
@@ -132,6 +172,12 @@ class Crosssection:
             field_dict["label"] = label
         if at_marker is not UNSET:
             field_dict["at_marker"] = at_marker
+        if plane_type is not UNSET:
+            field_dict["plane_type"] = plane_type
+        if plane_markers is not UNSET:
+            field_dict["plane_markers"] = plane_markers
+        if normal is not UNSET:
+            field_dict["normal"] = normal
         if circumferences is not UNSET:
             field_dict["circumferences"] = circumferences
         if areas is not UNSET:
@@ -173,6 +219,75 @@ class Crosssection:
         label = _parse_label(d.pop("label", UNSET))
 
         at_marker = d.pop("at_marker", UNSET)
+
+        def _parse_plane_type(data: object) -> CrosssectionPlaneTypeType0 | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                plane_type_type_0 = check_crosssection_plane_type_type_0(data)
+
+                return plane_type_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(CrosssectionPlaneTypeType0 | None | Unset, data)
+
+        plane_type = _parse_plane_type(d.pop("plane_type", UNSET))
+
+        def _parse_plane_markers(data: object) -> list[str] | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                plane_markers_type_0 = []
+                _plane_markers_type_0 = data
+                for plane_markers_type_0_item_data in _plane_markers_type_0:
+
+                    def _parse_plane_markers_type_0_item(data: object) -> str:
+                        return cast(str, data)
+
+                    plane_markers_type_0_item = _parse_plane_markers_type_0_item(plane_markers_type_0_item_data)
+
+                    plane_markers_type_0.append(plane_markers_type_0_item)
+
+                return plane_markers_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(list[str] | None | Unset, data)
+
+        plane_markers = _parse_plane_markers(d.pop("plane_markers", UNSET))
+
+        def _parse_normal(data: object) -> list[float] | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                normal_type_0 = []
+                _normal_type_0 = data
+                for normal_type_0_item_data in _normal_type_0:
+
+                    def _parse_normal_type_0_item(data: object) -> float:
+                        return cast(float, data)
+
+                    normal_type_0_item = _parse_normal_type_0_item(normal_type_0_item_data)
+
+                    normal_type_0.append(normal_type_0_item)
+
+                return normal_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(list[float] | None | Unset, data)
+
+        normal = _parse_normal(d.pop("normal", UNSET))
 
         def _parse_circumferences(data: object) -> CrosssectionCircumferencesType0 | None | Unset:
             if data is None:
@@ -299,6 +414,9 @@ class Crosssection:
             crosssection_path=crosssection_path,
             label=label,
             at_marker=at_marker,
+            plane_type=plane_type,
+            plane_markers=plane_markers,
+            normal=normal,
             circumferences=circumferences,
             areas=areas,
             contours=contours,
