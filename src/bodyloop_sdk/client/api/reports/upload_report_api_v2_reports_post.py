@@ -69,9 +69,18 @@ def sync_detailed(
 
      Upload a pdf as report (**C**RUD)
 
-    **file**      The report as pdf file.
+    **file**          The report as pdf file.
 
-    **viatars**   Ids of the viatars the report belongs to (at least one).
+    **viatars**       Ids of the viatars the report belongs to.
+
+    **probands**      Ids of the probands the report belongs to (at least one viatar or proband is
+    required).
+
+    **label**         Optional label of the report.
+
+    **note**          Optional note of the report.
+
+    **key_external**  Optional key of the report in an external system.
 
     Args:
         body (BodyUploadReportApiV2ReportsPost):
@@ -104,9 +113,18 @@ def sync(
 
      Upload a pdf as report (**C**RUD)
 
-    **file**      The report as pdf file.
+    **file**          The report as pdf file.
 
-    **viatars**   Ids of the viatars the report belongs to (at least one).
+    **viatars**       Ids of the viatars the report belongs to.
+
+    **probands**      Ids of the probands the report belongs to (at least one viatar or proband is
+    required).
+
+    **label**         Optional label of the report.
+
+    **note**          Optional note of the report.
+
+    **key_external**  Optional key of the report in an external system.
 
     Args:
         body (BodyUploadReportApiV2ReportsPost):
@@ -134,9 +152,18 @@ async def asyncio_detailed(
 
      Upload a pdf as report (**C**RUD)
 
-    **file**      The report as pdf file.
+    **file**          The report as pdf file.
 
-    **viatars**   Ids of the viatars the report belongs to (at least one).
+    **viatars**       Ids of the viatars the report belongs to.
+
+    **probands**      Ids of the probands the report belongs to (at least one viatar or proband is
+    required).
+
+    **label**         Optional label of the report.
+
+    **note**          Optional note of the report.
+
+    **key_external**  Optional key of the report in an external system.
 
     Args:
         body (BodyUploadReportApiV2ReportsPost):
@@ -167,9 +194,18 @@ async def asyncio(
 
      Upload a pdf as report (**C**RUD)
 
-    **file**      The report as pdf file.
+    **file**          The report as pdf file.
 
-    **viatars**   Ids of the viatars the report belongs to (at least one).
+    **viatars**       Ids of the viatars the report belongs to.
+
+    **probands**      Ids of the probands the report belongs to (at least one viatar or proband is
+    required).
+
+    **label**         Optional label of the report.
+
+    **note**          Optional note of the report.
+
+    **key_external**  Optional key of the report in an external system.
 
     Args:
         body (BodyUploadReportApiV2ReportsPost):

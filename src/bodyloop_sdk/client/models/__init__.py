@@ -221,6 +221,7 @@ from .property_ import Property
 from .report import Report
 from .report_parameters import ReportParameters
 from .report_report_type import ReportReportType
+from .report_update import ReportUpdate
 from .scanner_initalization import ScannerInitalization
 from .scanner_initalization_data import ScannerInitalizationData
 from .scanner_initalization_data_scanner_type_type_0 import ScannerInitalizationDataScannerTypeType0
@@ -426,6 +427,7 @@ __all__ = (
     "Report",
     "ReportParameters",
     "ReportReportType",
+    "ReportUpdate",
     "ScannerInitalization",
     "ScannerInitalizationData",
     "ScannerInitalizationDataScannerTypeType0",

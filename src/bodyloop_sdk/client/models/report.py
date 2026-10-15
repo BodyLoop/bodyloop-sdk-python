@@ -26,6 +26,9 @@ class Report:
     probands: list[int] | Unset = UNSET
     viatars: list[int] | Unset = UNSET
     filepath: str | Unset = UNSET
+    label: None | str | Unset = UNSET
+    note: None | str | Unset = UNSET
+    key_external: None | str | Unset = UNSET
     proband_note: None | str | Unset = UNSET
     name_given: None | str | Unset = UNSET
     name_family: None | str | Unset = UNSET
@@ -63,6 +66,24 @@ class Report:
             viatars = self.viatars
 
         filepath = self.filepath
+
+        label: None | str | Unset
+        if isinstance(self.label, Unset):
+            label = UNSET
+        else:
+            label = self.label
+
+        note: None | str | Unset
+        if isinstance(self.note, Unset):
+            note = UNSET
+        else:
+            note = self.note
+
+        key_external: None | str | Unset
+        if isinstance(self.key_external, Unset):
+            key_external = UNSET
+        else:
+            key_external = self.key_external
 
         proband_note: None | str | Unset
         if isinstance(self.proband_note, Unset):
@@ -182,6 +203,12 @@ class Report:
             field_dict["viatars"] = viatars
         if filepath is not UNSET:
             field_dict["filepath"] = filepath
+        if label is not UNSET:
+            field_dict["label"] = label
+        if note is not UNSET:
+            field_dict["note"] = note
+        if key_external is not UNSET:
+            field_dict["key_external"] = key_external
         if proband_note is not UNSET:
             field_dict["proband_note"] = proband_note
         if name_given is not UNSET:
@@ -237,6 +264,33 @@ class Report:
         viatars = cast(list[int], d.pop("viatars", UNSET))
 
         filepath = d.pop("filepath", UNSET)
+
+        def _parse_label(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        label = _parse_label(d.pop("label", UNSET))
+
+        def _parse_note(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        note = _parse_note(d.pop("note", UNSET))
+
+        def _parse_key_external(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        key_external = _parse_key_external(d.pop("key_external", UNSET))
 
         def _parse_proband_note(data: object) -> None | str | Unset:
             if data is None:
@@ -382,6 +436,9 @@ class Report:
             probands=probands,
             viatars=viatars,
             filepath=filepath,
+            label=label,
+            note=note,
+            key_external=key_external,
             proband_note=proband_note,
             name_given=name_given,
             name_family=name_family,
