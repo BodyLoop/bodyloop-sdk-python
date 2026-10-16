@@ -73,8 +73,7 @@ def sync_detailed(
 
     **viatars**       Ids of the viatars the report belongs to.
 
-    **probands**      Ids of the probands the report belongs to (at least one viatar or proband is
-    required).
+    **probands**      Ids of the probands the report belongs to (empty: linked to no viatar/proband).
 
     **label**         Optional label of the report.
 
@@ -117,8 +116,7 @@ def sync(
 
     **viatars**       Ids of the viatars the report belongs to.
 
-    **probands**      Ids of the probands the report belongs to (at least one viatar or proband is
-    required).
+    **probands**      Ids of the probands the report belongs to (empty: linked to no viatar/proband).
 
     **label**         Optional label of the report.
 
@@ -156,8 +154,7 @@ async def asyncio_detailed(
 
     **viatars**       Ids of the viatars the report belongs to.
 
-    **probands**      Ids of the probands the report belongs to (at least one viatar or proband is
-    required).
+    **probands**      Ids of the probands the report belongs to (empty: linked to no viatar/proband).
 
     **label**         Optional label of the report.
 
@@ -198,8 +195,7 @@ async def asyncio(
 
     **viatars**       Ids of the viatars the report belongs to.
 
-    **probands**      Ids of the probands the report belongs to (at least one viatar or proband is
-    required).
+    **probands**      Ids of the probands the report belongs to (empty: linked to no viatar/proband).
 
     **label**         Optional label of the report.
 

@@ -77,7 +77,7 @@ def sync_detailed(
 
     **viatars**   Replaces the linked viatars.
 
-    **probands**  Replaces the linked probands (at least one viatar or proband must remain).
+    **probands**  Replaces the linked probands.
 
     Args:
         report_id (int):
@@ -117,7 +117,7 @@ def sync(
 
     **viatars**   Replaces the linked viatars.
 
-    **probands**  Replaces the linked probands (at least one viatar or proband must remain).
+    **probands**  Replaces the linked probands.
 
     Args:
         report_id (int):
@@ -152,7 +152,7 @@ async def asyncio_detailed(
 
     **viatars**   Replaces the linked viatars.
 
-    **probands**  Replaces the linked probands (at least one viatar or proband must remain).
+    **probands**  Replaces the linked probands.
 
     Args:
         report_id (int):
@@ -190,7 +190,7 @@ async def asyncio(
 
     **viatars**   Replaces the linked viatars.
 
-    **probands**  Replaces the linked probands (at least one viatar or proband must remain).
+    **probands**  Replaces the linked probands.
 
     Args:
         report_id (int):
